@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Texas Cruisers Band</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --tx-red: #BF0A30;
+      --tx-blue: #002868;
+      --chrome: #C0C0C0;
+      --dark: #050505;
+      --light: #f5f5f5;
+      --accent: #ffffff;
+      --font-main: "Roboto Slab", system-ui, serif;
+      --font-alt: "Oswald", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-alt);
+      background: radial-gradient(circle at top, #222 0, #000 55%);
+      color: var(--accent);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--tx-red);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(192,192,192,0.3);
+      background: linear-gradient(135deg, #000 0%, #111 40%, #222 100%);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 52px;
+      height: 32px;
+      border-radius: 4px;
+      background:
+        linear-gradient(to right, var(--tx-blue) 0 33%, var(--accent) 33% 66%, var(--tx-red) 66% 100%);
+      border: 2px solid var(--chrome);
+      position: relative;
+      box-shadow: 0 0 12px rgba(0,0,0,0.7);
+    }
+
+    .logo-icon::before {
+      content: "";
+      position: absolute;
+      inset: 8px 4px;
+      border-top: 3px solid var(--chrome);
+      border-bottom: 3px solid var(--chrome);
+    }
+
+    .logo-text-main {
+      font-family: var(--font-main);
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links a {
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--tx-red);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-main);
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-title span {
+      color: var(--tx-red);
+    }
+
+    .hero-tagline {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .hero-copy {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      max-width: 32rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero-cta {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--chrome);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      background: #000;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--tx-blue), var(--tx-red));
+      border-color: var(--chrome);
+      box-shadow: 0 0 16px rgba(0,0,0,0.8);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-meta {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      border: 1px solid rgba(192,192,192,0.4);
+      background: radial-gradient(circle at top, #333 0, #111 55%);
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .hero-card-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(192,192,192,0.6);
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero-card-main {
+      font-family: var(--font-main);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-main span {
+      color: var(--tx-blue);
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--tx-red);
+    }
+
+    .hero-card-footer {
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid rgba(192,192,192,0.2);
+    }
+
+    .section-title {
+      font-family: var(--font-main);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title span {
+      color: var(--tx-red);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .body-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(192,192,192,0.5);
+      background: rgba(0,0,0,0.6);
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .show-card {
+      border-radius: 12px;
+      border: 1px solid rgba(192,192,192,0.4);
+      background: rgba(0,0,0,0.7);
+      padding: 0.9rem 0.9rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .show-date {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+    }
+
+    .show-venue {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .show-location {
+      margin-top: 0.2rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .show-note {
+      margin-top: 0.35rem;
+      color: var(--tx-red);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      border-radius: 14px;
+      border: 1px solid rgba(192,192,192,0.4);
+      background: rgba(0,0,0,0.7);
+      padding: 1.25rem 1.25rem 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .contact-value {
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-row {
+      margin-top: 0.8rem;
+    }
+
+    .contact-note {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    footer {
+      border-top: 1px solid rgba(192,192,192,0.2);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo-mark">
+      <div class="logo-icon"></div>
+      <div>
+        <div class="logo-text-main">The Texas Cruisers Band</div>
+        <div class="logo-text-sub">Classic Texas Roadhouse Rock</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#shows">Shows</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Booking</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1 class="hero-title">
+        Texas Roadhouse <span>Rock</span> with a Cadillac Front‑End
+      </h1>
+      <p class="hero-tagline">
+        Live band • Classic hits • Modern Texas energy
+      </p>
+      <p class="hero-copy">
+        The Texas Cruisers Band brings a chrome‑polished mix of classic rock, country,
+        and dance‑floor staples—built for Texas bars, private events, and stages that
+        want a full‑throttle live show. Tight grooves, big hooks, and a Cadillac‑level
+        stage presence.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          Book the band
+        </a>
+        <a href="#media" class="btn btn-outline">
+          Watch live clips
+        </a>
+      </div>
+      <p class="hero-meta">
+        Based in Montgomery / Conroe • Playing across the Houston area and beyond
+      </p>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-header">
+        <div class="hero-card-title">Texas Cruisers Live Set</div>
+        <div class="hero-card-badge">Sample Song List</div>
+      </div>
+      <div class="hero-card-main">
+        From <span>classic rock</span> to modern country
+      </div>
+      <ul class="hero-card-list">
+        <li><span class="hero-dot"></span> Eagles • Tom Petty • ZZ Top</li>
+        <li><span class="hero-dot"></span> George Strait • Brooks & Dunn</li>
+        <li><span class="hero-dot"></span> 80s / 90s sing‑along anthems</li>
+        <li><span class="hero-dot"></span> Dance‑friendly rock & country</li>
+      </ul>
+      <div class="hero-card-footer">
+        Full song list available in the booking packet on request.
+      </div>
+    </aside>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title"><span>About</span> the band</h2>
+    <div class="two-col">
+      <div class="body-text">
+        The Texas Cruisers Band is a working live band built around tight rhythm,
+        strong vocals, and a set list tuned for Texas crowds. From Lake Conroe
+        bars to private parties and corporate events, the band delivers a polished,
+        high‑energy show with a classic American car aesthetic and a modern sound.
+        <br><br>
+        With a focus on video‑ready performances and clean stage visuals, Texas
+        Cruisers is ideal for venues and events that want a band that looks as
+        good on camera as it sounds in the room.
+      </div>
+      <div>
+        <div class="body-text">
+          Core vibe:
+        </div>
+        <div class="pill-list">
+          <div class="pill">Classic rock</div>
+          <div class="pill">Modern country</div>
+          <div class="pill">Texas roadhouse</div>
+          <div class="pill">Dance‑friendly</div>
+          <div class="pill">Video‑focused</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shows">
+    <h2 class="section-title"><span>Upcoming</span> shows</h2>
+    <div class="shows-grid">
+      <div class="show-card">
+        <div class="show-date">Sat • Sample Date</div>
+        <div class="show-venue">Lake Conroe Roadhouse</div>
+        <div class="show-location">Montgomery, TX</div>
+        <div class="show-note">Public show • Open to all</div>
+      </div>
+      <div class="show-card">
+        <div class="show-date">Fri • Sample Date</div>
+        <div class="show-venue">Private Event</div>
+        <div class="show-location">Houston, TX</div>
+        <div class="show-note">Corporate / private booking</div>
+      </div>
+      <div class="show-card">
+        <div class="show-date">More dates</div>
+        <div class="show-venue">Available on request</div>
+        <div class="show-location">Booking calendar</div>
+        <div class="show-note">Contact for current schedule</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <h2 class="section-title"><span>Media</span> & video</h2>
+    <div class="two-col">
+      <div class="body-text">
+        Live performance clips, crowd shots, and promo reels are available for
+        venues and event planners who want to see the band in action. Video‑focused
+        marketing is a core part of the Texas Cruisers brand, with clean stage
+        visuals and camera‑friendly lighting.
+        <br><br>
+        Links to short‑form content (Reels / Shorts / TikTok) and full‑length
+        performance videos can be provided in the booking packet or via direct
+        email.
+      </div>
+      <div class="body-text">
+        Placeholder for:
+        <ul style="margin-top:0.5rem; padding-left:1rem;">
+          <li>Embedded YouTube / Vimeo playlist</li>
+          <li>Short‑form vertical clips</li>
+          <li>Promo reel for venues</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title"><span>Booking</span> & contact</h2>
+    <div class="contact-grid">
+      <div class="body-text">
+        For booking, availability, and full song list, reach out directly. The band
+        can tailor the set list and production level to the room—whether it’s a
+        bar, private party, or corporate event.
+        <br><br>
+        Include:
+        <ul style="margin-top:0.5rem; padding-left:1rem;">
+          <li>Event date and location</li>
+          <li>Type of event and expected crowd size</li>
+          <li>Preferred start / end times</li>
+          <li>Any specific song or genre requests</li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <div class="contact-row">
+          <div class="contact-label">Primary contact</div>
+          <div class="contact-value">Brian Martin</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">
+            <a href="tel:+18325271746">(832) 527‑1746</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:bmartin@fredhaastoyotacountry.com">
+              bmartin@fredhaastoyotacountry.com
+            </a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Band</div>
+          <div class="contact-value">The Texas Cruisers Band</div>
+        </div>
+        <div class="contact-note">
+          Full booking packet (PDF) and media links available on request.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © The Texas Cruisers Band • Texas roadhouse rock • Designed for video‑ready live shows
+</footer>
+
+</body>
+</html>

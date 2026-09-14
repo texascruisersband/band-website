@@ -2,765 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Texas Cruisers Band | Classic Rock, Country & Blues</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@1,700;1,900&family=Rye&family=Yellowtail&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>The Texas Cruisers Band</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      background-color: #0b0704;
-      color: #f0e6d2;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: #111;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      outline: none;
-      font-family: inherit;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(10, 6, 3, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid #8b5a2b;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-
-    .nav-brand {
-      font-family: 'Rye', serif;
-      font-size: 1.2rem;
-      color: #ffd700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 4px #000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #d1b894;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #ffaa00;
-    }
-
-    .admin-btn {
-      background: linear-gradient(135deg, #ffd700, #aa7c11);
-      color: #111;
-      font-weight: 900;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .admin-btn:hover {
-      background: #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-      transform: scale(1.05);
-    }
-
-    /* HERO POSTER SECTION */
-    .poster-hero {
-      position: relative;
-      min-height: 100vh;
-      padding-top: 90px;
-      padding-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .hero {
+      background: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1950&q=80')
+        no-repeat center center;
+      background-size: cover;
+      padding: 80px 20px;
       text-align: center;
-      background: 
-        radial-gradient(circle at 15% 15%, rgba(255,225,160,0.3) 0%, transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(255,225,160,0.3) 0%, transparent 35%),
-        linear-gradient(to bottom, rgba(15,8,3,0.6), rgba(10,5,2,0.9)),
-        url('https://images.unsplash.com/photo-1546484475-7f7bd55792da?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      border-bottom: 4px solid #8b5a2b;
-      box-shadow: inset 0 0 100px #000;
     }
 
-    .poster-container {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      width: 90%;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .poster-the {
-      font-family: 'Yellowtail', cursive;
-      font-size: clamp(2.5rem, 6vw, 3.8rem);
-      color: #f7e6a1;
-      text-shadow: 2px 2px 6px #000;
-      margin-bottom: -20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .poster-texas-wrapper {
-      position: relative;
-      display: inline-block;
-      margin: 10px 0;
-    }
-
-    .poster-texas {
-      font-family: 'Cinzel Decorative', 'Rye', serif;
-      font-size: clamp(3.5rem, 12vw, 8.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 0.9;
-      background: linear-gradient(180deg, #1b3d8f 0%, #ffffff 40%, #c0252b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 0px 3px #fff) drop-shadow(4px 6px 0px #000);
-    }
-
-    .texas-star {
-      position: absolute;
-      top: 48%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #f3c644;
-      font-size: clamp(1.8rem, 5vw, 3.8rem);
-      filter: drop-shadow(0 0 8px #ffaa00) drop-shadow(2px 2px 2px #000);
-      z-index: 3;
-    }
-
-    .poster-cruisers {
-      font-family: 'Rye', cursive;
-      font-size: clamp(2rem, 7vw, 5rem);
-      color: #e5be75;
-      text-transform: uppercase;
+    .hero h1 {
+      font-size: 50px;
+      margin: 0;
+      font-weight: bold;
       letter-spacing: 3px;
-      line-height: 1;
-      background: linear-gradient(180deg, #fff3cf 0%, #d49f43 50%, #6b430a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-top: -10px;
     }
 
-    .poster-band {
-      display: inline-block;
-      background: linear-gradient(180deg, #aa1c22, #5a090c);
-      color: #ffe6a3;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1rem, 3vw, 1.8rem);
-      letter-spacing: 6px;
-      padding: 4px 30px;
-      border: 2px solid #e5be75;
-      border-radius: 4px;
+    .hero h2 {
       margin-top: 10px;
+      font-size: 22px;
+      opacity: 0.9;
     }
 
-    .poster-genre {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 900;
-      font-size: clamp(1.5rem, 4vw, 3.2rem);
-      color: #ffd875;
-      margin-top: 25px;
-      text-shadow: 2px 2px 8px #000;
+    /* MEMBERS SECTION */
+    .members-section {
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .poster-socials-text {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: clamp(0.9rem, 2vw, 1.3rem);
-      color: #ffffff;
-      letter-spacing: 1px;
-      margin-top: 15px;
-      text-shadow: 2px 2px 4px #000;
+    .members-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
     }
 
-    .poster-lets-cruise {
-      font-family: 'Yellowtail', cursive;
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      color: #fff1b8;
-      margin-top: 15px;
-      text-shadow: 3px 3px 10px #000;
-      position: relative;
-      display: inline-block;
-    }
-
-    .hero-actions {
-      margin-top: 35px;
+    .members-grid {
       display: flex;
-      gap: 15px;
       justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #b81d24, #7a0d12);
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 28px;
-      border: 2px solid #e5be75;
-      border-radius: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(184, 29, 36, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3deg);
-      background: linear-gradient(135deg, #d9252d, #9c1218);
-    }
-
-    .btn-secondary {
-      background: rgba(0, 0, 0, 0.7);
-      color: #ffd700;
-      font-weight: 800;
-      padding: 12px 28px;
-      border: 2px solid #ffd700;
-      border-radius: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      background: #ffd700;
-      color: #000;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: 'Rye', serif;
-      font-size: 2.5rem;
-      color: #ffd700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #b3a286;
-      font-size: 1rem;
-      margin-bottom: 45px;
-    }
-
-    /* SHOWS */
-    .shows-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .show-card {
-      background: linear-gradient(135deg, #18100a, #0d0805);
-      border: 2px solid #ffd700;
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-    }
-
-    .show-date-badge {
-      background: #aa1c22;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-align: center;
-      min-width: 110px;
-      border: 1px solid #ffd700;
-    }
-
-    .show-date-badge .month {
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .show-date-badge .day {
-      font-size: 2rem;
-      font-weight: 900;
-      font-family: 'Rye', serif;
-    }
-
-    .show-date-badge .year {
-      font-size: 0.8rem;
-    }
-
-    .show-details {
-      flex-grow: 1;
-    }
-
-    .show-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .show-venue {
-      color: #ffd700;
-      font-weight: 600;
-    }
-
-    .show-location {
-      color: #a89578;
-      font-size: 0.9rem;
-    }
-
-    /* MEMBERS */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     .member-card {
-      background: #140c07;
-      border: 1px solid #4a3219;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      width: 220px;
+      height: 300px;
+      perspective: 1000px;
     }
 
-    .member-img-wrapper {
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-    }
-
-    .member-img {
+    .card-inner {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    .member-info {
-      padding: 20px;
-    }
-
-    .member-name {
-      font-family: 'Rye', serif;
-      font-size: 1.3rem;
-      color: #ffd700;
-      margin-bottom: 5px;
-    }
-
-    .member-role {
-      color: #c20000;
-      font-weight: 800;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .member-bio {
-      color: #b3a286;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* POPUP ADMIN MODAL WINDOW */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 99999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-box {
-      background: #120904;
-      border: 3px solid #ffd700;
-      border-radius: 12px;
-      max-width: 550px;
-      width: 100%;
-      padding: 30px;
-      box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
       position: relative;
     }
 
-    .modal-close-btn {
+    .member-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      color: #ffd700;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    .admin-field-group {
-      margin-bottom: 15px;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .admin-field-group label {
-      color: #ffd700;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .admin-field-group input {
-      padding: 10px;
-      background: #000;
-      border: 1px solid #5a3a1b;
-      border-radius: 6px;
-      color: #fff;
-      font-size: 1rem;
-    }
-
-    .admin-field-group input:focus {
-      border-color: #ffd700;
-      outline: none;
-    }
-
-    /* FLOATING BUTTON */
-    .floating-admin-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #ffd700;
-      color: #000;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-      z-index: 9999;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
     }
 
-    /* FOOTER */
-    footer {
-      background: #050302;
-      border-top: 2px solid #4a3219;
+    .card-back {
+      transform: rotateY(180deg);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card-back img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 2px solid #fff;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
       padding: 40px 20px;
       text-align: center;
-      color: #8c785c;
+      background: #000;
+    }
+
+    .contact-section h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      font-size: 20px;
+      margin: 5px 0;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-brand">
-      <i class="fa-solid fa-star"></i> The Texas Cruisers
-    </div>
-    <ul class="nav-links">
-      <li><a href="#shows">Shows</a></li>
-      <li><a href="#members">Band Members</a></li>
-      <li>
-        <button class="admin-btn" onclick="openAdminEditorModal()">
-          <i class="fa-solid fa-gear"></i> Admin Editor
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>THE TEXAS CRUISERS BAND</h1>
+    <h2>Classic Rock • Country • Blues</h2>
+  </div>
 
-  <!-- HERO POSTER SECTION -->
-  <header class="poster-hero">
-    <div class="poster-container">
-      <div class="poster-the">The</div>
-      
-      <div class="poster-texas-wrapper">
-        <div class="poster-texas">TEXAS</div>
-        <div class="texas-star"><i class="fa-solid fa-star"></i></div>
-      </div>
-
-      <div class="poster-cruisers">CRUISERS</div>
-      <div><span class="poster-band">BAND</span></div>
-
-      <div class="poster-genre">Classic Rock, Country &amp; Blues</div>
-      <div class="poster-socials-text">Find us on Facebook, Instagram and YouTube</div>
-      <div class="poster-lets-cruise">Let's Cruise!</div>
-
-      <div class="hero-actions">
-        <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Upcoming Shows</a>
-        <button class="btn-secondary" onclick="openAdminEditorModal()">
-          <i class="fa-solid fa-lock"></i> Open Admin Editor
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- SHOWS SECTION -->
-  <section id="shows">
-    <h2 class="section-title">Upcoming Shows</h2>
-    <p class="section-subtitle">Catch The Texas Cruisers Band Live On Stage</p>
-
-    <div class="shows-container" id="showsList">
-      <!-- Dynamic Show Cards -->
-    </div>
-  </section>
-
-  <!-- BAND MEMBERS SECTION -->
-  <section id="members">
-    <h2 class="section-title">Meet The Band</h2>
-    <p class="section-subtitle">The Musicians Behind The Texas Sound</p>
+  <!-- MEMBERS -->
+  <div class="members-section">
+    <h2>Meet the Band</h2>
 
     <div class="members-grid">
+
+      <!-- Chris -->
       <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Chris Oliver">
-        </div>
-        <div class="member-info">
-          <div class="member-name">Chris Oliver</div>
-          <div class="member-role">Lead Vocals</div>
-          <div class="member-bio">Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country.</div>
+        <div class="card-inner">
+          <div class="card-front">
+            Chris
+          </div>
+          <div class="card-back">
+            <img src="CHRIS_PHOTO_URL">
+            <h3>Chris</h3>
+            <p>Lead Guitar • Vocals</p>
+            <p>Bio goes here.</p>
+          </div>
         </div>
       </div>
 
+      <!-- Al -->
       <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Mark McFarlane">
-        </div>
-        <div class="member-info">
-          <div class="member-name">Mark McFarlane</div>
-          <div class="member-role">Bass</div>
-          <div class="member-bio">Laying down driving bass lines that form the heavy groove of every Texas Cruisers set.</div>
+        <div class="card-inner">
+          <div class="card-front">
+            Al
+          </div>
+          <div class="card-back">
+            <img src="AL_PHOTO_URL">
+            <h3>Al</h3>
+            <p>Bass Guitar</p>
+            <p>Bio goes here.</p>
+          </div>
         </div>
       </div>
 
+      <!-- Mark -->
       <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Al Montez">
-        </div>
-        <div class="member-info">
-          <div class="member-name">Al Montez</div>
-          <div class="member-role">Lead Guitar</div>
-          <div class="member-bio">Firing up fiery electric guitar solos across classic rock riffs and blues bends.</div>
+        <div class="card-inner">
+          <div class="card-front">
+            Mark
+          </div>
+          <div class="card-back">
+            <img src="MARK_PHOTO_URL">
+            <h3>Mark</h3>
+            <p>Rhythm Guitar</p>
+            <p>Bio goes here.</p>
+          </div>
         </div>
       </div>
 
+      <!-- Brian -->
       <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Brian Martin">
+        <div class="card-inner">
+          <div class="card-front">
+            Brian
+          </div>
+          <div class="card-back">
+            <img src="BRIAN_PHOTO_URL">
+            <h3>Brian</h3>
+            <p>Drums</p>
+            <p>Bio goes here.</p>
+          </div>
         </div>
-        <div class="member-info">
-          <div class="member-name">Brian Martin</div>
-          <div class="member-role">Drums</div>
-          <div class="member-bio">Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FLOATING ADMIN GEAR BUTTON -->
-  <button class="floating-admin-btn" onclick="openAdminEditorModal()" title="Open Admin Editor">
-    <i class="fa-solid fa-gear"></i>
-  </button>
-
-  <!-- ADMIN EDITOR MODAL -->
-  <div class="modal-overlay" id="adminModalOverlay">
-    <div class="modal-box">
-      <span class="modal-close-btn" onclick="closeAdminEditorModal()">&times;</span>
-      <h2 style="font-family: 'Rye', serif; color: #ffd700; margin-bottom: 20px;">
-        <i class="fa-solid fa-sliders"></i> Band Admin Editor
-      </h2>
-
-      <!-- Password Login View -->
-      <div id="loginStep">
-        <div class="admin-field-group">
-          <label>Enter Admin Password:</label>
-          <input type="password" id="adminPasswordInput" placeholder="Password">
-        </div>
-        <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="verifyAdminPassword()">
-          Unlock Admin Editor
-        </button>
-      </div>
-
-      <!-- Editing View (Hidden until password verified) -->
-      <div id="editorStep" style="display: none;">
-        <div class="admin-field-group">
-          <label>Show Title:</label>
-          <input type="text" id="editShowTitle">
-        </div>
-        <div class="admin-field-group">
-          <label>Show Date (e.g. October 10, 2026):</label>
-          <input type="text" id="editShowDate">
-        </div>
-        <div class="admin-field-group">
-          <label>Venue Name:</label>
-          <input type="text" id="editShowVenue">
-        </div>
-        <div class="admin-field-group">
-          <label>City & State:</label>
-          <input type="text" id="editShowLocation">
-        </div>
-
-        <button class="btn-primary" style="width: 100%; margin-top: 15px;" onclick="saveAdminData()">
-          Save & Update Live Site
-        </button>
       </div>
 
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
-  </footer>
+  <!-- CONTACT -->
+  <div class="contact-section">
+    <h2>Booking & Contact</h2>
+    <p>Brian Martin</p>
+    <p>📞 832-527-1746</p>
+    <p>texascruisersband@outlook.com</p>
+  </div>
 
-  <script>
-    // Initial Show Data
-    let showData = JSON.parse(localStorage.getItem('texas_cruisers_show_data')) || {
-      title: "Herman Memorial 10 for Texas Run",
-      month: "OCT",
-      day: "10",
-      year: "2026",
-      venue: "North Shore Park",
-      location: "The Woodlands, Texas"
-    };
-
-    let isLoggedIn = false;
-
-    // Render Show Card
-    function renderShows() {
-      const container = document.getElementById('showsList');
-      container.innerHTML = `
-        <div class="show-card">
-          <div class="show-date-badge">
-            <div class="month">${showData.month}</div>
-            <div class="day">${showData.day}</div>
-            <div class="year">${showData.year}</div>
-          </div>
-          <div class="show-details">
-            <div class="show-title">${showData.title}</div>
-            <div class="show-venue"><i class="fa-solid fa-map-pin"></i> ${showData.venue}</div>
-            <div class="show-location">${showData.location}</div>
-          </div>
-        </div>
-      `;
-    }
-
-    // Open Admin Modal
-    function openAdminEditorModal() {
-      const modal = document.getElementById('adminModalOverlay');
-      modal.style.display = 'flex';
-      
-      if (!isLoggedIn) {
-        document.getElementById('loginStep').style.display = 'block';
-        document.getElementById('editorStep').style.display = 'none';
-      } else {
-        document.getElementById('loginStep').style.display = 'none';
-        document.getElementById('editorStep').style.display = 'block';
-        populateEditorFields();
-      }
-    }
-
-    // Close Admin Modal
-    function closeAdminEditorModal() {
-      document.getElementById('adminModalOverlay').style.display = 'none';
-    }
-
-    // Password Check (Default password: texas2026)
-    function verifyAdminPassword() {
-      const input = document.getElementById('adminPasswordInput').value;
-      if (input === 'texas2026' || input === 'admin') {
-        isLoggedIn = true;
-        document.getElementById('loginStep').style.display = 'none';
-        document.getElementById('editorStep').style.display = 'block';
-        populateEditorFields();
-      } else {
-        alert('Incorrect password! Try: texas2026');
-      }
-    }
-
-    // Populate Fields
-    function populateEditorFields() {
-      document.getElementById('editShowTitle').value = showData.title;
-      document.getElementById('editShowDate').value = `${showData.month} ${showData.day}, ${showData.year}`;
-      document.getElementById('editShowVenue').value = showData.venue;
-      document.getElementById('editShowLocation').value = showData.location;
-    }
-
-    // Save Data
-    function saveAdminData() {
-      showData.title = document.getElementById('editShowTitle').value;
-      showData.venue = document.getElementById('editShowVenue').value;
-      showData.location = document.getElementById('editShowLocation').value;
-
-      const rawDate = document.getElementById('editShowDate').value;
-      const parts = rawDate.replace(',', '').split(' ');
-      if (parts.length >= 3) {
-        showData.month = parts[0].substring(0, 3).toUpperCase();
-        showData.day = parts[1];
-        showData.year = parts[2];
-      }
-
-      localStorage.setItem('texas_cruisers_show_data', JSON.stringify(showData));
-      renderShows();
-      closeAdminEditorModal();
-      alert('Site updated successfully!');
-    }
-
-    // Initial Run
-    renderShows();
-  </script>
 </body>
 </html>
+

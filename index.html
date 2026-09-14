@@ -222,6 +222,11 @@
       text-shadow: 2px 2px 4px #000;
     }
 
+    .poster-socials-text a {
+      color: #1877f2;
+      text-decoration: underline;
+    }
+
     .poster-lets-cruise {
       font-family: 'Yellowtail', cursive;
       font-size: clamp(2.8rem, 8vw, 5.5rem);
@@ -251,6 +256,9 @@
       letter-spacing: 1px;
       box-shadow: 0 4px 15px rgba(184, 29, 36, 0.5);
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-primary:hover {
@@ -268,11 +276,34 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-secondary:hover {
       background: #ffd700;
       color: #000;
+    }
+
+    .btn-facebook {
+      background: #1877f2;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 28px;
+      border: 2px solid #ffffff;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-facebook:hover {
+      background: #145dbf;
+      transform: translateY(-3deg);
     }
 
     /* SECTIONS */
@@ -379,9 +410,16 @@
       overflow: hidden;
       text-align: center;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffd700;
     }
 
     .member-img-wrapper {
+      position: relative;
       width: 100%;
       height: 260px;
       overflow: hidden;
@@ -391,6 +429,23 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .member-instrument-icon {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(170, 28, 34, 0.9);
+      color: #ffd700;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
     }
 
     .member-info {
@@ -410,12 +465,156 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
     .member-bio {
       color: #b3a286;
       font-size: 0.85rem;
       line-height: 1.5;
+    }
+
+    /* MEDIA & MUSIC SECTION */
+    .media-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .media-card {
+      background: #140c07;
+      border: 1px solid #4a3219;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .media-card h3 {
+      font-family: 'Rye', serif;
+      color: #ffd700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .track-item {
+      background: #000;
+      border: 1px solid #2a1a0e;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .track-title {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    audio {
+      width: 100%;
+      height: 35px;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 220px;
+      background: #000;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #4a3219;
+      color: #ffd700;
+      gap: 10px;
+    }
+
+    /* BOOKING & COMMENTS SECTION */
+    .grid-two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+    }
+
+    .form-box {
+      background: #140c07;
+      border: 2px solid #4a3219;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .form-box h3 {
+      font-family: 'Rye', serif;
+      color: #ffd700;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      color: #d1b894;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 12px;
+      background: #000;
+      border: 1px solid #4a3219;
+      border-radius: 6px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #ffd700;
+      outline: none;
+    }
+
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-height: 380px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding-right: 5px;
+    }
+
+    .comment-card {
+      background: #000;
+      border-left: 3px solid #ffd700;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .comment-author {
+      font-weight: 800;
+      color: #ffd700;
+      font-size: 0.9rem;
+    }
+
+    .comment-date {
+      color: #777;
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    .comment-text {
+      color: #d1b894;
+      font-size: 0.85rem;
     }
 
     /* POPUP ADMIN MODAL WINDOW */
@@ -472,11 +671,6 @@
       font-size: 1rem;
     }
 
-    .admin-field-group input:focus {
-      border-color: #ffd700;
-      outline: none;
-    }
-
     /* FLOATING BUTTON */
     .floating-admin-btn {
       position: fixed;
@@ -503,6 +697,33 @@
       text-align: center;
       color: #8c785c;
     }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #140c07;
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: #ffd700;
+      color: #000;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -514,7 +735,9 @@
     </div>
     <ul class="nav-links">
       <li><a href="#shows">Shows</a></li>
-      <li><a href="#members">Band Members</a></li>
+      <li><a href="#members">Band</a></li>
+      <li><a href="#media">Music &amp; Video</a></li>
+      <li><a href="#booking">Book Us</a></li>
       <li>
         <button class="admin-btn" onclick="openAdminEditorModal()">
           <i class="fa-solid fa-gear"></i> Admin Editor
@@ -537,13 +760,19 @@
       <div><span class="poster-band">BAND</span></div>
 
       <div class="poster-genre">Classic Rock, Country &amp; Blues</div>
-      <div class="poster-socials-text">Find us on Facebook, Instagram and YouTube</div>
+      <div class="poster-socials-text">
+        Follow us on 
+        <a href="https://facebook.com/thetexascruisersband" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+      </div>
       <div class="poster-lets-cruise">Let's Cruise!</div>
 
       <div class="hero-actions">
         <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Upcoming Shows</a>
+        <a href="https://facebook.com/thetexascruisersband" target="_blank" class="btn-facebook">
+          <i class="fa-brands fa-facebook-f"></i> Facebook Page
+        </a>
         <button class="btn-secondary" onclick="openAdminEditorModal()">
-          <i class="fa-solid fa-lock"></i> Open Admin Editor
+          <i class="fa-solid fa-lock"></i> Admin Editor
         </button>
       </div>
     </div>
@@ -565,49 +794,175 @@
     <p class="section-subtitle">The Musicians Behind The Texas Sound</p>
 
     <div class="members-grid">
+      <!-- Chris Oliver - Lead Vocals -->
       <div class="member-card">
         <div class="member-img-wrapper">
           <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Chris Oliver">
+          <div class="member-instrument-icon" title="Lead Vocals">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
         </div>
         <div class="member-info">
           <div class="member-name">Chris Oliver</div>
-          <div class="member-role">Lead Vocals</div>
+          <div class="member-role">
+            <i class="fa-solid fa-microphone"></i> Lead Vocals
+          </div>
           <div class="member-bio">Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country.</div>
         </div>
       </div>
 
+      <!-- Mark McFarlane - Bass -->
       <div class="member-card">
         <div class="member-img-wrapper">
           <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Mark McFarlane">
+          <div class="member-instrument-icon" title="Bass Guitar">
+            <i class="fa-solid fa-guitar"></i>
+          </div>
         </div>
         <div class="member-info">
           <div class="member-name">Mark McFarlane</div>
-          <div class="member-role">Bass</div>
+          <div class="member-role">
+            <i class="fa-solid fa-guitar"></i> Bass Guitar
+          </div>
           <div class="member-bio">Laying down driving bass lines that form the heavy groove of every Texas Cruisers set.</div>
         </div>
       </div>
 
+      <!-- Al Montez - Lead Guitar -->
       <div class="member-card">
         <div class="member-img-wrapper">
           <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Al Montez">
+          <div class="member-instrument-icon" title="Electric Lead Guitar">
+            <i class="fa-solid fa-guitar"></i>
+          </div>
         </div>
         <div class="member-info">
           <div class="member-name">Al Montez</div>
-          <div class="member-role">Lead Guitar</div>
+          <div class="member-role">
+            <i class="fa-solid fa-guitar"></i> Lead Guitar
+          </div>
           <div class="member-bio">Firing up fiery electric guitar solos across classic rock riffs and blues bends.</div>
         </div>
       </div>
 
+      <!-- Brian Martin - Drums -->
       <div class="member-card">
         <div class="member-img-wrapper">
           <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Brian Martin">
+          <div class="member-instrument-icon" title="Drums & Percussion">
+            <i class="fa-solid fa-drum"></i>
+          </div>
         </div>
         <div class="member-info">
           <div class="member-name">Brian Martin</div>
-          <div class="member-role">Drums</div>
+          <div class="member-role">
+            <i class="fa-solid fa-drum"></i> Drums
+          </div>
           <div class="member-bio">Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms.</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- MEDIA SECTION (MUSIC & VIDEO) -->
+  <section id="media">
+    <h2 class="section-title">Music &amp; Video Highlights</h2>
+    <p class="section-subtitle">Listen To Our Hits &amp; Watch Live Performances</p>
+
+    <div class="media-container">
+      <!-- Audio Player Box -->
+      <div class="media-card">
+        <h3><i class="fa-solid fa-music"></i> Audio Demos</h3>
+        
+        <div class="track-item">
+          <div class="track-title">Texas Cruisers Jam (Live Sample 1)</div>
+          <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support audio elements.
+          </audio>
+        </div>
+
+        <div class="track-item">
+          <div class="track-title">Classic Country Rock Medley</div>
+          <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Video Box -->
+      <div class="media-card">
+        <h3><i class="fa-solid fa-video"></i> Live Performance Video</h3>
+        <div class="video-placeholder">
+          <i class="fa-brands fa-youtube" style="font-size: 3.5rem; color: #ff0000;"></i>
+          <span style="font-weight: bold;">Watch Texas Cruisers Live</span>
+          <a href="https://facebook.com/thetexascruisersband" target="_blank" class="btn-primary" style="padding: 6px 16px; font-size: 0.8rem;">
+            Visit Facebook Videos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING & FAN COMMENTS SECTION -->
+  <section id="booking">
+    <div class="grid-two-col">
+      
+      <!-- Booking Form -->
+      <div class="form-box">
+        <h3><i class="fa-solid fa-envelope-open-text"></i> Book The Band</h3>
+        <p style="color: #b3a286; font-size: 0.85rem; margin-bottom: 20px;">
+          Available for festivals, corporate events, private parties, and venue bookings across Texas!
+        </p>
+        <form onsubmit="handleBookingSubmit(event)">
+          <div class="form-group">
+            <label>Your Name / Contact</label>
+            <input type="text" id="bookName" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="bookEmail" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Event Date &amp; Location</label>
+            <input type="text" id="bookEventDetails" placeholder="e.g. Nov 15th in Conroe, TX" required>
+          </div>
+          <div class="form-group">
+            <label>Message / Event Details</label>
+            <textarea id="bookMessage" rows="3" placeholder="Tell us about your event..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-paper-plane"></i> Send Booking Request
+          </button>
+        </form>
+      </div>
+
+      <!-- Fan Guestbook & Comments -->
+      <div class="form-box">
+        <h3><i class="fa-solid fa-comments"></i> Fan Guestbook</h3>
+        <p style="color: #b3a286; font-size: 0.85rem; margin-bottom: 15px;">
+          Leave a comment for The Texas Cruisers Band!
+        </p>
+
+        <!-- Comments Container -->
+        <div class="comments-list" id="commentsContainer">
+          <!-- Dynamic Comments -->
+        </div>
+
+        <!-- Add Comment Input -->
+        <form onsubmit="handleAddComment(event)">
+          <div class="form-group">
+            <input type="text" id="commenterName" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <textarea id="commenterText" rows="2" placeholder="Write a fan comment..." required></textarea>
+          </div>
+          <button type="submit" class="btn-secondary" style="width: 100%; border-color: #ffd700;">
+            <i class="fa-solid fa-plus"></i> Post Comment
+          </button>
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -665,10 +1020,21 @@
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com/thetexascruisersband" target="_blank" class="social-icon-btn" title="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+    </div>
   </footer>
 
   <script>
-    // Initial Show Data
+    // Show Data Storage
     let showData = JSON.parse(localStorage.getItem('texas_cruisers_show_data')) || {
       title: "Herman Memorial 10 for Texas Run",
       month: "OCT",
@@ -677,6 +1043,12 @@
       venue: "North Shore Park",
       location: "The Woodlands, Texas"
     };
+
+    // Fan Comments Storage
+    let fanComments = JSON.parse(localStorage.getItem('texas_cruisers_comments')) || [
+      { name: "Sarah M.", date: "Sept 12, 2026", text: "Saw you guys play last weekend! Best classic rock band in Texas!" },
+      { name: "Dave R.", date: "Aug 28, 2026", text: "Awesome electric guitar solos by Al! Keep cruising!" }
+    ];
 
     let isLoggedIn = false;
 
@@ -697,6 +1069,41 @@
           </div>
         </div>
       `;
+    }
+
+    // Render Fan Comments
+    function renderComments() {
+      const container = document.getElementById('commentsContainer');
+      container.innerHTML = fanComments.map(c => `
+        <div class="comment-card">
+          <div class="comment-author">${c.name}</div>
+          <div class="comment-date">${c.date}</div>
+          <div class="comment-text">${c.text}</div>
+        </div>
+      `).join('');
+    }
+
+    // Add New Comment
+    function handleAddComment(e) {
+      e.preventDefault();
+      const name = document.getElementById('commenterName').value;
+      const text = document.getElementById('commenterText').value;
+      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      fanComments.unshift({ name, date: today, text });
+      localStorage.setItem('texas_cruisers_comments', JSON.stringify(fanComments));
+      
+      renderComments();
+      document.getElementById('commenterName').value = '';
+      document.getElementById('commenterText').value = '';
+      alert('Thank you for your comment!');
+    }
+
+    // Handle Booking Form Submission
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your booking request! The Texas Cruisers Band will contact you shortly.');
+      e.target.reset();
     }
 
     // Open Admin Modal
@@ -760,8 +1167,9 @@
       alert('Site updated successfully!');
     }
 
-    // Initial Run
+    // Initial Setup
     renderShows();
+    renderComments();
   </script>
 </body>
 </html>

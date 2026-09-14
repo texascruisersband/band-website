@@ -3,165 +3,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Texas Cruisers Band</title>
+  <title>The Texas Cruisers Band | Classic Rock, Country &amp; Blues</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@1,700;1,900&family=Rye&family=Yellowtail&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #0d0905; color: #f0e6d2; font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-    
-    header { text-align: center; padding: 40px 10px; border-bottom: 2px solid #8b5a2b; }
-    h1 { color: #ffd700; font-size: 2.8rem; letter-spacing: 2px; }
-    .subtitle { color: #d1b894; font-size: 1.2rem; margin-top: 5px; }
+    body { background-color: #0b0704; color: #f0e6d2; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
 
-    nav { display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
-    nav a { color: #ffd700; text-decoration: none; font-weight: bold; background: #22140a; padding: 8px 16px; border-radius: 4px; border: 1px solid #8b5a2b; }
-    nav a:hover { background: #ffd700; color: #000; }
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(10, 6, 3, 0.95); backdrop-filter: blur(8px);
+      border-bottom: 2px solid #8b5a2b; display: flex; justify-content: space-between;
+      align-items: center; padding: 12px 24px;
+    }
+    .nav-brand {
+      font-family: 'Rye', serif; font-size: 1.2rem; color: #ffd700;
+      text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 4px #000;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-links { display: flex; gap: 20px; align-items: center; list-style: none; }
+    .nav-links a { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #d1b894; transition: color 0.3s; }
+    .nav-links a:hover { color: #ffaa00; }
 
-    section { max-width: 800px; margin: 40px auto; padding: 20px; background: #18100a; border: 1px solid #3a2211; border-radius: 8px; }
-    h2 { color: #ffd700; border-bottom: 1px solid #8b5a2b; padding-bottom: 8px; margin-bottom: 20px; }
+    /* HERO POSTER SECTION */
+    .poster-hero {
+      position: relative; min-height: 90vh; padding-top: 100px; padding-bottom: 40px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      background: 
+        radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(15, 8, 3, 0.75), rgba(10, 5, 2, 0.95)),
+        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      border-bottom: 4px solid #8b5a2b;
+    }
+    .poster-the { font-family: 'Yellowtail', cursive; font-size: clamp(2.5rem, 6vw, 3.8rem); color: #f7e6a1; margin-bottom: -20px; }
+    .poster-texas {
+      font-family: 'Cinzel Decorative', 'Rye', serif; font-size: clamp(3.5rem, 12vw, 8.5rem); font-weight: 900;
+      text-transform: uppercase; letter-spacing: 2px; line-height: 0.9;
+      background: linear-gradient(180deg, #1b3d8f 0%, #ffffff 40%, #c0252b 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 0px 3px #fff) drop-shadow(4px 6px 0px #000);
+    }
+    .poster-cruisers {
+      font-family: 'Rye', cursive; font-size: clamp(2rem, 7vw, 5rem); color: #e5be75; text-transform: uppercase;
+      letter-spacing: 3px; line-height: 1;
+      background: linear-gradient(180deg, #fff3cf 0%, #d49f43 50%, #6b430a 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: -10px;
+    }
+    .poster-band {
+      display: inline-block; background: linear-gradient(180deg, #aa1c22, #5a090c); color: #ffe6a3;
+      font-weight: 900; font-size: clamp(1rem, 3vw, 1.8rem); letter-spacing: 6px; padding: 4px 30px;
+      border: 2px solid #e5be75; border-radius: 4px; margin-top: 10px;
+    }
+    .poster-genre { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: clamp(1.5rem, 4vw, 3.2rem); color: #ffd875; margin-top: 25px; }
 
-    .card { background: #0d0905; border: 1px solid #5a3a1b; padding: 15px; margin-bottom: 15px; border-radius: 6px; display: flex; align-items: center; gap: 15px; }
-    .date-box { background: #aa1c22; color: #fff; font-weight: bold; padding: 10px 15px; text-align: center; border-radius: 4px; min-width: 80px; }
-    
-    .band-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-    .member-card { background: #0d0905; border: 1px solid #5a3a1b; padding: 15px; text-align: center; border-radius: 6px; cursor: pointer; }
-    .member-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
-    .member-name { color: #ffd700; font-weight: bold; font-size: 1.1rem; }
-    .member-role { color: #aa1c22; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px; }
-    .bio-text { display: none; font-size: 0.85rem; color: #d1b894; margin-top: 10px; text-align: left; }
-    
-    audio { width: 100%; margin-top: 10px; }
-    iframe { width: 100%; height: 250px; border: none; border-radius: 6px; }
+    .hero-actions { margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, #b81d24, #7a0d12); color: #fff; font-weight: 800; padding: 12px 28px;
+      border: 2px solid #e5be75; border-radius: 30px; text-transform: uppercase; letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(184, 29, 36, 0.5); transition: transform 0.3s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-3deg); }
+    .btn-youtube {
+      background: #ff0000; color: #fff; font-weight: 800; padding: 12px 28px; border: 2px solid #fff;
+      border-radius: 30px; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-youtube:hover { transform: translateY(-3deg); background: #cc0000; }
 
-    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 10px; background: #000; border: 1px solid #5a3a1b; color: #fff; border-radius: 4px; }
-    button { background: #aa1c22; color: #fff; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; width: 100%; }
-    button:hover { background: #d9252d; }
+    /* SECTIONS */
+    section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; font-family: 'Rye', serif; font-size: 2.5rem; color: #ffd700; text-transform: uppercase; margin-bottom: 10px; }
+    .section-subtitle { text-align: center; color: #b3a286; font-size: 1rem; margin-bottom: 40px; }
 
-    .comment-item { background: #000; padding: 10px; border-left: 3px solid #ffd700; margin-bottom: 10px; border-radius: 0 4px 4px 0; }
-    .comment-author { color: #ffd700; font-weight: bold; font-size: 0.9rem; }
+    /* SHOWS */
+    .show-card {
+      background: linear-gradient(135deg, #18100a, #0d0805); border: 2px solid #ffd700; border-radius: 12px;
+      padding: 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 15px; box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+    }
+    .show-date { background: #aa1c22; color: #fff; font-family: 'Rye', serif; font-size: 1.5rem; padding: 12px 20px; border-radius: 8px; text-align: center; min-width: 100px; }
+    .show-details { flex-grow: 1; }
+    .show-title { font-size: 1.3rem; font-weight: 800; color: #fff; }
+    .show-venue { color: #ffd700; font-weight: 600; margin-top: 4px; }
 
-    footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.85rem; }
+    /* MEMBERS GRID */
+    .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .member-card {
+      background: #140c07; border: 1px solid #4a3219; border-radius: 12px; padding: 20px; text-align: center;
+      transition: all 0.3s; cursor: pointer; position: relative;
+    }
+    .member-card:hover { border-color: #ffd700; transform: translateY(-5px); }
+    .member-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+    .member-name { font-family: 'Rye', serif; font-size: 1.3rem; color: #ffd700; }
+    .member-role { color: #c20000; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin: 6px 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .member-bio { display: none; font-size: 0.85rem; color: #b3a286; margin-top: 10px; line-height: 1.5; text-align: left; background: #080402; padding: 10px; border-radius: 6px; border-left: 2px solid #ffd700; }
+
+    /* AUTOMATED YOUTUBE WIDGET CONTAINER */
+    .youtube-widget-container {
+      background: #140c07; border: 2px solid #4a3219; border-radius: 12px; padding: 30px; text-align: center; min-height: 250px;
+    }
+
+    /* FORMS */
+    .grid-two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .form-box { background: #140c07; border: 2px solid #4a3219; border-radius: 12px; padding: 25px; }
+    .form-box h3 { font-family: 'Rye', serif; color: #ffd700; margin-bottom: 15px; }
+    form input, form textarea { width: 100%; padding: 12px; background: #000; border: 1px solid #4a3219; border-radius: 6px; color: #fff; font-family: inherit; margin-bottom: 12px; }
+    form input:focus, form textarea:focus { border-color: #ffd700; outline: none; }
+
+    .comment-card { background: #000; border-left: 3px solid #ffd700; padding: 12px; margin-bottom: 10px; border-radius: 0 6px 6px 0; }
+    .comment-author { font-weight: bold; color: #ffd700; font-size: 0.9rem; }
+    .comment-text { color: #d1b894; font-size: 0.85rem; margin-top: 4px; }
+
+    footer { text-align: center; padding: 40px 20px; background: #050302; border-top: 2px solid #4a3219; color: #8c785c; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>THE TEXAS CRUISERS BAND</h1>
-    <div class="subtitle">Classic Rock, Country &amp; Blues</div>
-    <nav>
-      <a href="#shows">Shows</a>
-      <a href="#band">The Band</a>
-      <a href="#music">Music</a>
-      <a href="#video">Video</a>
-      <a href="#booking">Book Us</a>
-      <a href="#guestbook">Guestbook</a>
-    </nav>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-star"></i> The Texas Cruisers
+    </div>
+    <ul class="nav-links">
+      <li><a href="#shows">Shows</a></li>
+      <li><a href="#band">Band</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#booking">Book Us</a></li>
+      <li><a href="#guestbook">Guestbook</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO POSTER SECTION -->
+  <header class="poster-hero">
+    <div class="poster-the">The</div>
+    <div class="poster-texas">TEXAS</div>
+    <div class="poster-cruisers">CRUISERS</div>
+    <div><span class="poster-band">BAND</span></div>
+    <div class="poster-genre">Classic Rock, Country &amp; Blues</div>
+
+    <div class="hero-actions">
+      <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Upcoming Shows</a>
+      <a href="#media" class="btn-youtube"><i class="fa-brands fa-youtube"></i> Watch Videos</a>
+    </div>
   </header>
 
-  <!-- UPCOMING SHOWS -->
+  <!-- SHOWS -->
   <section id="shows">
-    <h2>Upcoming Shows</h2>
-    <div class="card">
-      <div class="date-box">OCT 10</div>
-      <div>
-        <h3 style="color: #fff;">10 for Texas Run</h3>
-        <p style="color: #d1b894;">North Shore Park — The Woodlands, TX</p>
+    <h2 class="section-title">Upcoming Shows</h2>
+    <p class="section-subtitle">Catch The Texas Cruisers Live On Stage</p>
+
+    <div class="show-card">
+      <div class="show-date">OCT 10</div>
+      <div class="show-details">
+        <div class="show-title">Herman Memorial 10 for Texas Run</div>
+        <div class="show-venue"><i class="fa-solid fa-map-pin"></i> North Shore Park — The Woodlands, TX</div>
       </div>
     </div>
   </section>
 
-  <!-- MEET THE BAND -->
+  <!-- BAND MEMBERS SECTION -->
   <section id="band">
-    <h2>Meet The Band</h2>
-    <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">Click any member to read their bio!</p>
-    <div class="band-grid">
-      
+    <h2 class="section-title">Meet The Band</h2>
+    <p class="section-subtitle">Click any band member to read their bio!</p>
+
+    <div class="members-grid">
       <!-- Chris Oliver -->
       <div class="member-card" onclick="toggleBio(this)">
-        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" alt="Chris Oliver">
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Chris Oliver">
         <div class="member-name">Chris Oliver</div>
-        <div class="member-role">🎤 Lead Vocals</div>
-        <div class="bio-text">Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country.</div>
+        <div class="member-role"><i class="fa-solid fa-microphone"></i> Lead Vocals</div>
+        <div class="member-bio">Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country.</div>
       </div>
 
       <!-- Mark McFarlane -->
       <div class="member-card" onclick="toggleBio(this)">
-        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=400&q=80" alt="Mark McFarlane">
+        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Mark McFarlane">
         <div class="member-name">Mark McFarlane</div>
-        <div class="member-role">🎸 Bass Guitar</div>
-        <div class="bio-text">Laying down driving bass lines that form the heavy groove of every Texas Cruisers set.</div>
+        <div class="member-role"><i class="fa-solid fa-guitar"></i> Bass Guitar</div>
+        <div class="member-bio">Laying down driving bass lines that form the heavy groove of every Texas Cruisers set.</div>
       </div>
 
       <!-- Al Montez -->
       <div class="member-card" onclick="toggleBio(this)">
-        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80" alt="Al Montez">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Al Montez">
         <div class="member-name">Al Montez</div>
-        <div class="member-role">🎸 Lead Guitar</div>
-        <div class="bio-text">Firing up fiery electric guitar solos across classic rock riffs and blues bends.</div>
+        <div class="member-role"><i class="fa-solid fa-guitar"></i> Lead Guitar</div>
+        <div class="member-bio">Firing up fiery electric guitar solos across classic rock riffs and blues bends.</div>
       </div>
 
       <!-- Brian Martin -->
       <div class="member-card" onclick="toggleBio(this)">
-        <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=400&q=80" alt="Brian Martin">
+        <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Brian Martin">
         <div class="member-name">Brian Martin</div>
-        <div class="member-role">🥁 Drums</div>
-        <div class="bio-text">Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms.</div>
+        <div class="member-role"><i class="fa-solid fa-drum"></i> Drums</div>
+        <div class="member-bio">Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms.</div>
       </div>
-
     </div>
   </section>
 
-  <!-- MUSIC -->
-  <section id="music">
-    <h2>Music Highlights</h2>
-    <div style="margin-bottom: 15px;">
-      <p style="color: #ffd700; font-weight: bold;">Texas Cruisers Live Sample</p>
-      <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <!-- AUTOMATED YOUTUBE MEDIA SECTION -->
+  <section id="media">
+    <h2 class="section-title">Live Videos &amp; Music</h2>
+    <p class="section-subtitle">Automatically Synced With Our YouTube Channel</p>
+
+    <div class="youtube-widget-container">
+      <!-- PASTE YOUR 1-LINE ELFSIGHT OR TAGEMBED SCRIPT CODE HERE -->
+      <div style="color: #ffd700; padding: 40px 0;">
+        <i class="fa-brands fa-youtube" style="font-size: 3rem; margin-bottom: 10px;"></i>
+        <p>Connect your YouTube Channel widget here to automatically stream your latest videos &amp; tracks!</p>
+      </div>
     </div>
   </section>
 
-  <!-- VIDEO -->
-  <section id="video">
-    <h2>Live Video</h2>
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-  </section>
-
-  <!-- BOOKING -->
+  <!-- BOOKING & GUESTBOOK -->
   <section id="booking">
-    <h2>Book The Band</h2>
-    <form onsubmit="sendBookingEmail(event)">
-      <input type="text" id="bookName" placeholder="Your Name" required>
-      <input type="email" id="bookEmail" placeholder="Your Email" required>
-      <input type="text" id="bookDate" placeholder="Event Date & Location" required>
-      <textarea id="bookMsg" rows="3" placeholder="Tell us about your venue or event..." required></textarea>
-      <button type="submit">Send Booking Email</button>
-    </form>
-  </section>
-
-  <!-- GUESTBOOK -->
-  <section id="guestbook">
-    <h2>Fan Guestbook</h2>
-    <div id="commentsList">
-      <div class="comment-item">
-        <div class="comment-author">Sarah M.</div>
-        <div style="color: #ccc; font-size: 0.85rem;">Saw you guys play last weekend! Awesome show!</div>
+    <div class="grid-two-col">
+      
+      <!-- Booking Form -->
+      <div class="form-box">
+        <h3><i class="fa-solid fa-envelope"></i> Book The Band</h3>
+        <form onsubmit="handleBooking(event)">
+          <input type="text" id="bName" placeholder="Your Name" required>
+          <input type="email" id="bEmail" placeholder="Email Address" required>
+          <input type="text" id="bDate" placeholder="Event Date &amp; Location" required>
+          <textarea id="bMsg" rows="3" placeholder="Tell us about your event..." required></textarea>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Booking Email</button>
+        </form>
       </div>
-    </div>
 
-    <form onsubmit="addComment(event)" style="margin-top: 15px;">
-      <input type="text" id="commenterName" placeholder="Your Name" required>
-      <textarea id="commenterText" rows="2" placeholder="Leave a comment for the band..." required></textarea>
-      <button type="submit" style="background: #22140a; border: 1px solid #ffd700; color: #ffd700;">Post Comment</button>
-    </form>
+      <!-- Fan Guestbook -->
+      <div class="form-box" id="guestbook">
+        <h3><i class="fa-solid fa-comments"></i> Fan Guestbook</h3>
+        <div id="commentsContainer">
+          <div class="comment-card">
+            <div class="comment-author">Sarah M.</div>
+            <div class="comment-text">Saw you guys play last weekend! Incredible show!</div>
+          </div>
+        </div>
+
+        <form onsubmit="addComment(event)" style="margin-top: 15px;">
+          <input type="text" id="cName" placeholder="Your Name" required>
+          <textarea id="cText" rows="2" placeholder="Leave a comment..." required></textarea>
+          <button type="submit" class="btn-primary" style="width: 100%; background: #22140a;">Post Comment</button>
+        </form>
+      </div>
+
+    </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    &copy; 2026 The Texas Cruisers Band. All Rights Reserved.
+    <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // Toggle member bios on click
+    // Toggle Band Member Bios on Click
     function toggleBio(cardElement) {
-      const bio = cardElement.querySelector('.bio-text');
+      const bio = cardElement.querySelector('.member-bio');
       if (bio.style.display === 'block') {
         bio.style.display = 'none';
       } else {
@@ -169,35 +276,34 @@
       }
     }
 
-    // Send Booking Info to email
-    function sendBookingEmail(e) {
+    // Handle Booking Email Trigger
+    function handleBooking(e) {
       e.preventDefault();
-      const name = document.getElementById('bookName').value;
-      const email = document.getElementById('bookEmail').value;
-      const date = document.getElementById('bookDate').value;
-      const msg = document.getElementById('bookMsg').value;
+      const name = document.getElementById('bName').value;
+      const email = document.getElementById('bEmail').value;
+      const date = document.getElementById('bDate').value;
+      const msg = document.getElementById('bMsg').value;
 
-      const mailtoLink = `mailto:booking@texascruisersband.com?subject=Booking Request from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ADate/Location: ${encodeURIComponent(date)}%0AMessage: ${encodeURIComponent(msg)}`;
-      window.location.href = mailtoLink;
+      window.location.href = `mailto:booking@texascruisersband.com?subject=Booking Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ADate/Location: ${encodeURIComponent(date)}%0AMessage: ${encodeURIComponent(msg)}`;
     }
 
-    // Add Fan Comment to the screen
+    // Add Guestbook Comment
     function addComment(e) {
       e.preventDefault();
-      const name = document.getElementById('commenterName').value;
-      const text = document.getElementById('commenterText').value;
+      const name = document.getElementById('cName').value;
+      const text = document.getElementById('cText').value;
 
-      const commentBox = document.getElementById('commentsList');
+      const container = document.getElementById('commentsContainer');
       const newComment = document.createElement('div');
-      newComment.className = 'comment-item';
+      newComment.className = 'comment-card';
       newComment.innerHTML = `
         <div class="comment-author">${name}</div>
-        <div style="color: #ccc; font-size: 0.85rem;">${text}</div>
+        <div class="comment-text">${text}</div>
       `;
-      commentBox.appendChild(newComment);
+      container.prepend(newComment);
 
-      document.getElementById('commenterName').value = '';
-      document.getElementById('commenterText').value = '';
+      document.getElementById('cName').value = '';
+      document.getElementById('cText').value = '';
     }
   </script>
 

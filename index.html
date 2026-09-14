@@ -44,7 +44,7 @@
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.6);
         }
 
-        /* Texas Star & Distressed Red/White/Blue Gradient Text Effects */
+        /* Texas Star & Distressed Text Effects */
         .texas-band-title {
             background: linear-gradient(180deg, #e63946 0%, #ffffff 48%, #003049 100%);
             -webkit-background-clip: text;
@@ -58,10 +58,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.9));
-        }
-
-        .gold-border {
-            border-image: linear-gradient(to right, #aa7c11, #fff3a1, #aa7c11) 1;
         }
 
         /* Spotlight beam effect */
@@ -110,7 +106,7 @@
     <canvas id="stageParticles" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
     <!-- Top Navigation -->
-    <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b-2 border-amber-800/60 shadow-2xl">
+    <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b-2 border-amber-800/60 shadow-2xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Band Logo Brand -->
@@ -125,15 +121,18 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 font-bebas text-lg tracking-widest text-amber-200">
-                    <a href="#tour" class="hover:text-amber-400 hover:scale-105 transition-all">Tour Dates</a>
+                    <a href="#shows" class="hover:text-amber-400 hover:scale-105 transition-all">Shows</a>
                     <a href="#music" class="hover:text-amber-400 hover:scale-105 transition-all">Setlist & Audio</a>
                     <a href="#band" class="hover:text-amber-400 hover:scale-105 transition-all">The Band</a>
                     <a href="#booking" class="hover:text-amber-400 hover:scale-105 transition-all">Booking</a>
                 </div>
 
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <a href="#booking" class="bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black font-extrabold font-bebas tracking-wider px-6 py-2.5 rounded-md shadow-lg border border-yellow-300/40 transition-all hover:shadow-amber-500/20">
+                <!-- Admin Editor Toggle Button -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <button onclick="toggleAdminModal()" class="bg-amber-950/90 hover:bg-amber-800 border border-amber-600/70 text-amber-300 font-bebas text-sm px-3 py-2 rounded-md transition-all flex items-center gap-1.5 shadow">
+                        <i class="fa-solid fa-gear text-amber-400"></i> Admin Panel
+                    </button>
+                    <a href="#booking" class="bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black font-extrabold font-bebas tracking-wider px-5 py-2 rounded-md shadow-lg border border-yellow-300/40 transition-all hover:shadow-amber-500/20">
                         Book Now
                     </a>
                 </div>
@@ -147,17 +146,18 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden bg-zinc-950 border-b border-amber-900/80 px-4 pt-2 pb-6 space-y-3 font-bebas text-xl text-center">
-            <a href="#tour" class="block text-amber-200 hover:text-amber-400 py-1">Tour Dates</a>
+            <a href="#shows" class="block text-amber-200 hover:text-amber-400 py-1">Shows</a>
             <a href="#music" class="block text-amber-200 hover:text-amber-400 py-1">Setlist & Audio</a>
             <a href="#band" class="block text-amber-200 hover:text-amber-400 py-1">The Band</a>
             <a href="#booking" class="block text-amber-200 hover:text-amber-400 py-1">Booking</a>
-            <a href="#booking" class="inline-block mt-2 bg-amber-600 text-black px-6 py-2 rounded-md font-bold">Book Now</a>
+            <button onclick="toggleAdminModal()" class="w-full bg-amber-950 border border-amber-600 text-amber-300 py-2 rounded-md">
+                <i class="fa-solid fa-gear mr-1"></i> Open Band Admin Panel
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Header Banner Section -->
     <header class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden flex items-center justify-center">
-        <!-- Dramatic Stage Lights -->
+        <!-- Stage Lights -->
         <div class="spotlight-left"></div>
         <div class="spotlight-right"></div>
         
@@ -178,7 +178,7 @@
                 The
             </h2>
 
-            <!-- Main Band Title Logo with Red, White, Blue & Lone Star Design -->
+            <!-- Main Band Title Logo -->
             <h1 class="font-ultra text-5xl sm:text-8xl md:text-9xl uppercase tracking-wider mb-2 leading-none text-red-600 drop-shadow-[0_10px_10px_rgba(0,0,0,0.9)] relative inline-block">
                 <span class="texas-band-title">TEXAS</span>
             </h1>
@@ -204,7 +204,7 @@
                 </h3>
                 
                 <div class="pt-6 flex flex-wrap justify-center gap-4">
-                    <a href="#tour" class="bg-red-700 hover:bg-red-600 text-white font-bebas text-2xl px-8 py-3 rounded-lg shadow-lg border-2 border-red-400 hover:scale-105 transition-all">
+                    <a href="#shows" class="bg-red-700 hover:bg-red-600 text-white font-bebas text-2xl px-8 py-3 rounded-lg shadow-lg border-2 border-red-400 hover:scale-105 transition-all">
                         <i class="fa-solid fa-ticket mr-2"></i> Upcoming Shows
                     </a>
                     <a href="#music" class="bg-amber-800/80 hover:bg-amber-700 text-amber-100 font-bebas text-2xl px-8 py-3 rounded-lg shadow-lg border-2 border-amber-500 hover:scale-105 transition-all">
@@ -213,29 +213,28 @@
                 </div>
             </div>
 
-            <!-- Social Media Pills Quick Links -->
+            <!-- Social Quick Links -->
             <div class="mt-12 flex items-center justify-center gap-6 text-amber-300/80 text-sm sm:text-base font-montserrat">
                 <span>Find us on:</span>
-                <a href="https://facebook.com" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://facebook.com" id="navFb" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-facebook"></i> Facebook</a>
                 <span>•</span>
-                <a href="https://instagram.com" target="_blank" class="hover:text-pink-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://instagram.com" id="navIg" target="_blank" class="hover:text-pink-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 <span>•</span>
-                <a href="https://youtube.com" target="_blank" class="hover:text-red-500 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                <a href="https://youtube.com" id="navYt" target="_blank" class="hover:text-red-500 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-youtube"></i> YouTube</a>
             </div>
         </div>
     </header>
 
-    <!-- Tour Dates / Upcoming Shows Section -->
-    <section id="tour" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+    <section id="shows" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-12">
-            <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Tour Dates</h2>
+            <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Upcoming Shows</h2>
             <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-            <p class="mt-3 text-amber-200/80 font-montserrat">Catch The Texas Cruisers Live at a Venue Near You!</p>
+            <p class="mt-3 text-amber-200/80 font-montserrat">Catch The Texas Cruisers Live On Stage!</p>
         </div>
 
-        <!-- Tour List Container -->
-        <div id="tourList" class="space-y-4">
-            <!-- Dynamic Tour items populated by JS -->
+        <!-- Shows List Container -->
+        <div id="showsList" class="space-y-4">
+            <!-- Dynamic Shows populated by JS -->
         </div>
 
         <!-- RSVP Modal -->
@@ -251,15 +250,14 @@
                     <button id="confirmRsvpBtn" class="w-full bg-amber-600 hover:bg-amber-500 text-black font-bebas text-xl py-2.5 rounded shadow">
                         Confirm RSVP
                     </button>
-                    <button id="addCalendarBtn" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-200 font-bebas text-xl py-2.5 rounded border border-amber-800">
-                        <i class="fa-regular fa-calendar-plus mr-2"></i> Save to iCal / Google Calendar
+                    <button id="addCalendarBtn" onclick="saveToCalendar()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-200 font-bebas text-xl py-2.5 rounded border border-amber-800">
+                        <i class="fa-regular fa-calendar-plus mr-2"></i> Save to Calendar
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Music & Media / Setlist Audio Player -->
     <section id="music" class="py-16 bg-black/60 border-y-2 border-amber-900/60 relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -315,7 +313,7 @@
                     </div>
                 </div>
 
-                <!-- Embedded Video Showcase / Teaser -->
+                <!-- Stage Reel Teaser Card -->
                 <div class="lg:col-span-5 wood-card p-6 rounded-2xl flex flex-col justify-between">
                     <div>
                         <h3 class="font-rye text-2xl text-amber-300 mb-4 flex items-center gap-2">
@@ -333,7 +331,7 @@
                                 </button>
                             </div>
                             <span class="absolute bottom-3 left-3 text-xs font-mono bg-black/80 text-amber-300 px-2 py-1 rounded">
-                                Live at Austin Stage 2025
+                                Live Stage Performance
                             </span>
                         </div>
                     </div>
@@ -349,91 +347,20 @@
         </div>
     </section>
 
-    <!-- Band Members / About Us Section -->
     <section id="band" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         <div class="text-center mb-14">
             <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Meet The Band</h2>
             <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-3"></div>
-            <p class="text-amber-200/80">The musicians delivering Texas-sized classic rock and blues</p>
+            <p class="text-amber-200/80">The musicians delivering Texas-sized classic rock, country, and blues</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Member 1 -->
-            <div class="wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" 
-                         alt="Lead Vocalist & Guitar" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                         onerror="this.src='https://placehold.co/400x500/1e0e06/ffffff?text=Lead+Guitar'" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-2 left-3 font-bebas text-amber-400 text-lg tracking-wider">Lead Vocals / Guitar</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-rye text-2xl text-amber-200 mb-1">Wyatt "Riff" Vance</h3>
-                    <p class="text-xs font-mono text-amber-400/80 mb-3">Influences: Stevie Ray Vaughan, ZZ Top</p>
-                    <p class="text-sm text-amber-100/70">Delivering raw southern energy and blistering solos that define the band's signatures.</p>
-                </div>
-            </div>
-
-            <!-- Member 2 -->
-            <div class="wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" 
-                         alt="Bass Guitarist" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                         onerror="this.src='https://placehold.co/400x500/1e0e06/ffffff?text=Bass'" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-2 left-3 font-bebas text-amber-400 text-lg tracking-wider">Bass & Vocals</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-rye text-2xl text-amber-200 mb-1">Jesse "Thunder" Brooks</h3>
-                    <p class="text-xs font-mono text-amber-400/80 mb-3">Influences: Waylon Jennings, Lynyrd Skynyrd</p>
-                    <p class="text-sm text-amber-100/70">Laying down heavy low-end grooves that keep the crowd moving all night long.</p>
-                </div>
-            </div>
-
-            <!-- Member 3 -->
-            <div class="wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" 
-                         alt="Drums" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                         onerror="this.src='https://placehold.co/400x500/1e0e06/ffffff?text=Drums'" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-2 left-3 font-bebas text-amber-400 text-lg tracking-wider">Drums & Percussion</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-rye text-2xl text-amber-200 mb-1">Colt "Stickman" Miller</h3>
-                    <p class="text-xs font-mono text-amber-400/80 mb-3">Influences: John Bonham, Willie Nelson</p>
-                    <p class="text-sm text-amber-100/70">The rhythmic engine room providing solid classic rock beats and country shuffles.</p>
-                </div>
-            </div>
-
-            <!-- Member 4 -->
-            <div class="wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=600&q=80" 
-                         alt="Keyboards & Harmonica" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                         onerror="this.src='https://placehold.co/400x400/1e0e06/ffffff?text=Keys'" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <span class="absolute bottom-2 left-3 font-bebas text-amber-400 text-lg tracking-wider">Keyboards & Organ</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-rye text-2xl text-amber-200 mb-1">Doc "Keys" Hollister</h3>
-                    <p class="text-xs font-mono text-amber-400/80 mb-3">Influences: Billy Preston, The Allman Brothers</p>
-                    <p class="text-sm text-amber-100/70">Adding rich Hammond organ textures and soulful blues piano hooks.</p>
-                </div>
-            </div>
-
+        <div id="bandMembersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Band members populated by JS -->
         </div>
     </section>
 
-    <!-- Booking & Contact Form Section -->
     <section id="booking" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
         <div class="wood-card p-8 sm:p-12 rounded-3xl border-2 border-amber-600 relative shadow-2xl">
-            <!-- Decorative Star Header -->
             <div class="text-center mb-8">
                 <i class="fa-solid fa-star text-amber-400 text-3xl mb-2"></i>
                 <h2 class="font-rye text-3xl sm:text-5xl text-amber-300 uppercase">Book The Band</h2>
@@ -470,8 +397,8 @@
                 </div>
 
                 <div>
-                    <label class="block font-bebas text-lg text-amber-200 mb-1">Venue Name & City, State *</label>
-                    <input type="text" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="e.g. Broken Spoke, Austin TX">
+                    <label class="block font-bebas text-lg text-amber-200 mb-1">Venue Name & Location *</label>
+                    <input type="text" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="e.g. NorthShore Park, The Woodlands, TX">
                 </div>
 
                 <div>
@@ -488,12 +415,81 @@
             <div id="bookingSuccess" class="hidden mt-6 bg-green-950/90 border border-green-500 text-green-200 p-6 rounded-xl text-center">
                 <i class="fa-solid fa-circle-check text-4xl text-green-400 mb-2"></i>
                 <h4 class="font-rye text-xl mb-1">Request Received!</h4>
-                <p class="text-sm">Thank you for reaching out. The Texas Cruisers management will respond within 24 hours!</p>
+                <p class="text-sm">Thank you for reaching out. The Texas Cruisers management will respond shortly!</p>
             </div>
         </div>
     </section>
 
-    <!-- Social Links & Footer Section -->
+    <div id="adminModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="wood-card p-6 sm:p-8 rounded-2xl max-w-3xl w-full border-2 border-amber-500 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-amber-400 hover:text-white text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="flex items-center space-x-3 mb-6 border-b border-amber-800/80 pb-4">
+                <i class="fa-solid fa-sliders text-amber-400 text-3xl"></i>
+                <div>
+                    <h3 class="font-rye text-2xl text-amber-200">Band Admin Manager</h3>
+                    <p class="text-xs font-mono text-amber-400/80">Live visual customization panel — Save changes instantly</p>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="flex border-b border-amber-900/60 mb-6 space-x-4 font-bebas text-lg">
+                <button onclick="switchAdminTab('shows')" id="tabShowsBtn" class="py-2 border-b-2 border-amber-400 text-amber-300">Manage Shows</button>
+                <button onclick="switchAdminTab('members')" id="tabMembersBtn" class="py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300">Band Members</button>
+                <button onclick="switchAdminTab('socials')" id="tabSocialsBtn" class="py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300">Social Links</button>
+            </div>
+
+            <!-- Admin Tab 1: Shows -->
+            <div id="adminTabShows" class="space-y-6">
+                <div class="bg-black/60 p-4 rounded-xl border border-amber-900/60">
+                    <h4 class="font-bebas text-xl text-amber-300 mb-3"><i class="fa-solid fa-plus mr-1"></i> Add New Show Date</h4>
+                    <form onsubmit="adminAddShow(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <input id="newShowDate" type="text" placeholder="Date (e.g. OCT 10)" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
+                        <input id="newShowYear" type="text" placeholder="Year (e.g. 2026)" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
+                        <input id="newShowTitle" type="text" placeholder="Event / Venue Name" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
+                        <input id="newShowCity" type="text" placeholder="City, State" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
+                        <button type="submit" class="sm:col-span-2 bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg py-2 rounded">Add Show To Schedule</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl text-amber-300 mb-3">Current Shows</h4>
+                    <div id="adminShowsList" class="space-y-2 max-h-52 overflow-y-auto pr-1"></div>
+                </div>
+            </div>
+
+            <!-- Admin Tab 2: Band Members -->
+            <div id="adminTabMembers" class="hidden space-y-4">
+                <p class="text-xs text-amber-300/80">Edit member names and instruments below:</p>
+                <div id="adminMembersList" class="space-y-3"></div>
+            </div>
+
+            <!-- Admin Tab 3: Social Links -->
+            <div id="adminTabSocials" class="hidden space-y-4">
+                <div>
+                    <label class="block font-bebas text-amber-200 mb-1">Facebook URL</label>
+                    <input id="adminFbUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://facebook.com/yourband">
+                </div>
+                <div>
+                    <label class="block font-bebas text-amber-200 mb-1">Instagram URL</label>
+                    <input id="adminIgUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://instagram.com/yourband">
+                </div>
+                <div>
+                    <label class="block font-bebas text-amber-200 mb-1">YouTube URL</label>
+                    <input id="adminYtUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://youtube.com/yourband">
+                </div>
+                <button onclick="saveAdminSocials()" class="w-full bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg py-2 rounded">Save Social Links</button>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-amber-900/60 flex justify-between items-center">
+                <button onclick="resetDefaultData()" class="text-xs text-red-400 hover:underline">Reset to Default Data</button>
+                <button onclick="toggleAdminModal()" class="bg-zinc-800 hover:bg-zinc-700 text-amber-200 font-bebas px-6 py-2 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-black/90 border-t-2 border-amber-800 pt-12 pb-8 relative z-10 text-center">
         <div class="max-w-6xl mx-auto px-4">
             
@@ -505,15 +501,21 @@
 
             <!-- Social Media Buttons -->
             <div class="flex justify-center items-center space-x-6 mb-8">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+                <a href="https://facebook.com" id="footerFb" target="_blank" aria-label="Facebook" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
                     <i class="fa-brands fa-facebook-f"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+                <a href="https://instagram.com" id="footerIg" target="_blank" aria-label="Instagram" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://youtube.com" target="_blank" aria-label="YouTube" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+                <a href="https://youtube.com" id="footerYt" target="_blank" aria-label="YouTube" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
+            </div>
+
+            <div class="mb-4">
+                <button onclick="toggleAdminModal()" class="text-xs font-mono text-amber-500 hover:text-amber-300 underline">
+                    <i class="fa-solid fa-gear mr-1"></i> Band Admin Panel
+                </button>
             </div>
 
             <div class="border-t border-amber-950 pt-6 text-amber-400/60 text-xs font-mono space-y-2">
@@ -524,15 +526,35 @@
     </footer>
 
     <script>
-        // --- 1. Mobile Menu Toggle ---
+        // --- Default Data Structures ---
+        const initialShows = [
+            {
+                id: 1,
+                date: "OCT 10",
+                year: "2026",
+                venue: "The Herman Memorial 10 to Texas Run",
+                city: "NorthShore Park, The Woodlands, Texas",
+                status: "Next Featured Show",
+                highlight: true
+            }
+        ];
+
+        const initialMembers = [
+            { id: 1, name: 'Chris Oliver', role: 'Lead Vocals', bio: 'Powerhouse vocalist bringing unmatched soul and energy to every Texas classic.', img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80' },
+            { id: 2, name: 'Mark McFarlane', role: 'Bass', bio: 'Laying down deep southern bass grooves that anchor the Band rhythm.', img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80' },
+            { id: 3, name: 'Al Montez', role: 'Lead Guitar', bio: 'Firing off blistering guitar solos and classic blues riffs with fiery passion.', img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=600&q=80' },
+            { id: 4, name: 'Brian Martin', role: 'Drums', bio: 'The heartbeat of the band, rock-solid country shuffles and classic rock beats.', img: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80' }
+        ];
+
+        let showsData = JSON.parse(localStorage.getItem('tc_shows')) || initialShows;
+        let membersData = JSON.parse(localStorage.getItem('tc_members')) || initialMembers;
+
+        // --- Mobile Menu Toggle ---
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // --- 2. Stage Dust/Sparkle Particles Canvas ---
+        // --- Stage Dust Particle Animation ---
         const canvas = document.getElementById('stageParticles');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -569,62 +591,94 @@
             }
         }
 
-        for (let i = 0; i < 45; i++) {
-            particles.push(new Particle());
-        }
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
 
-        // --- 3. Tour Dates Data & Rendering ---
-        const tourDates = [
-            { date: "APR 18", year: "2026", venue: "The Broken Spoke", city: "Austin, TX", status: "Selling Fast", ticketUrl: "#" },
-            { date: "MAY 02", year: "2026", venue: "Gruene Hall", city: "New Braunfels, TX", status: "VIP Available", ticketUrl: "#" },
-            { date: "MAY 16", year: "2026", venue: "Dos Equis Pavilion Stage", city: "Dallas, TX", status: "Tickets On Sale", ticketUrl: "#" },
-            { date: "JUN 06", year: "2026", venue: "The Big Texan Music Hall", city: "Amarillo, TX", status: "Tickets On Sale", ticketUrl: "#" },
-            { date: "JUN 20", year: "2026", venue: "San Antonio Stock & Rodeo Grounds", city: "San Antonio, TX", status: "Almost Sold Out", ticketUrl: "#" }
-        ];
+        // --- Render Shows ---
+        function renderShows() {
+            const container = document.getElementById('showsList');
+            container.innerHTML = '';
 
-        const tourContainer = document.getElementById('tourList');
-        tourDates.forEach((show, index) => {
-            const row = document.createElement('div');
-            row.className = "wood-card p-4 sm:p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 border-l-amber-500 hover:scale-[1.01] transition-transform";
-            row.innerHTML = `
-                <div class="flex items-center space-x-4 w-full md:w-auto">
-                    <div class="bg-amber-950 border border-amber-600 text-center px-4 py-2 rounded-lg min-w-[80px]">
-                        <span class="block font-bebas text-2xl text-amber-400 leading-none">${show.date}</span>
-                        <span class="block text-xs font-mono text-amber-200/70">${show.year}</span>
+            showsData.forEach(show => {
+                const card = document.createElement('div');
+                card.className = `wood-card p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 ${
+                    show.highlight ? 'border-l-red-500 bg-amber-950/30' : 'border-l-amber-500'
+                } hover:scale-[1.01] transition-transform shadow-xl`;
+
+                card.innerHTML = `
+                    <div class="flex items-center space-x-4 w-full md:w-auto">
+                        <div class="bg-amber-950 border border-amber-600 text-center px-4 py-2 rounded-lg min-w-[85px] shadow-inner">
+                            <span class="block font-bebas text-2xl text-amber-400 leading-none">${show.date}</span>
+                            <span class="block text-xs font-mono text-amber-200/70">${show.year}</span>
+                        </div>
+                        <div>
+                            <h4 class="font-rye text-xl sm:text-2xl text-amber-100 flex items-center gap-2">
+                                ${show.venue}
+                                ${show.highlight ? '<span class="bg-red-600 text-white font-bebas text-xs px-2 py-0.5 rounded tracking-wide uppercase">NEXT SHOW</span>' : ''}
+                            </h4>
+                            <p class="text-sm text-amber-300/90 mt-1"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i>${show.city}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-rye text-xl text-amber-100">${show.venue}</h4>
-                        <p class="text-sm text-amber-300/80"><i class="fa-solid fa-location-dot text-red-500 mr-1"></i>${show.city}</p>
+                    <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
+                        <span class="text-xs font-mono bg-red-950/80 border border-red-700/60 text-red-300 px-3 py-1 rounded-full hidden sm:inline-block">
+                            ${show.status || 'Live Show'}
+                        </span>
+                        <button onclick="openRsvp('${show.venue.replace(/'/g, "\\'")}', '${show.date}, ${show.year} - ${show.city.replace(/'/g, "\\'")}')" class="bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg px-6 py-2 rounded-md transition-colors shadow">
+                            RSVP / Info
+                        </button>
                     </div>
-                </div>
-                <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
-                    <span class="text-xs font-mono bg-red-950/80 border border-red-700/60 text-red-300 px-3 py-1 rounded-full hidden sm:inline-block">
-                        ${show.status}
-                    </span>
-                    <button onclick="openRsvp('${show.venue}', '${show.date}, ${show.city}')" class="bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg px-5 py-2 rounded-md transition-colors shadow">
-                        RSVP / Info
-                    </button>
-                </div>
+                `;
+                container.appendChild(card);
+            });
+
+            // Coming Soon Notice Card
+            const comingSoonCard = document.createElement('div');
+            comingSoonCard.className = "wood-card p-6 rounded-xl text-center border-dashed border-amber-600/60 bg-amber-950/20";
+            comingSoonCard.innerHTML = `
+                <i class="fa-solid fa-bullhorn text-3xl text-amber-400 mb-2"></i>
+                <h4 class="font-rye text-2xl text-amber-200">More Shows Coming Soon!</h4>
+                <p class="text-amber-300/80 text-sm mt-1">We are booking new venues across Texas for late 2026. Stay tuned!</p>
             `;
-            tourContainer.appendChild(row);
-        });
+            container.appendChild(comingSoonCard);
+        }
+
+        // --- Render Band Members ---
+        function renderMembers() {
+            const container = document.getElementById('bandMembersGrid');
+            container.innerHTML = '';
+
+            membersData.forEach(member => {
+                const card = document.createElement('div');
+                card.className = "wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300 shadow-xl";
+                card.innerHTML = `
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="${member.img}" alt="${member.name}" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/400x500/1e0e06/ffffff?text=${encodeURIComponent(member.name)}'" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <span class="absolute bottom-2 left-3 font-bebas text-amber-400 text-lg tracking-wider">${member.role}</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-rye text-2xl text-amber-200 mb-1">${member.name}</h3>
+                        <p class="text-xs font-mono text-amber-400/80 mb-2">${member.role}</p>
+                        <p class="text-sm text-amber-100/70">${member.bio}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
 
         // RSVP Modal Logic
         const rsvpModal = document.getElementById('rsvpModal');
         const closeRsvp = document.getElementById('closeRsvp');
         const rsvpVenue = document.getElementById('rsvpVenue');
         const rsvpDetails = document.getElementById('rsvpDetails');
-        const confirmRsvpBtn = document.getElementById('confirmRsvpBtn');
 
         function openRsvp(venue, details) {
             rsvpVenue.textContent = venue;
@@ -633,17 +687,22 @@
         }
 
         closeRsvp.addEventListener('click', () => rsvpModal.classList.add('hidden'));
-        confirmRsvpBtn.addEventListener('click', () => {
-            alert(`Thanks for RSVPing for ${rsvpVenue.textContent}! We've saved your spot.`);
+        document.getElementById('confirmRsvpBtn').addEventListener('click', () => {
+            alert(`Spot reserved for ${rsvpVenue.textContent}! We will see you there.`);
             rsvpModal.classList.add('hidden');
         });
 
-        // --- 4. Web Audio API Synth Track Sampler ---
+        function saveToCalendar() {
+            alert("Calendar entry downloaded! See you at the show!");
+            rsvpModal.classList.add('hidden');
+        }
+
+        // --- Web Audio Synth Player ---
         const playlist = [
-            { id: 0, title: "La Grange / T-Bone Shuffle Jam", genre: "Classic Rock & Blues", freq: 220 },
-            { id: 1, title: "Amarillo By Morning Medley", genre: "Texas Country", freq: 293.66 },
-            { id: 2, title: "Pride and Joy Blues Solo", genre: "Electric Blues", freq: 329.63 },
-            { id: 3, title: "Sweet Home Alabama Rock Riff", genre: "Southern Rock", freq: 392.00 }
+            { id: 0, title: "Texas Rock & Blues Medley", genre: "Classic Rock & Blues", freq: 220 },
+            { id: 1, title: "The Woodlands Stage Jam", genre: "Texas Country", freq: 293.66 },
+            { id: 2, title: "Lone Star Blues Solo", genre: "Electric Blues", freq: 329.63 },
+            { id: 3, title: "Cruisers Highway Riff", genre: "Southern Rock", freq: 392.00 }
         ];
 
         let currentTrackIdx = 0;
@@ -684,34 +743,24 @@
             nowPlayingTitle.textContent = track.title;
             currentTrackGenre.textContent = `Genre: ${track.genre}`;
             renderPlaylist();
-            if (isPlaying) {
-                stopSound();
-                playSound();
-            }
+            if (isPlaying) { stopSound(); playSound(); }
         }
 
         function playSound() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
 
             oscillator = audioCtx.createOscillator();
             gainNode = audioCtx.createGain();
 
-            // Create blues/rock tone pattern using frequency
             oscillator.type = 'sawtooth';
             oscillator.frequency.setValueAtTime(playlist[currentTrackIdx].freq, audioCtx.currentTime);
-            
-            // Subtle tremolo filter for vintage guitar amplifier vibe
             gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
-            
+
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
-            
             oscillator.start();
+
             isPlaying = true;
             playIcon.className = "fa-solid fa-pause";
             renderPlaylist();
@@ -728,10 +777,113 @@
             renderPlaylist();
         }
 
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                stopSound();
-            } else {
-                playSound();
+        playBtn.addEventListener('click', () => isPlaying ? stopSound() : playSound());
+        document.getElementById('prevBtn').addEventListener('click', () => selectTrack((currentTrackIdx - 1 + playlist.length) % playlist.length));
+        document.getElementById('nextBtn').addEventListener('click', () => selectTrack((currentTrackIdx + 1) % playlist.length));
+
+        selectTrack(0);
+
+        function playSampleVideo() {
+            alert("Playing Stage Reel: The Texas Cruisers Band Live Preview.");
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('bookingSuccess').classList.remove('hidden');
+        }
+
+        // --- Admin Manager Modal Logic ---
+        function toggleAdminModal() {
+            const modal = document.getElementById('adminModal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                renderAdminShowsList();
+                renderAdminMembersList();
             }
-        });
+        }
+
+        function switchAdminTab(tabName) {
+            document.getElementById('adminTabShows').classList.add('hidden');
+            document.getElementById('adminTabMembers').classList.add('hidden');
+            document.getElementById('adminTabSocials').classList.add('hidden');
+
+            document.getElementById('tabShowsBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300";
+            document.getElementById('tabMembersBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300";
+            document.getElementById('tabSocialsBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300";
+
+            if (tabName === 'shows') {
+                document.getElementById('adminTabShows').classList.remove('hidden');
+                document.getElementById('tabShowsBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300";
+            } else if (tabName === 'members') {
+                document.getElementById('adminTabMembers').classList.remove('hidden');
+                document.getElementById('tabMembersBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300";
+            } else if (tabName === 'socials') {
+                document.getElementById('adminTabSocials').classList.remove('hidden');
+                document.getElementById('tabSocialsBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300";
+            }
+        }
+
+        function renderAdminShowsList() {
+            const list = document.getElementById('adminShowsList');
+            list.innerHTML = '';
+            showsData.forEach((show, index) => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between bg-zinc-900 p-2.5 rounded border border-amber-900/40 text-xs";
+                item.innerHTML = `
+                    <div>
+                        <span class="font-bold text-amber-400 mr-2">${show.date}, ${show.year}</span>
+                        <span class="text-amber-100">${show.venue} (${show.city})</span>
+                    </div>
+                    <button onclick="deleteShow(${index})" class="text-red-400 hover:text-red-300 font-bold px-2 py-1"><i class="fa-solid fa-trash"></i></button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function adminAddShow(e) {
+            e.preventDefault();
+            const newShow = {
+                id: Date.now(),
+                date: document.getElementById('newShowDate').value.toUpperCase(),
+                year: document.getElementById('newShowYear').value,
+                venue: document.getElementById('newShowTitle').value,
+                city: document.getElementById('newShowCity').value,
+                status: "Tickets / Info",
+                highlight: false
+            };
+            showsData.push(newShow);
+            localStorage.setItem('tc_shows', JSON.stringify(showsData));
+            renderShows();
+            renderAdminShowsList();
+            e.target.reset();
+        }
+
+        function deleteShow(index) {
+            showsData.splice(index, 1);
+            localStorage.setItem('tc_shows', JSON.stringify(showsData));
+            renderShows();
+            renderAdminShowsList();
+        }
+
+        function renderAdminMembersList() {
+            const list = document.getElementById('adminMembersList');
+            list.innerHTML = '';
+            membersData.forEach((m, idx) => {
+                const item = document.createElement('div');
+                item.className = "bg-zinc-900 p-3 rounded border border-amber-900/40 space-y-2 text-xs";
+                item.innerHTML = `
+                    <div class="grid grid-cols-2 gap-2">
+                        <input id="memName_${idx}" type="text" value="${m.name}" class="bg-black p-1.5 border border-amber-800 rounded text-amber-200">
+                        <input id="memRole_${idx}" type="text" value="${m.role}" class="bg-black p-1.5 border border-amber-800 rounded text-amber-200">
+                    </div>
+                    <button onclick="saveMember(${idx})" class="bg-amber-700 text-black px-3 py-1 rounded font-bebas text-sm">Save Member Info</button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function saveMember(idx) {
+            membersData[idx].name = document.getElementById(`memName_${idx}`).value;
+            membersData[idx].role = document.getElementById(`memRole_${idx}`).value;
+            localStorage.setItem('tc_members', JSON.stringify(membersData));

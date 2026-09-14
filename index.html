@@ -3,770 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Texas Cruisers Band - Classic Rock, Country & Blues</title>
+    <title>The Texas Cruisers Band | Classic Rock, Country & Blues</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts for Vintage Rock Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Ultra&family=Yellowtail&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Rye&family=Rajdhani:wght@600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Custom Typography Families */
-        .font-rye { font-family: 'Rye', serif; }
-        .font-ultra { font-family: 'Ultra', serif; }
-        .font-script { font-family: 'Yellowtail', cursive; }
-        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
 
-        /* Wood Grain & Stage Glow Textures */
+    <style>
+        .font-rye { font-family: 'Rye', cursive; }
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-tech { font-family: 'Rajdhani', sans-serif; }
+
         body {
-            background-color: #0d0805;
-            color: #f3e9d2;
+            background-color: #070609;
+            color: #e5e7eb;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
 
-        .wood-bg {
+        /* Amp Grille Cloth Texture Background */
+        .rock-bg {
             background: 
-                radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.15), rgba(13, 8, 5, 0.95) 70%),
-                linear-gradient(rgba(13, 8, 5, 0.85), rgba(13, 8, 5, 0.95)),
-                repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 2px, transparent 2px, transparent 4px),
-                linear-gradient(90deg, #2b170c 0%, #4a2713 25%, #1e0e06 50%, #4a2713 75%, #2b170c 100%);
-            background-blend-mode: color-dodge, normal, normal, normal;
+                radial-gradient(circle at 50% 30%, rgba(255, 102, 0, 0.15), rgba(7, 6, 9, 0.98) 75%),
+                repeating-linear-gradient(45deg, #0e0c12 0px, #0e0c12 2px, #16131c 2px, #16131c 4px),
+                repeating-linear-gradient(-45deg, #070609 0px, #070609 2px, #120f18 2px, #120f18 4px);
+            background-blend-mode: overlay, normal, normal;
         }
 
-        .wood-card {
-            background: linear-gradient(145deg, rgba(45, 26, 14, 0.9), rgba(20, 11, 6, 0.95));
-            border: 2px solid #6b4423;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.6);
+        /* Electric Neon Title Glow */
+        .neon-rock-title {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #ff6600,
+                0 0 20px #ff6600,
+                0 0 40px #ff0000,
+                0 0 80px #ff0000;
         }
 
-        /* Texas Star & Distressed Text Effects */
-        .texas-band-title {
-            background: linear-gradient(180deg, #e63946 0%, #ffffff 48%, #003049 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.8);
-            filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.3));
+        .neon-gold-title {
+            color: #ffda66;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 12px #ffaa00,
+                0 0 25px #d4af37,
+                0 0 45px #ff6600;
         }
 
-        .gold-metallic-text {
-            background: linear-gradient(180deg, #fff3a1 0%, #d4af37 40%, #aa7c11 70%, #fffbda 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.9));
+        /* Marshall Amp Knob Styling */
+        .amp-card {
+            background: linear-gradient(165deg, rgba(28, 24, 36, 0.9), rgba(12, 10, 15, 0.98));
+            border: 2px solid #332a40;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
         }
-
-        /* Spotlight beam effect */
-        .spotlight-left {
+        .amp-card::before {
+            content: '';
             position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 400px;
-            height: 800px;
-            background: radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.25) 0%, rgba(255, 140, 0, 0.05) 50%, transparent 80%);
-            transform: rotate(25deg);
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 120, 0, 0.5), transparent 60%, rgba(255, 0, 0, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
             pointer-events: none;
         }
 
-        .spotlight-right {
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 800px;
-            background: radial-gradient(ellipse at top right, rgba(255, 215, 0, 0.25) 0%, rgba(255, 140, 0, 0.05) 50%, transparent 80%);
-            transform: rotate(-25deg);
-            pointer-events: none;
+        /* Vinyl Record Spin Animation */
+        @keyframes vinylSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-vinyl {
+            animation: vinylSpin 8s linear infinite;
+        }
+        .animate-vinyl-paused {
+            animation-play-state: paused;
+        }
+
+        /* VU Meter Needle Animation */
+        @keyframes vuPulse {
+            0% { transform: rotate(-35deg); }
+            50% { transform: rotate(25deg); }
+            100% { transform: rotate(-35deg); }
+        }
+        .vu-needle-active {
+            animation: vuPulse 0.4s ease-in-out infinite alternate;
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #140b06;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6b4423;
-            border-radius: 5px;
-            border: 2px solid #140b06;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d4af37;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #070609; }
+        ::-webkit-scrollbar-thumb { background: #ff5500; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffaa00; }
     </style>
 </head>
-<body class="wood-bg min-h-screen relative flex flex-col justify-between selection:bg-amber-600 selection:text-white">
+<body class="rock-bg min-h-screen text-gray-100 flex flex-col justify-between relative selection:bg-orange-600 selection:text-white">
 
-    <!-- Stage Lighting Canvas Background -->
-    <canvas id="stageParticles" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+    <canvas id="stageCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-30"></canvas>
 
-    <!-- Top Navigation -->
-    <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b-2 border-amber-800/60 shadow-2xl">
+    <!-- Navigation Header -->
+    <nav class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b-2 border-orange-600/70 shadow-2xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Band Logo Brand -->
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-full bg-amber-900/60 border border-amber-500/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid font-bold text-xl text-amber-400">★</i>
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-red-600 to-amber-500 p-0.5 flex items-center justify-center shadow-[0_0_15px_rgba(255,102,0,0.6)] group-hover:scale-110 transition-transform">
+                        <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-guitar text-amber-400 text-lg"></i>
+                        </div>
                     </div>
-                    <span class="font-ultra text-lg sm:text-xl tracking-wider text-amber-100 uppercase group-hover:text-amber-400 transition-colors">
-                        TEXAS CRUISERS
-                    </span>
+                    <div>
+                        <span class="font-bebas text-2xl tracking-widest text-white uppercase group-hover:text-orange-400 transition-colors">
+                            TEXAS CRUISERS
+                        </span>
+                        <span class="block text-[10px] font-tech text-orange-400 tracking-widest -mt-1">CLASSIC ROCK BAND</span>
+                    </div>
                 </a>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 font-bebas text-lg tracking-widest text-amber-200">
-                    <a href="#shows" class="hover:text-amber-400 hover:scale-105 transition-all">Shows</a>
-                    <a href="#music" class="hover:text-amber-400 hover:scale-105 transition-all">Setlist & Audio</a>
-                    <a href="#band" class="hover:text-amber-400 hover:scale-105 transition-all">The Band</a>
-                    <a href="#booking" class="hover:text-amber-400 hover:scale-105 transition-all">Booking</a>
+                <div class="hidden md:flex items-center space-x-8 font-bebas text-xl tracking-widest text-gray-300">
+                    <a href="#shows" class="hover:text-orange-400 hover:scale-105 transition-all">Shows</a>
+                    <a href="#band" class="hover:text-orange-400 hover:scale-105 transition-all">The Band</a>
+                    <a href="#soundboard" class="hover:text-orange-400 hover:scale-105 transition-all">Soundboard</a>
+                    <a href="#booking" class="hover:text-orange-400 hover:scale-105 transition-all">Booking</a>
                 </div>
 
-                <!-- Admin Editor Toggle Button -->
-                <div class="hidden md:flex items-center space-x-3">
-                    <button onclick="toggleAdminModal()" class="bg-amber-950/90 hover:bg-amber-800 border border-amber-600/70 text-amber-300 font-bebas text-sm px-3 py-2 rounded-md transition-all flex items-center gap-1.5 shadow cursor-pointer">
-                        <i class="fa-solid fa-gear text-amber-400"></i> Admin Panel
+                <div class="flex items-center space-x-3">
+                    <button onclick="openAdminModal()" class="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-black font-bebas text-lg px-4 py-1.5 rounded-md transition-all shadow-[0_0_15px_rgba(255,165,0,0.4)] flex items-center gap-2 cursor-pointer font-bold">
+                        <i class="fa-solid fa-sliders"></i> Admin Manager
                     </button>
-                    <a href="#booking" class="bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black font-extrabold font-bebas tracking-wider px-5 py-2 rounded-md shadow-lg border border-yellow-300/40 transition-all hover:shadow-amber-500/20">
-                        Book Now
-                    </a>
+                    <button id="mobileMenuBtn" class="md:hidden text-orange-400 text-2xl p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-amber-300 focus:outline-none p-2" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-zinc-950 border-b border-amber-900/80 px-4 pt-2 pb-6 space-y-3 font-bebas text-xl text-center">
-            <a href="#shows" class="block text-amber-200 hover:text-amber-400 py-1">Shows</a>
-            <a href="#music" class="block text-amber-200 hover:text-amber-400 py-1">Setlist & Audio</a>
-            <a href="#band" class="block text-amber-200 hover:text-amber-400 py-1">The Band</a>
-            <a href="#booking" class="block text-amber-200 hover:text-amber-400 py-1">Booking</a>
-            <button onclick="toggleAdminModal()" class="w-full bg-amber-950 border border-amber-600 text-amber-300 py-2 rounded-md cursor-pointer">
-                <i class="fa-solid fa-gear mr-1"></i> Open Band Admin Panel
-            </button>
+        <div id="mobileMenu" class="hidden md:hidden bg-zinc-950 border-b border-orange-900 px-4 py-4 space-y-3 font-bebas text-xl text-center">
+            <a href="#shows" class="block text-gray-200 hover:text-orange-400">Shows</a>
+            <a href="#band" class="block text-gray-200 hover:text-orange-400">The Band</a>
+            <a href="#soundboard" class="block text-gray-200 hover:text-orange-400">Soundboard</a>
+            <a href="#booking" class="block text-gray-200 hover:text-orange-400">Booking</a>
         </div>
     </nav>
 
-    <header class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden flex items-center justify-center">
-        <!-- Stage Lights -->
-        <div class="spotlight-left"></div>
-        <div class="spotlight-right"></div>
+    <header class="relative pt-16 pb-24 overflow-hidden flex flex-col items-center justify-center text-center px-4">
         
-        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <!-- Animated Background Vinyl -->
+        <div class="absolute -z-10 w-96 h-96 rounded-full border-8 border-zinc-900/60 flex items-center justify-center opacity-25 animate-vinyl pointer-events-none">
+            <div class="w-48 h-48 rounded-full border-4 border-amber-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-compact-disc text-8xl text-orange-500/40"></i>
+            </div>
+        </div>
+
+        <!-- Texas Lone Star Crest -->
+        <div class="mb-4 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-b from-orange-500 to-red-700 p-1 shadow-[0_0_30px_rgba(255,102,0,0.8)]">
+            <div class="w-full h-full bg-black rounded-full flex items-center justify-center border border-amber-300">
+                <i class="fa-solid fa-star text-3xl text-amber-400 drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]"></i>
+            </div>
+        </div>
+
+        <h2 class="font-rye text-2xl sm:text-4xl text-amber-400 tracking-widest uppercase mb-1 drop-shadow">THE</h2>
+        <h1 class="font-bebas text-6xl sm:text-8xl md:text-9xl uppercase tracking-wider leading-none neon-rock-title mb-2">
+            TEXAS CRUISERS
+        </h1>
+        <div class="bg-gradient-to-r from-red-600 via-amber-500 to-red-600 text-black font-bebas text-2xl sm:text-4xl px-8 py-1 rounded tracking-widest font-black shadow-[0_0_20px_rgba(255,102,0,0.5)] mb-6">
+            B A N D
+        </div>
+
+        <p class="font-tech text-xl sm:text-3xl text-gray-300 tracking-wide max-w-2xl font-semibold mb-8">
+            CLASSIC ROCK • COUNTRY • BLUES
+        </p>
+
+        <!-- Call To Action "Let's Cruise!" -->
+        <div class="space-y-4">
+            <h3 class="font-marker neon-gold-title text-5xl sm:text-7xl -rotate-3 hover:rotate-0 transition-transform duration-300 cursor-pointer">
+                Let's Cruise!
+            </h3>
             
-            <!-- Band Crest / Texas Lone Star Emblem -->
-            <div class="inline-block relative mb-6">
-                <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full bg-gradient-to-br from-amber-700 via-amber-900 to-black p-1 shadow-2xl shadow-amber-900/50 flex items-center justify-center border-4 border-amber-500">
-                    <div class="w-full h-full rounded-full bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden">
-                        <i class="fa-solid fa-star text-4xl sm:text-6xl text-amber-400 drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]"></i>
-                        <span class="font-bebas text-xs text-amber-200 tracking-widest mt-1">EST. TEXAS</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- "THE" Header -->
-            <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 tracking-widest uppercase mb-1 drop-shadow-md">
-                The
-            </h2>
-
-            <!-- Main Band Title Logo -->
-            <h1 class="font-ultra text-5xl sm:text-8xl md:text-9xl uppercase tracking-wider mb-2 leading-none text-red-600 drop-shadow-[0_10px_10px_rgba(0,0,0,0.9)] relative inline-block">
-                <span class="texas-band-title">TEXAS</span>
-            </h1>
-
-            <h2 class="font-ultra text-4xl sm:text-7xl md:text-8xl uppercase tracking-widest text-amber-100 drop-shadow-[0_8px_8px_rgba(0,0,0,0.9)] mb-3">
-                CRUISERS
-            </h2>
-
-            <!-- BAND Badge -->
-            <div class="inline-block bg-amber-950/90 text-amber-300 font-bebas text-2xl sm:text-4xl px-8 py-1 tracking-widest border-y-2 border-amber-500 shadow-xl mb-6">
-                B A N D
-            </div>
-
-            <!-- Tagline -->
-            <p class="font-rye text-xl sm:text-3xl text-amber-200/90 tracking-wide mb-8 drop-shadow">
-                Classic Rock, Country & Blues
-            </p>
-
-            <!-- Let's Cruise Call to Action -->
-            <div class="space-y-4">
-                <h3 class="font-script gold-metallic-text text-5xl sm:text-7xl md:text-8xl -rotate-2 transform transition-transform hover:scale-105 duration-300">
-                    Let's Cruise!
-                </h3>
-                
-                <div class="pt-6 flex flex-wrap justify-center gap-4">
-                    <a href="#shows" class="bg-red-700 hover:bg-red-600 text-white font-bebas text-2xl px-8 py-3 rounded-lg shadow-lg border-2 border-red-400 hover:scale-105 transition-all">
-                        <i class="fa-solid fa-ticket mr-2"></i> Upcoming Shows
-                    </a>
-                    <a href="#music" class="bg-amber-800/80 hover:bg-amber-700 text-amber-100 font-bebas text-2xl px-8 py-3 rounded-lg shadow-lg border-2 border-amber-500 hover:scale-105 transition-all">
-                        <i class="fa-solid fa-play mr-2"></i> Listen Now
-                    </a>
-                </div>
-            </div>
-
-            <!-- Social Quick Links -->
-            <div class="mt-12 flex items-center justify-center gap-6 text-amber-300/80 text-sm sm:text-base font-montserrat">
-                <span>Find us on:</span>
-                <a href="https://facebook.com" id="navFb" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-facebook"></i> Facebook</a>
-                <span>•</span>
-                <a href="https://instagram.com" id="navIg" target="_blank" class="hover:text-pink-400 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <span>•</span>
-                <a href="https://youtube.com" id="navYt" target="_blank" class="hover:text-red-500 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#shows" class="bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-600 hover:to-orange-500 text-white font-bebas text-2xl px-8 py-3 rounded.lg shadow-[0_0_20px_rgba(255,0,0,0.5)] border border-red-400 hover:scale-105 transition-all">
+                    <i class="fa-solid fa-ticket mr-2"></i> Upcoming Shows
+                </a>
+                <a href="#soundboard" class="bg-zinc-900/90 hover:bg-zinc-800 text-amber-400 font-bebas text-2xl px-8 py-3 rounded-lg border border-amber-500/50 hover:scale-105 transition-all shadow-lg">
+                    <i class="fa-solid fa-sliders mr-2"></i> Audio Soundboard
+                </a>
             </div>
         </div>
     </header>
 
     <section id="shows" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-12">
-            <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Upcoming Shows</h2>
-            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-            <p class="mt-3 text-amber-200/80 font-montserrat">Catch The Texas Cruisers Live On Stage!</p>
+            <h2 class="font-rye text-3xl sm:text-5xl text-orange-500 uppercase tracking-wider mb-2">LIVE SHOWS</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto"></div>
+            <p class="mt-2 text-gray-400 font-tech text-lg">Catch The Texas Cruisers Live On Stage</p>
         </div>
 
-        <!-- Shows List Container -->
-        <div id="showsList" class="space-y-4">
-            <!-- Dynamic Shows populated by JS -->
+        <div id="showsContainer" class="space-y-6">
+            <!-- Dynamic Shows Populated via JS -->
         </div>
+    </section>
 
-        <!-- RSVP Modal -->
-        <div id="rsvpModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="wood-card p-6 sm:p-8 rounded-xl max-w-md w-full text-center border-amber-500 relative">
-                <button id="closeRsvp" class="absolute top-4 right-4 text-amber-400 hover:text-white text-xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <i class="fa-solid fa-circle-check text-5xl text-amber-400 mb-4"></i>
-                <h3 class="font-rye text-2xl text-amber-200 mb-2" id="rsvpVenue">Show RSVP</h3>
-                <p class="text-amber-300/90 text-sm mb-6" id="rsvpDetails">You are adding this show to your schedule.</p>
-                <div class="space-y-3">
-                    <button id="confirmRsvpBtn" class="w-full bg-amber-600 hover:bg-amber-500 text-black font-bebas text-xl py-2.5 rounded shadow">
-                        Confirm RSVP
-                    </button>
-                    <button id="addCalendarBtn" onclick="saveToCalendar()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-200 font-bebas text-xl py-2.5 rounded border border-amber-800">
-                        <i class="fa-regular fa-calendar-plus mr-2"></i> Save to Calendar
-                    </button>
-                </div>
+    <section id="band" class="py-16 bg-black/60 border-y-2 border-orange-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-2">MEET THE BAND</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-3"></div>
+                <p class="text-gray-400 font-tech text-lg">The Musician Powerhouse Delivering High-Octane Texas Rock</p>
+            </div>
+
+            <div id="membersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dynamic Band Members Populated via JS -->
             </div>
         </div>
     </section>
 
-    <section id="music" class="py-16 bg-black/60 border-y-2 border-amber-900/60 relative z-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Setlist & Audio Samples</h2>
-                <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-2"></div>
-                <p class="text-amber-200/80">Experience the High-Energy Texas Sound</p>
-            </div>
+    <section id="soundboard" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="font-rye text-3xl sm:text-5xl text-orange-500 uppercase tracking-wider mb-2">ROCK SOUNDBOARD</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto mb-2"></div>
+            <p class="text-gray-400 font-tech text-lg">Live Web Audio Guitar Synth & Riff Sampler</p>
+        </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Audio Player Console Card -->
-                <div class="lg:col-span-7 wood-card p-6 sm:p-8 rounded-2xl relative">
-                    <div class="flex items-center justify-between mb-6 border-b border-amber-900/80 pb-4">
-                        <div class="flex items-center space-x-3">
-                            <i class="fa-solid fa-compact-disc text-amber-400 text-3xl animate-spin" style="animation-duration: 6s;"></i>
-                            <div>
-                                <h3 class="font-bebas text-2xl text-amber-100 tracking-wider">Live Track Sampler</h3>
-                                <p class="text-xs text-amber-400/80 uppercase font-mono" id="currentTrackGenre">Genre: Classic Rock</p>
-                            </div>
-                        </div>
-                        <span class="bg-amber-950 text-amber-400 border border-amber-700/50 font-mono text-xs px-2.5 py-1 rounded">
-                            HD AUDIO SYNTH
-                        </span>
+        <div class="amp-card p-6 sm:p-8 rounded-2xl max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-zinc-800 pb-6 mb-6 gap-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 rounded-full bg-zinc-900 border-2 border-orange-500 flex items-center justify-center shadow-[0_0_15px_rgba(255,102,0,0.5)]">
+                        <i id="soundboardStatusIcon" class="fa-solid fa-volume-high text-orange-400 text-2xl"></i>
                     </div>
-
-                    <!-- Track Info Display -->
-                    <div class="bg-black/80 rounded-xl p-4 mb-6 border border-amber-900/40 text-center">
-                        <div id="nowPlayingTitle" class="font-ultra text-2xl text-amber-300 mb-1">Select a Track</div>
-                        <div id="nowPlayingArtist" class="text-amber-400/80 font-script text-xl">The Texas Cruisers Cover Style</div>
-                        
-                        <!-- Visualizer Waves -->
-                        <div class="flex items-center justify-center space-x-1.5 h-10 mt-4" id="visualizerBars">
-                            <span class="w-1.5 bg-amber-500 h-2 rounded-full transition-all duration-150"></span>
-                            <span class="w-1.5 bg-amber-400 h-4 rounded-full transition-all duration-150"></span>
-                            <span class="w-1.5 bg-yellow-400 h-8 rounded-full transition-all duration-150"></span>
-                            <span class="w-1.5 bg-amber-500 h-5 rounded-full transition-all duration-150"></span>
-                            <span class="w-1.5 bg-amber-600 h-3 rounded-full transition-all duration-150"></span>
-                        </div>
-                    </div>
-
-                    <!-- Controls -->
-                    <div class="flex items-center justify-center space-x-6 mb-6">
-                        <button id="prevBtn" class="text-amber-400 hover:text-amber-200 text-2xl p-2"><i class="fa-solid fa-backward-step"></i></button>
-                        <button id="playBtn" class="w-16 h-16 rounded-full bg-gradient-to-r from-amber-600 to-yellow-500 text-black text-2xl flex items-center justify-center shadow-lg hover:scale-105 transition-all border-2 border-yellow-200">
-                            <i class="fa-solid fa-play ml-1" id="playIcon"></i>
-                        </button>
-                        <button id="nextBtn" class="text-amber-400 hover:text-amber-200 text-2xl p-2"><i class="fa-solid fa-forward-step"></i></button>
-                    </div>
-
-                    <!-- Playlist -->
-                    <div class="space-y-2 max-h-60 overflow-y-auto pr-1" id="playlistContainer">
-                        <!-- Playlist generated by JS -->
-                    </div>
-                </div>
-
-                <!-- Stage Reel Teaser Card -->
-                <div class="lg:col-span-5 wood-card p-6 rounded-2xl flex flex-col justify-between">
                     <div>
-                        <h3 class="font-rye text-2xl text-amber-300 mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-video text-amber-500"></i> Stage Reel
-                        </h3>
-                        <div class="relative aspect-video rounded-xl overflow-hidden bg-black border border-amber-900/60 group shadow-inner">
-                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80" 
-                                 alt="Live Stage Preview" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                                 onerror="this.src='https://placehold.co/800x450/2b170c/d4af37?text=Texas+Cruisers+Live'" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <button onclick="playSampleVideo()" class="w-16 h-16 rounded-full bg-red-600/90 text-white text-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-play ml-1"></i>
-                                </button>
-                            </div>
-                            <span class="absolute bottom-3 left-3 text-xs font-mono bg-black/80 text-amber-300 px-2 py-1 rounded">
-                                Live Stage Performance
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 pt-4 border-t border-amber-900/60">
-                        <p class="text-sm text-amber-200/80 italic">
-                            "Bringing soulful blues solos, infectious country twang, and heavy rock 'n' roll riffs to every venue!"
-                        </p>
+                        <h3 class="font-bebas text-3xl text-amber-300 tracking-wider" id="currentGenreTitle">SELECT SOUND STYLE</h3>
+                        <p class="text-xs font-tech text-orange-400 tracking-widest uppercase" id="currentGenreDesc">Click buttons below to trigger live audio synth riffs</p>
                     </div>
                 </div>
 
+                <!-- Analog VU Meter -->
+                <div class="bg-zinc-950 border-2 border-zinc-700 rounded-lg p-3 w-44 text-center relative overflow-hidden shadow-inner">
+                    <div class="text-[10px] font-tech text-amber-500 uppercase font-bold tracking-widest mb-1">ANALOG OUTPUT VU</div>
+                    <div class="h-10 relative flex items-end justify-center">
+                        <div id="vuNeedle" class="w-0.5 h-8 bg-red-500 origin-bottom transform -rotate-35 transition-transform duration-200"></div>
+                    </div>
+                    <div class="flex justify-between text-[8px] font-mono text-gray-500 -mt-2">
+                        <span>-20</span><span>0</span><span>+3dB</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="band" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
-        <div class="text-center mb-14">
-            <h2 class="font-rye text-4xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-3">Meet The Band</h2>
-            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-3"></div>
-            <p class="text-amber-200/80">The musicians delivering Texas-sized classic rock, country, and blues</p>
-        </div>
+            <!-- Soundboard Trigger Buttons Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <button onclick="playGuitarRiff('rock')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-orange-950 hover:to-black border-2 border-orange-600/60 hover:border-orange-400 p-5 rounded-xl text-left transition-all group shadow-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-bolt text-orange-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-orange-950 text-orange-400 border border-orange-700 px-2 py-0.5 rounded">HEAVY RIFF</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">CLASSIC ROCK</h4>
+                    <p class="text-xs text-gray-400">Distorted electric guitar solo drive</p>
+                </button>
 
-        <div id="bandMembersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Band members populated by JS -->
+                <button onclick="playGuitarRiff('country')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-amber-950 hover:to-black border-2 border-amber-600/60 hover:border-amber-400 p-5 rounded-xl text-left transition-all group shadow-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-guitar text-amber-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-amber-950 text-amber-400 border border-amber-700 px-2 py-0.5 rounded">TWANG PICK</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">COUNTRY TWANG</h4>
+                    <p class="text-xs text-gray-400">Clean southern telecaster style shuffle</p>
+                </button>
+
+                <button onclick="playGuitarRiff('blues')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-red-950 hover:to-black border-2 border-red-600/60 hover:border-red-400 p-5 rounded-xl text-left transition-all group shadow-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-music text-red-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-red-950 text-red-400 border border-red-700 px-2 py-0.5 rounded">SOUL BEND</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">TEXAS BLUES</h4>
+                    <p class="text-xs text-gray-400">Warm expressively bent blues scale</p>
+                </button>
+            </div>
         </div>
     </section>
 
     <section id="booking" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
-        <div class="wood-card p-8 sm:p-12 rounded-3xl border-2 border-amber-600 relative shadow-2xl">
+        <div class="amp-card p-8 sm:p-12 rounded-3xl border-2 border-orange-600">
             <div class="text-center mb-8">
-                <i class="fa-solid fa-star text-amber-400 text-3xl mb-2"></i>
-                <h2 class="font-rye text-3xl sm:text-5xl text-amber-300 uppercase">Book The Band</h2>
-                <p class="text-amber-200/80 mt-2">Available for Private Events, Festivals, Clubs, & Weddings across Texas</p>
+                <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 uppercase">BOOK THE BAND</h2>
+                <p class="text-gray-400 font-tech text-lg mt-1">Festivals, Clubs, Rodeos & Private Events across Texas</p>
             </div>
 
-            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+            <form onsubmit="handleBooking(event)" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-bebas text-lg text-amber-200 mb-1">Your Full Name *</label>
-                        <input type="text" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="e.g. John Doe">
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Your Name *</label>
+                        <input type="text" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block font-bebas text-lg text-amber-200 mb-1">Email Address *</label>
-                        <input type="email" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="john@example.com">
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Email Address *</label>
+                        <input type="email" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="john@example.com">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-bebas text-lg text-amber-200 mb-1">Event Date *</label>
-                        <input type="date" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400">
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Event Date *</label>
+                        <input type="date" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500">
                     </div>
                     <div>
-                        <label class="block font-bebas text-lg text-amber-200 mb-1">Event Type</label>
-                        <select class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400">
-                            <option>Venue / Music Hall</option>
-                            <option>Private Party / Rodeo</option>
-                            <option>Festival / Fair</option>
-                            <option>Wedding Reception</option>
-                            <option>Corporate Event</option>
-                        </select>
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Event Venue / Location *</label>
+                        <input type="text" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="Venue Name & City">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block font-bebas text-lg text-amber-200 mb-1">Venue Name & Location *</label>
-                    <input type="text" required class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="e.g. NorthShore Park, The Woodlands, TX">
+                    <label class="block font-bebas text-xl text-amber-300 mb-1">Message Details</label>
+                    <textarea rows="4" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="Tell us about the event duration, stage size, or special song requests..."></textarea>
                 </div>
 
-                <div>
-                    <label class="block font-bebas text-lg text-amber-200 mb-1">Message / Details</label>
-                    <textarea rows="4" class="w-full bg-black/70 border border-amber-800 rounded-lg px-4 py-3 text-amber-100 focus:outline-none focus:border-amber-400" placeholder="Tell us about set times, expected attendance, stage size..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-red-700 via-amber-600 to-red-700 hover:from-red-600 hover:to-amber-500 text-white font-bebas text-2xl py-4 rounded-xl shadow-xl border border-yellow-300/40 transform hover:scale-[1.01] transition-all">
-                    <i class="fa-solid fa-paper-plane mr-2"></i> Submit Booking Request
+                <button type="submit" class="w-full bg-gradient-to-r from-red-600 via-orange-500 to-red-600 hover:from-red-500 hover:to-orange-400 text-black font-bebas text-3xl py-4 rounded-xl font-bold tracking-wider shadow-[0_0_20px_rgba(255,102,0,0.6)] transition-all transform hover:scale-[1.01]">
+                    SUBMIT BOOKING REQUEST
                 </button>
             </form>
 
-            <!-- Success Notification Message Box -->
-            <div id="bookingSuccess" class="hidden mt-6 bg-green-950/90 border border-green-500 text-green-200 p-6 rounded-xl text-center">
-                <i class="fa-solid fa-circle-check text-4xl text-green-400 mb-2"></i>
-                <h4 class="font-rye text-xl mb-1">Request Received!</h4>
-                <p class="text-sm">Thank you for reaching out. The Texas Cruisers management will respond shortly!</p>
+            <div id="bookingConfirmation" class="hidden mt-6 bg-green-950/90 border border-green-500 p-6 rounded-xl text-center text-green-300">
+                <i class="fa-solid fa-circle-check text-4xl mb-2 text-green-400"></i>
+                <h4 class="font-bebas text-2xl text-white">BOOKING REQUEST RECEIVED!</h4>
+                <p class="text-sm font-tech">Thank you! The Texas Cruisers management will respond promptly.</p>
             </div>
         </div>
     </section>
 
-    <div id="adminModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[100] hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        <div class="wood-card p-6 sm:p-8 rounded-2xl max-w-3xl w-full border-2 border-amber-500 relative max-h-[90vh] overflow-y-auto z-[101]">
-            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-amber-400 hover:text-white text-2xl cursor-pointer">
+    <!-- Floating Admin Quick Launcher -->
+    <button onclick="openAdminModal()" title="Open Admin Manager" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-orange-600 to-amber-400 text-black shadow-[0_0_25px_rgba(255,102,0,0.8)] flex items-center justify-center text-2xl hover:scale-110 transition-transform cursor-pointer border-2 border-white">
+        <i class="fa-solid fa-sliders"></i>
+    </button>
+
+    <!-- Admin Editor Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="amp-card p-6 sm:p-8 rounded-2xl max-w-2xl w-full border-2 border-orange-500 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            
-            <div class="flex items-center space-x-3 mb-6 border-b border-amber-800/80 pb-4">
-                <i class="fa-solid fa-sliders text-amber-400 text-3xl"></i>
+
+            <div class="flex items-center space-x-3 mb-6 border-b border-zinc-800 pb-4">
+                <i class="fa-solid fa-sliders text-orange-500 text-3xl"></i>
                 <div>
-                    <h3 class="font-rye text-2xl text-amber-200">Band Admin Manager</h3>
-                    <p class="text-xs font-mono text-amber-400/80">Live visual customization panel — Save changes instantly</p>
+                    <h3 class="font-rye text-2xl text-amber-400">BAND MANAGER ADMIN</h3>
+                    <p class="text-xs font-tech text-gray-400">Live content updates with local storage save</p>
                 </div>
             </div>
 
-            <!-- Admin Tabs -->
-            <div class="flex border-b border-amber-900/60 mb-6 space-x-4 font-bebas text-lg">
-                <button onclick="switchAdminTab('shows')" id="tabShowsBtn" class="py-2 border-b-2 border-amber-400 text-amber-300 cursor-pointer">Manage Shows</button>
-                <button onclick="switchAdminTab('members')" id="tabMembersBtn" class="py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300 cursor-pointer">Band Members</button>
-                <button onclick="switchAdminTab('socials')" id="tabSocialsBtn" class="py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300 cursor-pointer">Social Links</button>
-            </div>
-
-            <!-- Admin Tab 1: Shows -->
-            <div id="adminTabShows" class="space-y-6">
-                <div class="bg-black/60 p-4 rounded-xl border border-amber-900/60">
-                    <h4 class="font-bebas text-xl text-amber-300 mb-3"><i class="fa-solid fa-plus mr-1"></i> Add New Show Date</h4>
-                    <form onsubmit="adminAddShow(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        <input id="newShowDate" type="text" placeholder="Date (e.g. OCT 10)" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
-                        <input id="newShowYear" type="text" placeholder="Year (e.g. 2026)" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
-                        <input id="newShowTitle" type="text" placeholder="Event / Venue Name" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
-                        <input id="newShowCity" type="text" placeholder="City, State" required class="bg-zinc-900 border border-amber-800 rounded p-2 text-amber-100">
-                        <button type="submit" class="sm:col-span-2 bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg py-2 rounded cursor-pointer">Add Show To Schedule</button>
-                    </form>
+            <!-- Admin Editor Form -->
+            <div class="space-y-6">
+                <!-- Edit Show Info -->
+                <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                    <h4 class="font-bebas text-xl text-orange-400 mb-3"><i class="fa-solid fa-calendar-days mr-2"></i>Edit Next Show Details</h4>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Show Date</label>
+                            <input id="adminShowDate" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Event Title</label>
+                            <input id="adminShowTitle" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Venue & Location</label>
+                            <input id="adminShowLocation" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bebas text-xl text-amber-300 mb-3">Current Shows</h4>
-                    <div id="adminShowsList" class="space-y-2 max-h-52 overflow-y-auto pr-1"></div>
+                <!-- Save / Reset Controls -->
+                <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                    <button onclick="resetDataToDefault()" class="text-xs text-red-400 hover:underline">Reset Defaults</button>
+                    <div class="space-x-3">
+                        <button onclick="closeAdminModal()" class="bg-zinc-800 hover:bg-zinc-700 text-gray-300 font-bebas px-4 py-2 rounded">Cancel</button>
+                        <button onclick="saveAdminChanges()" class="bg-orange-600 hover:bg-orange-500 text-black font-bebas px-6 py-2 rounded font-bold">Save Changes</button>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Admin Tab 2: Band Members -->
-            <div id="adminTabMembers" class="hidden space-y-4">
-                <p class="text-xs text-amber-300/80">Edit member names and roles below:</p>
-                <div id="adminMembersList" class="space-y-3"></div>
-            </div>
-
-            <!-- Admin Tab 3: Social Links -->
-            <div id="adminTabSocials" class="hidden space-y-4">
-                <div>
-                    <label class="block font-bebas text-amber-200 mb-1">Facebook URL</label>
-                    <input id="adminFbUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://facebook.com/yourband">
-                </div>
-                <div>
-                    <label class="block font-bebas text-amber-200 mb-1">Instagram URL</label>
-                    <input id="adminIgUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://instagram.com/yourband">
-                </div>
-                <div>
-                    <label class="block font-bebas text-amber-200 mb-1">YouTube URL</label>
-                    <input id="adminYtUrl" type="text" class="w-full bg-zinc-900 border border-amber-800 rounded p-2.5 text-amber-100" placeholder="https://youtube.com/yourband">
-                </div>
-                <button onclick="saveAdminSocials()" class="w-full bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg py-2 rounded cursor-pointer">Save Social Links</button>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-amber-900/60 flex justify-between items-center">
-                <button onclick="resetDefaultData()" class="text-xs text-red-400 hover:underline cursor-pointer">Reset to Default Data</button>
-                <button onclick="toggleAdminModal()" class="bg-zinc-800 hover:bg-zinc-700 text-amber-200 font-bebas px-6 py-2 rounded cursor-pointer">Close</button>
             </div>
         </div>
     </div>
 
-    <footer class="bg-black/90 border-t-2 border-amber-800 pt-12 pb-8 relative z-10 text-center">
+    <!-- Footer Section -->
+    <footer class="bg-black border-t-2 border-orange-900/60 py-12 relative z-10 text-center">
         <div class="max-w-6xl mx-auto px-4">
-            
-            <!-- Band Logo in Footer -->
-            <h3 class="font-ultra text-3xl text-amber-400 uppercase tracking-widest mb-1">
-                The Texas Cruisers Band
-            </h3>
-            <p class="font-script gold-metallic-text text-3xl mb-6">Let's Cruise!</p>
+            <h3 class="font-bebas text-4xl text-orange-500 tracking-widest mb-1">THE TEXAS CRUISERS BAND</h3>
+            <p class="font-marker neon-gold-title text-3xl mb-6">Let's Cruise!</p>
 
-            <!-- Social Media Buttons -->
-            <div class="flex justify-center items-center space-x-6 mb-8">
-                <a href="https://facebook.com" id="footerFb" target="_blank" aria-label="Facebook" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+            <div class="flex justify-center space-x-6 mb-8 text-2xl">
+                <a href="https://facebook.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
                     <i class="fa-brands fa-facebook-f"></i>
                 </a>
-                <a href="https://instagram.com" id="footerIg" target="_blank" aria-label="Instagram" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+                <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://youtube.com" id="footerYt" target="_blank" aria-label="YouTube" class="w-14 h-14 rounded-full bg-amber-950 border-2 border-amber-600 flex items-center justify-center text-amber-300 text-2xl hover:bg-amber-600 hover:text-black transition-all hover:scale-110 shadow-lg">
+                <a href="https://youtube.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
             </div>
 
-            <div class="mb-4">
-                <button onclick="toggleAdminModal()" class="text-xs font-mono text-amber-500 hover:text-amber-300 underline">
-                    <i class="fa-solid fa-gear mr-1"></i> Band Admin Panel
-                </button>
-            </div>
-
-            <div class="border-t border-amber-950 pt-6 text-amber-400/60 text-xs font-mono space-y-2">
-                <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved. Classic Rock, Country & Blues.</p>
-                <p>Designed & Coded with Texas Pride ★</p>
-            </div>
+            <p class="text-xs font-tech text-gray-500">&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // --- Default Data Structures ---
-        const initialShows = [
+        // Inline SVG Instrument Fallbacks
+        const svgGuitar = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23ff6600'><path d='M494.3 17.7c-23.6-23.6-61.9-23.6-85.5 0L247.5 179c-7.2-2.3-14.8-3.5-22.6-3.5-44.2 0-80 35.8-80 80 0 10.3 2 20.2 5.6 29.3L16 419.3c-21.3 21.3-21.3 55.9 0 77.2 21.3 21.3 55.9 21.3 77.2 0l134.5-134.5c9.1 3.7 19 5.6 29.3 5.6 44.2 0 80-35.8 80-80 0-7.8-1.2-15.4-3.5-22.6l161.3-161.3c23.6-23.6 23.6-61.9 0-85.5z'/></svg>`;
+
+        // Band Members Roster Data
+        const bandMembers = [
             {
-                id: 1,
-                date: "OCT 10",
-                year: "2026",
-                venue: "The Herman Memorial 10 for Texas Run",
-                city: "North Shore Park, The Woodlands, Texas",
-                status: "Next Featured Show",
-                highlight: true
+                name: "Chris Oliver",
+                role: "Lead Vocals",
+                bio: "Commanding lead vocalist with high-octane Texas rock grit and soulful blues dynamics.",
+                bg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
+                icon: "fa-microphone"
+            },
+            {
+                name: "Mark McFarlane",
+                role: "Bass Guitar",
+                bio: "Laying down thunderous bass lines and solid rhythm grooves for every classic anthem.",
+                bg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
+                icon: "fa-wave-square"
+            },
+            {
+                name: "Al Montez",
+                role: "Lead Guitar",
+                bio: "Firing off searing electric guitar solos, heavy overdrive riffs, and classic blues bends.",
+                bg: "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80",
+                icon: "fa-guitar"
+            },
+            {
+                name: "Brian Martin",
+                role: "Drums",
+                bio: "The driving tempo engine delivering rock-solid beats and high-energy drum solos.",
+                bg: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80",
+                icon: "fa-drum"
             }
         ];
 
-        const initialMembers = [
-            { id: 1, name: 'Chris Oliver', role: 'Lead Vocals', bio: 'Powerhouse vocalist bringing unmatched soul and energy to every Texas classic.', img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80' },
-            { id: 2, name: 'Mark McFarlane', role: 'Bass', bio: 'Laying down deep southern bass grooves that anchor the Band rhythm.', img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80' },
-            { id: 3, name: 'Al Montez', role: 'Lead Guitar', bio: 'Firing off blistering guitar solos and classic blues riffs with fiery passion.', img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=600&q=80' },
-            { id: 4, name: 'Brian Martin', role: 'Drums', bio: 'The heartbeat of the band, rock-solid country shuffles and classic rock beats.', img: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80' }
-        ];
+        // Default Show Data
+        let currentShow = JSON.parse(localStorage.getItem('tc_next_show')) || {
+            date: "October 10, 2026",
+            title: "Herman Memorial 10 for Texas Run",
+            location: "North Shore Park, The Woodlands, Texas"
+        };
 
-        let showsData = JSON.parse(localStorage.getItem('tc_shows')) || initialShows;
-        let membersData = JSON.parse(localStorage.getItem('tc_members')) || initialMembers;
+        // Render Band Members Grid
+        function renderBandMembers() {
+            const grid = document.getElementById('membersGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
 
-        // Ensure default data contains updated titles if stored previously
-        if (showsData.length > 0 && showsData[0].venue.includes("10 to Texas")) {
-            showsData[0].venue = "The Herman Memorial 10 for Texas Run";
-            showsData[0].city = "North Shore Park, The Woodlands, Texas";
-            localStorage.setItem('tc_shows', JSON.stringify(showsData));
+            bandMembers.forEach(m => {
+                const card = document.createElement('div');
+                card.className = "amp-card rounded-2xl overflow-hidden group hover:border-orange-500 transition-all duration-300 shadow-xl flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="h-64 overflow-hidden relative bg-zinc-950">
+                        <img src="${m.bg}" alt="${m.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80" onerror="this.src='${svgGuitar}'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center">
+                            <span class="bg-orange-600/90 text-black font-bebas text-lg px-3 py-0.5 rounded font-bold uppercase tracking-wider">${m.role}</span>
+                            <i class="fa-solid ${m.icon} text-orange-400 text-xl drop-shadow-[0_0_8px_rgba(255,102,0,0.8)]"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-gradient-to-b from-zinc-950 to-black">
+                        <h3 class="font-bebas text-3xl text-amber-300 mb-1 tracking-wide">${m.name}</h3>
+                        <p class="text-xs font-tech text-orange-400 uppercase font-bold tracking-widest mb-2 border-b border-zinc-800 pb-1">${m.role}</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">${m.bio}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        // --- Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-        // --- Render Shows ---
+        // Render Shows Section
         function renderShows() {
-            const container = document.getElementById('showsList');
+            const container = document.getElementById('showsContainer');
             if (!container) return;
-            container.innerHTML = '';
-
-            showsData.forEach(show => {
-                const card = document.createElement('div');
-                card.className = `wood-card p-5 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 border-l-4 ${
-                    show.highlight ? 'border-l-red-500 bg-amber-950/40' : 'border-l-amber-500'
-                } hover:scale-[1.01] transition-transform shadow-xl`;
-
-                card.innerHTML = `
-                    <div class="flex items-center space-x-4 w-full md:w-auto">
-                        <div class="bg-amber-950 border border-amber-600 text-center px-4 py-2 rounded-lg min-w-[85px] shadow-inner">
-                            <span class="block font-bebas text-2xl text-amber-400 leading-none">${show.date}</span>
-                            <span class="block text-xs font-mono text-amber-200/70">${show.year}</span>
+            container.innerHTML = `
+                <div class="amp-card p-6 sm:p-8 rounded-2xl border-l-8 border-l-red-600 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                    <div class="flex items-center space-x-6">
+                        <div class="bg-black border-2 border-orange-500 rounded-xl p-4 text-center min-w-[100px] shadow-[0_0_15px_rgba(255,102,0,0.4)]">
+                            <span class="block font-bebas text-3xl text-orange-400 leading-none">${currentShow.date.split(',')[0]}</span>
+                            <span class="block text-xs font-tech text-gray-400">${currentShow.date.split(',')[1] || '2026'}</span>
                         </div>
                         <div>
-                            <h4 class="font-rye text-xl sm:text-2xl text-amber-100 flex items-center gap-2 flex-wrap">
-                                ${show.venue}
-                                ${show.highlight ? '<span class="bg-red-600 text-white font-bebas text-xs px-2 py-0.5 rounded tracking-wide uppercase shadow">NEXT SHOW</span>' : ''}
-                            </h4>
-                            <p class="text-sm text-amber-300/90 mt-1"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i>${show.city}</p>
+                            <span class="bg-red-600 text-black font-bebas text-xs px-2.5 py-0.5 rounded font-bold uppercase tracking-wider">NEXT FEATURED SHOW</span>
+                            <h3 class="font-bebas text-3xl sm:text-4xl text-white mt-1">${currentShow.title}</h3>
+                            <p class="text-amber-400 text-sm font-tech"><i class="fa-solid fa-location-dot mr-1"></i>${currentShow.location}</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-3 w-full md:w-auto justify-end">
-                        <span class="text-xs font-mono bg-red-950/80 border border-red-700/60 text-red-300 px-3 py-1 rounded-full hidden sm:inline-block">
-                            ${show.status || 'Live Show'}
-                        </span>
-                        <button onclick="openRsvp('${show.venue.replace(/'/g, "\\'")}', '${show.date}, ${show.year} - ${show.city.replace(/'/g, "\\'")}')" class="bg-amber-600 hover:bg-amber-500 text-black font-bebas text-lg px-6 py-2 rounded-md transition-colors shadow cursor-pointer">
-                            RSVP / Info
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+                    <a href="#booking" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-bebas text-xl px-6 py-2.5 rounded-lg font-bold shadow-md hover:scale-105 transition-all">
+                        Book Event / Details
+                    </a>
+                </div>
 
-            // Coming Soon Notice Card
-            const comingSoonCard = document.createElement('div');
-            comingSoonCard.className = "wood-card p-6 rounded-xl text-center border-dashed border-amber-600/60 bg-amber-950/20";
-            comingSoonCard.innerHTML = `
-                <i class="fa-solid fa-bullhorn text-3xl text-amber-400 mb-2"></i>
-                <h4 class="font-rye text-2xl text-amber-200">More Shows Coming Soon!</h4>
-                <p class="text-amber-300/80 text-sm mt-1">We are booking new venues across Texas for late 2026. Stay tuned!</p>
+                <div class="amp-card p-6 rounded-2xl text-center border-dashed border-zinc-700">
+                    <i class="fa-solid fa-compact-disc text-3xl text-orange-500 mb-2 animate-vinyl"></i>
+                    <h4 class="font-bebas text-2xl text-gray-300">MORE DATES COMING SOON!</h4>
+                    <p class="text-gray-400 text-sm font-tech">We are currently booking late 2026 Texas club & festival tour dates.</p>
+                </div>
             `;
-            container.appendChild(comingSoonCard);
         }
 
-        // --- Render Band Members ---
-        function renderMembers() {
-            const container = document.getElementById('bandMembersGrid');
-            if (!container) return;
-            container.innerHTML = '';
-
-            membersData.forEach(member => {
-                const card = document.createElement('div');
-                card.className = "wood-card rounded-xl overflow-hidden group hover:border-amber-400 transition-all duration-300 shadow-xl border border-amber-800/80 bg-zinc-950/90";
-                card.innerHTML = `
-                    <div class="h-64 overflow-hidden relative bg-black">
-                        <img src="${member.img}" alt="${member.name}" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                             onerror="this.src='https://placehold.co/400x500/1e0e06/ffffff?text=${encodeURIComponent(member.name)}'" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                        <div class="absolute bottom-2 left-3 right-3 flex justify-between items-end">
-                            <span class="font-bebas text-amber-400 text-xl tracking-wider uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] bg-black/60 px-2 py-0.5 rounded border border-amber-500/30">${member.role}</span>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-gradient-to-b from-zinc-950 to-black">
-                        <h3 class="font-rye text-2xl text-amber-200 mb-1 drop-shadow-md text-amber-300 tracking-wide">${member.name}</h3>
-                        <p class="text-xs font-mono text-amber-400 font-bold mb-2 uppercase tracking-widest border-b border-amber-900/50 pb-1">${member.role}</p>
-                        <p class="text-sm text-amber-100/90 leading-relaxed">${member.bio}</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // --- Admin Manager Modal Logic ---
-        function toggleAdminModal() {
-            const modal = document.getElementById('adminModal');
-            if (!modal) return;
-            
-            modal.classList.toggle('hidden');
-            if (!modal.classList.contains('hidden')) {
-                renderAdminShowsList();
-                renderAdminMembersList();
+        // Web Audio API Guitar Synth Soundboard
+        let audioCtx = null;
+        function playGuitarRiff(type) {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
-        }
 
-        function switchAdminTab(tabName) {
-            document.getElementById('adminTabShows').classList.add('hidden');
-            document.getElementById('adminTabMembers').classList.add('hidden');
-            document.getElementById('adminTabSocials').classList.add('hidden');
+            const vuNeedle = document.getElementById('vuNeedle');
+            const genreTitle = document.getElementById('currentGenreTitle');
+            const genreDesc = document.getElementById('currentGenreDesc');
 
-            document.getElementById('tabShowsBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300 cursor-pointer";
-            document.getElementById('tabMembersBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300 cursor-pointer";
-            document.getElementById('tabSocialsBtn').className = "py-2 border-b-2 border-transparent text-amber-500 hover:text-amber-300 cursor-pointer";
+            if (vuNeedle) vuNeedle.classList.add('vu-needle-active');
 
-            if (tabName === 'shows') {
-                document.getElementById('adminTabShows').classList.remove('hidden');
-                document.getElementById('tabShowsBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300 cursor-pointer";
-            } else if (tabName === 'members') {
-                document.getElementById('adminTabMembers').classList.remove('hidden');
-                document.getElementById('tabMembersBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300 cursor-pointer";
-            } else if (tabName === 'socials') {
-                document.getElementById('adminTabSocials').classList.remove('hidden');
-                document.getElementById('tabSocialsBtn').className = "py-2 border-b-2 border-amber-400 text-amber-300 cursor-pointer";
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = type === 'rock' ? 'sawtooth' : (type === 'country' ? 'triangle' : 'square');
+
+            if (type === 'rock') {
+                genreTitle.innerText = "CLASSIC ROCK POWER RIFF";
+                genreDesc.innerText = "Playing Overdriven Sawtooth Lead Scale";
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.exponentialRampToValueAtTime(440, now + 0.2);
+                osc.frequency.exponentialRampToValueAtTime(330, now + 0.4);
+            } else if (type === 'country') {
+                genreTitle.innerText = "COUNTRY TELECASTER TWANG";
+                genreDesc.innerText = "Playing Sharp Major Pentatonic Bend";
+                osc.frequency.setValueAtTime(293.66, now);
+                osc.frequency.exponentialRampToValueAtTime(587.33, now + 0.3);
+            } else {
+                genreTitle.innerText = "TEXAS BLUES BEND";
+                genreDesc.innerText = "Playing Warm Expressive Blues Scale";
+                osc.frequency.setValueAtTime(196, now);
+                osc.frequency.exponentialRampToValueAtTime(392, now + 0.5);
             }
+
+            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.6);
+
+            setTimeout(() => {
+                if (vuNeedle) vuNeedle.classList.remove('vu-needle-active');
+            }, 600);
         }
 
-        function renderAdminShowsList() {
-            const list = document.getElementById('adminShowsList');
-            if (!list) return;
-            list.innerHTML = '';
-            showsData.forEach((show, index) => {
-                const item = document.createElement('div');
-                item.className = "flex items-center justify-between bg-zinc-900 p-2.5 rounded border border-amber-900/40 text-xs";
-                item.innerHTML = `
-                    <div>
-                        <span class="font-bold text-amber-400 mr-2">${show.date}, ${show.year}</span>
-                        <span class="text-amber-100">${show.venue} (${show.city})</span>
-                    </div>
-                    <button onclick="deleteShow(${index})" class="text-red-400 hover:text-red-300 font-bold px-2 py-1 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
-                `;
-                list.appendChild(item);
-            });
+        // Admin Modal Controls
+        function openAdminModal() {
+            document.getElementById('adminShowDate').value = currentShow.date;
+            document.getElementById('adminShowTitle').value = currentShow.title;
+            document.getElementById('adminShowLocation').value = currentShow.location;
+            document.getElementById('adminModal').classList.remove('hidden');
         }
 
-        function adminAddShow(e) {
-            e.preventDefault();
-            const newShow = {
-                id: Date.now(),
-                date: document.getElementById('newShowDate').value.toUpperCase(),
-                year: document.getElementById('newShowYear').value,
-                venue: document.getElementById('newShowTitle').value,
-                city: document.getElementById('newShowCity').value,
-                status: "Tickets / Info",
-                highlight: false
-            };
-            showsData.push(newShow);
-            localStorage.setItem('tc_shows', JSON.stringify(showsData));
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function saveAdminChanges() {
+            currentShow.date = document.getElementById('adminShowDate').value;
+            currentShow.title = document.getElementById('adminShowTitle').value;
+            currentShow.location = document.getElementById('adminShowLocation').value;
+
+            localStorage.setItem('tc_next_show', JSON.stringify(currentShow));
             renderShows();
-            renderAdminShowsList();
+            closeAdminModal();
+        }
+
+        function resetDataToDefault() {
+            localStorage.removeItem('tc_next_show');
+            currentShow = {
+                date: "October 10, 2026",
+                title: "Herman Memorial 10 for Texas Run",
+                location: "North Shore Park, The Woodlands, Texas"
+            };
+            renderShows();
+            closeAdminModal();
+        }
+
+        // Booking Form Submission Handler
+        function handleBooking(e) {
+            e.preventDefault();
+            document.getElementById('bookingConfirmation').classList.remove('hidden');
             e.target.reset();
         }
 
-        function deleteShow(index) {
-            showsData.splice(index, 1);
-            localStorage.setItem('tc_shows', JSON.stringify(showsData));
-            renderShows();
-            renderAdminShowsList();
-        }
+        // Animated Particle Background Canvas
+        function initStageLights() {
+            const canvas = document.getElementById('stageCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
 
-        function renderAdminMembersList() {
-            const list = document.getElementById('adminMembersList');
-            if (!list) return;
-            list.innerHTML = '';
-            membersData.forEach((m, idx) => {
-                const item = document.createElement('div');
-                item.className = "bg-zinc-900 p-3 rounded border border-amber-900/40 space-y-2 text-xs";
-                item.innerHTML = `
-                    <div class="grid grid-cols-2 gap-2">
-                        <div>
-                            <label class="block text-amber-400 text-[10px] uppercase font-mono mb-0.5">Member Name</label>
-                            <input id="memName_${idx}" type="text" value="${m.name}" class="bg-black p-1.5 border border-amber-800 rounded text-amber-200 w-full">
-                        </div>
-                        <div>
-                            <label class="block text-amber-400 text-[10px] uppercase font-mono mb-0.5">Role / Instrument</label>
-                            <input id="memRole_${idx}" type="text" value="${m.role}" class="bg-black p-1.5 border border-amber-800 rounded text-amber-200 w-full">
-                        </div>
-                    </div>
-                    <button onclick="saveMember(${idx})" class="bg-amber-700 hover:bg-amber-600 text-black px-3 py-1 rounded font-bebas text-sm cursor-pointer">Save Member Info</button>
-                `;
-                list.appendChild(item);
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
             });
-        }
 
-        function saveMember(idx) {
-            membersData[idx].name = document.getElementById(`memName_${idx}`).value;
-            membersData[idx].role = document.getElementById(`memRole_${idx}`).value;
-            localStorage.setItem('tc_members', JSON.stringify(membersData));
-            renderMembers();
-            alert('Member details saved successfully!');
-        }
+            const particles = Array.from({ length: 40 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 3 + 1,
+                speedY: Math.random() * 1 + 0.2,
+                opacity: Math.random() * 0.5 + 0.2
+            }));
 
-        function saveAdminSocials() {
-            const fb = document.getElementById('adminFbUrl').value;
-            const ig = document.getElementById('adminIgUrl').value;
-            const yt = document.getElementById('adminYtUrl').value;
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 102, 0, ${p.opacity})`;
+                    ctx.fill();
 
-            if (fb) {
-                document.getElementById('navFb').href = fb;
-                document.getElementById('footerFb').href = fb;
-            }
-            if (ig) {
-                document.getElementById('navIg').href = ig;
-                document.getElementById('footerIg').href = ig;
-            }
-            if (yt) {
-                document.getElementById('navYt').href = yt;
-                document.getElementById('footerYt').href = yt;
-            }
-            alert('Social media links updated!');
-        }
-
-        function resetDefaultData() {
-            if (confirm("Reset website data back to standard setup?")) {
-                localStorage.removeItem('tc_shows');
+                    p.y -= p.speedY;
+                    if (p.y < 0) {
+                        p.y = height;
+                        p.x = Math.random() * width;
+                    }

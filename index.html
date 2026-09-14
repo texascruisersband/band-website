@@ -521,18 +521,19 @@
       height: 35px;
     }
 
-    .video-placeholder {
+    .video-container {
       width: 100%;
-      height: 220px;
+      height: 240px;
       background: #000;
       border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
       border: 1px solid #4a3219;
-      color: #ffd700;
-      gap: 10px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* BOOKING & COMMENTS SECTION */
@@ -633,8 +634,10 @@
       background: #120904;
       border: 3px solid #ffd700;
       border-radius: 12px;
-      max-width: 550px;
+      max-width: 600px;
       width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
       padding: 30px;
       box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
       position: relative;
@@ -649,17 +652,28 @@
       cursor: pointer;
     }
 
+    .admin-section-divider {
+      border-bottom: 1px solid #5a3a1b;
+      margin: 20px 0 15px 0;
+      padding-bottom: 5px;
+      color: #ffd700;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
     .admin-field-group {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     .admin-field-group label {
-      color: #ffd700;
+      color: #d1b894;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .admin-field-group input {
@@ -668,7 +682,7 @@
       border: 1px solid #5a3a1b;
       border-radius: 6px;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     /* FLOATING BUTTON */
@@ -873,32 +887,16 @@
       <!-- Audio Player Box -->
       <div class="media-card">
         <h3><i class="fa-solid fa-music"></i> Audio Demos</h3>
-        
-        <div class="track-item">
-          <div class="track-title">Texas Cruisers Jam (Live Sample 1)</div>
-          <audio controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Your browser does not support audio elements.
-          </audio>
-        </div>
-
-        <div class="track-item">
-          <div class="track-title">Classic Country Rock Medley</div>
-          <audio controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-          </audio>
+        <div id="audioTracksContainer">
+          <!-- Rendered via JS -->
         </div>
       </div>
 
       <!-- Video Box -->
       <div class="media-card">
         <h3><i class="fa-solid fa-video"></i> Live Performance Video</h3>
-        <div class="video-placeholder">
-          <i class="fa-brands fa-youtube" style="font-size: 3.5rem; color: #ff0000;"></i>
-          <span style="font-weight: bold;">Watch Texas Cruisers Live</span>
-          <a href="https://facebook.com/thetexascruisersband" target="_blank" class="btn-primary" style="padding: 6px 16px; font-size: 0.8rem;">
-            Visit Facebook Videos
-          </a>
+        <div class="video-container" id="videoContainer">
+          <!-- Rendered via JS -->
         </div>
       </div>
     </div>
@@ -975,7 +973,7 @@
   <div class="modal-overlay" id="adminModalOverlay">
     <div class="modal-box">
       <span class="modal-close-btn" onclick="closeAdminEditorModal()">&times;</span>
-      <h2 style="font-family: 'Rye', serif; color: #ffd700; margin-bottom: 20px;">
+      <h2 style="font-family: 'Rye', serif; color: #ffd700; margin-bottom: 10px;">
         <i class="fa-solid fa-sliders"></i> Band Admin Editor
       </h2>
 
@@ -983,7 +981,7 @@
       <div id="loginStep">
         <div class="admin-field-group">
           <label>Enter Admin Password:</label>
-          <input type="password" id="adminPasswordInput" placeholder="Password">
+          <input type="password" id="adminPasswordInput" placeholder="Password (default: texas2026)">
         </div>
         <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="verifyAdminPassword()">
           Unlock Admin Editor
@@ -992,6 +990,9 @@
 
       <!-- Editing View (Hidden until password verified) -->
       <div id="editorStep" style="display: none;">
+        
+        <!-- SHOW MANAGEMENT -->
+        <div class="admin-section-divider"><i class="fa-solid fa-calendar-days"></i> Upcoming Show Info</div>
         <div class="admin-field-group">
           <label>Show Title:</label>
           <input type="text" id="editShowTitle">
@@ -1005,12 +1006,38 @@
           <input type="text" id="editShowVenue">
         </div>
         <div class="admin-field-group">
-          <label>City & State:</label>
+          <label>City &amp; State:</label>
           <input type="text" id="editShowLocation">
         </div>
 
+        <!-- MUSIC MANAGEMENT -->
+        <div class="admin-section-divider"><i class="fa-solid fa-music"></i> Audio Tracks</div>
+        <div class="admin-field-group">
+          <label>Song 1 Title:</label>
+          <input type="text" id="editSong1Title">
+        </div>
+        <div class="admin-field-group">
+          <label>Song 1 Audio File / MP3 Link:</label>
+          <input type="text" id="editSong1Url">
+        </div>
+        <div class="admin-field-group">
+          <label>Song 2 Title:</label>
+          <input type="text" id="editSong2Title">
+        </div>
+        <div class="admin-field-group">
+          <label>Song 2 Audio File / MP3 Link:</label>
+          <input type="text" id="editSong2Url">
+        </div>
+
+        <!-- VIDEO MANAGEMENT -->
+        <div class="admin-section-divider"><i class="fa-solid fa-video"></i> YouTube / Video Embed</div>
+        <div class="admin-field-group">
+          <label>YouTube Embed Link (or YouTube URL):</label>
+          <input type="text" id="editVideoUrl" placeholder="e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID">
+        </div>
+
         <button class="btn-primary" style="width: 100%; margin-top: 15px;" onclick="saveAdminData()">
-          Save & Update Live Site
+          <i class="fa-solid fa-floppy-disk"></i> Save &amp; Update Live Site
         </button>
       </div>
 
@@ -1044,6 +1071,15 @@
       location: "The Woodlands, Texas"
     };
 
+    // Media Links Storage
+    let mediaData = JSON.parse(localStorage.getItem('texas_cruisers_media_data')) || {
+      song1Title: "Texas Cruisers Jam (Live Sample 1)",
+      song1Url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      song2Title: "Classic Country Rock Medley",
+      song2Url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    };
+
     // Fan Comments Storage
     let fanComments = JSON.parse(localStorage.getItem('texas_cruisers_comments')) || [
       { name: "Sarah M.", date: "Sept 12, 2026", text: "Saw you guys play last weekend! Best classic rock band in Texas!" },
@@ -1068,6 +1104,28 @@
             <div class="show-location">${showData.location}</div>
           </div>
         </div>
+      `;
+    }
+
+    // Render Media (Songs & Video)
+    function renderMedia() {
+      // Render Audio
+      const audioContainer = document.getElementById('audioTracksContainer');
+      audioContainer.innerHTML = `
+        <div class="track-item">
+          <div class="track-title">${mediaData.song1Title}</div>
+          <audio controls src="${mediaData.song1Url}">Your browser does not support audio.</audio>
+        </div>
+        <div class="track-item">
+          <div class="track-title">${mediaData.song2Title}</div>
+          <audio controls src="${mediaData.song2Url}">Your browser does not support audio.</audio>
+        </div>
+      `;
+
+      // Render Video
+      const videoContainer = document.getElementById('videoContainer');
+      videoContainer.innerHTML = `
+        <iframe src="${mediaData.videoUrl}" title="Texas Cruisers Video" allowfullscreen></iframe>
       `;
     }
 
@@ -1145,10 +1203,17 @@
       document.getElementById('editShowDate').value = `${showData.month} ${showData.day}, ${showData.year}`;
       document.getElementById('editShowVenue').value = showData.venue;
       document.getElementById('editShowLocation').value = showData.location;
+
+      document.getElementById('editSong1Title').value = mediaData.song1Title;
+      document.getElementById('editSong1Url').value = mediaData.song1Url;
+      document.getElementById('editSong2Title').value = mediaData.song2Title;
+      document.getElementById('editSong2Url').value = mediaData.song2Url;
+      document.getElementById('editVideoUrl').value = mediaData.videoUrl;
     }
 
     // Save Data
     function saveAdminData() {
+      // Save Show
       showData.title = document.getElementById('editShowTitle').value;
       showData.venue = document.getElementById('editShowVenue').value;
       showData.location = document.getElementById('editShowLocation').value;
@@ -1161,14 +1226,31 @@
         showData.year = parts[2];
       }
 
+      // Save Media
+      mediaData.song1Title = document.getElementById('editSong1Title').value;
+      mediaData.song1Url = document.getElementById('editSong1Url').value;
+      mediaData.song2Title = document.getElementById('editSong2Title').value;
+      mediaData.song2Url = document.getElementById('editSong2Url').value;
+      
+      let rawVideoUrl = document.getElementById('editVideoUrl').value;
+      if (rawVideoUrl.includes('watch?v=')) {
+        rawVideoUrl = rawVideoUrl.replace('watch?v=', 'embed/');
+      }
+      mediaData.videoUrl = rawVideoUrl;
+
+      // Save to Storage
       localStorage.setItem('texas_cruisers_show_data', JSON.stringify(showData));
+      localStorage.setItem('texas_cruisers_media_data', JSON.stringify(mediaData));
+
       renderShows();
+      renderMedia();
       closeAdminEditorModal();
       alert('Site updated successfully!');
     }
 
     // Initial Setup
     renderShows();
+    renderMedia();
     renderComments();
   </script>
 </body>

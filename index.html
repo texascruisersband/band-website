@@ -1,1258 +1,953 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Texas Cruisers Band | Classic Rock, Country & Blues</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@1,700;1,900&family=Rye&family=Yellowtail&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #0b0704;
-      color: #f0e6d2;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      outline: none;
-      font-family: inherit;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(10, 6, 3, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid #8b5a2b;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-
-    .nav-brand {
-      font-family: 'Rye', serif;
-      font-size: 1.2rem;
-      color: #ffd700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 4px #000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #d1b894;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #ffaa00;
-    }
-
-    .admin-btn {
-      background: linear-gradient(135deg, #ffd700, #aa7c11);
-      color: #111;
-      font-weight: 900;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .admin-btn:hover {
-      background: #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-      transform: scale(1.05);
-    }
-
-    /* HERO POSTER SECTION */
-    .poster-hero {
-      position: relative;
-      min-height: 100vh;
-      padding-top: 90px;
-      padding-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: 
-        radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
-        linear-gradient(to bottom, rgba(15, 8, 3, 0.75), rgba(10, 5, 2, 0.95)),
-        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      border-bottom: 4px solid #8b5a2b;
-      box-shadow: inset 0 0 100px #000;
-    }
-
-    .poster-container {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      width: 90%;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .poster-the {
-      font-family: 'Yellowtail', cursive;
-      font-size: clamp(2.5rem, 6vw, 3.8rem);
-      color: #f7e6a1;
-      text-shadow: 2px 2px 6px #000;
-      margin-bottom: -20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .poster-texas-wrapper {
-      position: relative;
-      display: inline-block;
-      margin: 10px 0;
-    }
-
-    .poster-texas {
-      font-family: 'Cinzel Decorative', 'Rye', serif;
-      font-size: clamp(3.5rem, 12vw, 8.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 0.9;
-      background: linear-gradient(180deg, #1b3d8f 0%, #ffffff 40%, #c0252b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 0px 3px #fff) drop-shadow(4px 6px 0px #000);
-    }
-
-    .texas-star {
-      position: absolute;
-      top: 48%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #f3c644;
-      font-size: clamp(1.8rem, 5vw, 3.8rem);
-      filter: drop-shadow(0 0 8px #ffaa00) drop-shadow(2px 2px 2px #000);
-      z-index: 3;
-    }
-
-    .poster-cruisers {
-      font-family: 'Rye', cursive;
-      font-size: clamp(2rem, 7vw, 5rem);
-      color: #e5be75;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      line-height: 1;
-      background: linear-gradient(180deg, #fff3cf 0%, #d49f43 50%, #6b430a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-top: -10px;
-    }
-
-    .poster-band {
-      display: inline-block;
-      background: linear-gradient(180deg, #aa1c22, #5a090c);
-      color: #ffe6a3;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1rem, 3vw, 1.8rem);
-      letter-spacing: 6px;
-      padding: 4px 30px;
-      border: 2px solid #e5be75;
-      border-radius: 4px;
-      margin-top: 10px;
-    }
-
-    .poster-genre {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 900;
-      font-size: clamp(1.5rem, 4vw, 3.2rem);
-      color: #ffd875;
-      margin-top: 25px;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    .poster-socials-text {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: clamp(0.9rem, 2vw, 1.3rem);
-      color: #ffffff;
-      letter-spacing: 1px;
-      margin-top: 15px;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    .poster-socials-text a {
-      color: #1877f2;
-      text-decoration: underline;
-    }
-
-    .poster-lets-cruise {
-      font-family: 'Yellowtail', cursive;
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      color: #fff1b8;
-      margin-top: 15px;
-      text-shadow: 3px 3px 10px #000;
-      position: relative;
-      display: inline-block;
-    }
-
-    .hero-actions {
-      margin-top: 35px;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #b81d24, #7a0d12);
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 28px;
-      border: 2px solid #e5be75;
-      border-radius: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(184, 29, 36, 0.5);
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3deg);
-      background: linear-gradient(135deg, #d9252d, #9c1218);
-    }
-
-    .btn-secondary {
-      background: rgba(0, 0, 0, 0.75);
-      color: #ffd700;
-      font-weight: 800;
-      padding: 12px 28px;
-      border: 2px solid #ffd700;
-      border-radius: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-secondary:hover {
-      background: #ffd700;
-      color: #000;
-    }
-
-    .btn-facebook {
-      background: #1877f2;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 28px;
-      border: 2px solid #ffffff;
-      border-radius: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-facebook:hover {
-      background: #145dbf;
-      transform: translateY(-3deg);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: 'Rye', serif;
-      font-size: 2.5rem;
-      color: #ffd700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #b3a286;
-      font-size: 1rem;
-      margin-bottom: 45px;
-    }
-
-    /* SHOWS */
-    .shows-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .show-card {
-      background: linear-gradient(135deg, #18100a, #0d0805);
-      border: 2px solid #ffd700;
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-    }
-
-    .show-date-badge {
-      background: #aa1c22;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-align: center;
-      min-width: 110px;
-      border: 1px solid #ffd700;
-    }
-
-    .show-date-badge .month {
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .show-date-badge .day {
-      font-size: 2rem;
-      font-weight: 900;
-      font-family: 'Rye', serif;
-    }
-
-    .show-date-badge .year {
-      font-size: 0.8rem;
-    }
-
-    .show-details {
-      flex-grow: 1;
-    }
-
-    .show-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .show-venue {
-      color: #ffd700;
-      font-weight: 600;
-    }
-
-    .show-location {
-      color: #a89578;
-      font-size: 0.9rem;
-    }
-
-    /* MEMBERS */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .member-card {
-      background: #140c07;
-      border: 1px solid #4a3219;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease;
-    }
-
-    .member-card:hover {
-      transform: translateY(-5px);
-      border-color: #ffd700;
-    }
-
-    .member-img-wrapper {
-      position: relative;
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-    }
-
-    .member-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .member-instrument-icon {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: rgba(170, 28, 34, 0.9);
-      color: #ffd700;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      border: 2px solid #ffd700;
-      box-shadow: 0 0 10px rgba(0,0,0,0.8);
-    }
-
-    .member-info {
-      padding: 20px;
-    }
-
-    .member-name {
-      font-family: 'Rye', serif;
-      font-size: 1.3rem;
-      color: #ffd700;
-      margin-bottom: 5px;
-    }
-
-    .member-role {
-      color: #c20000;
-      font-weight: 800;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .member-bio {
-      color: #b3a286;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* MEDIA & MUSIC SECTION */
-    .media-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-    }
-
-    .media-card {
-      background: #140c07;
-      border: 1px solid #4a3219;
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .media-card h3 {
-      font-family: 'Rye', serif;
-      color: #ffd700;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .track-item {
-      background: #000;
-      border: 1px solid #2a1a0e;
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .track-title {
-      font-weight: bold;
-      color: #fff;
-    }
-
-    audio {
-      width: 100%;
-      height: 35px;
-    }
-
-    .video-container {
-      width: 100%;
-      height: 240px;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #4a3219;
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* BOOKING & COMMENTS SECTION */
-    .grid-two-col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 40px;
-    }
-
-    .form-box {
-      background: #140c07;
-      border: 2px solid #4a3219;
-      border-radius: 12px;
-      padding: 30px;
-    }
-
-    .form-box h3 {
-      font-family: 'Rye', serif;
-      color: #ffd700;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-group label {
-      color: #d1b894;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .form-group input, .form-group textarea {
-      padding: 12px;
-      background: #000;
-      border: 1px solid #4a3219;
-      border-radius: 6px;
-      color: #fff;
-      font-family: inherit;
-    }
-
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: #ffd700;
-      outline: none;
-    }
-
-    .comments-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-height: 380px;
-      overflow-y: auto;
-      margin-bottom: 20px;
-      padding-right: 5px;
-    }
-
-    .comment-card {
-      background: #000;
-      border-left: 3px solid #ffd700;
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .comment-author {
-      font-weight: 800;
-      color: #ffd700;
-      font-size: 0.9rem;
-    }
-
-    .comment-date {
-      color: #777;
-      font-size: 0.75rem;
-      margin-bottom: 6px;
-    }
-
-    .comment-text {
-      color: #d1b894;
-      font-size: 0.85rem;
-    }
-
-    /* POPUP ADMIN MODAL WINDOW */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 99999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-box {
-      background: #120904;
-      border: 3px solid #ffd700;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 30px;
-      box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
-      position: relative;
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      color: #ffd700;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    .admin-section-divider {
-      border-bottom: 1px solid #5a3a1b;
-      margin: 20px 0 15px 0;
-      padding-bottom: 5px;
-      color: #ffd700;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
-
-    .admin-field-group {
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .admin-field-group label {
-      color: #d1b894;
-      font-weight: bold;
-      font-size: 0.85rem;
-    }
-
-    .admin-field-group input {
-      padding: 10px;
-      background: #000;
-      border: 1px solid #5a3a1b;
-      border-radius: 6px;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    /* FLOATING BUTTON */
-    .floating-admin-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #ffd700;
-      color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-      z-index: 9999;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #050302;
-      border-top: 2px solid #4a3219;
-      padding: 40px 20px;
-      text-align: center;
-      color: #8c785c;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .social-icon-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #140c07;
-      border: 1px solid #ffd700;
-      color: #ffd700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-icon-btn:hover {
-      background: #ffd700;
-      color: #000;
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Texas Cruisers Band | Classic Rock, Country & Blues</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Vintage Rock & Texas Poster Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Rye&family=Rajdhani:wght@600;700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .font-rye { font-family: 'Rye', cursive; }
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-tech { font-family: 'Rajdhani', sans-serif; }
+
+        body {
+            background-color: #070609;
+            color: #e5e7eb;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Texture Background */
+        .rock-bg {
+            background: 
+                radial-gradient(circle at 50% 20%, rgba(255, 102, 0, 0.12), rgba(7, 6, 9, 0.98) 75%),
+                repeating-linear-gradient(45deg, #0e0c12 0px, #0e0c12 2px, #16131c 2px, #16131c 4px),
+                repeating-linear-gradient(-45deg, #070609 0px, #070609 2px, #120f18 2px, #120f18 4px);
+            background-blend-mode: overlay, normal, normal;
+        }
+
+        /* Electric Neon Title Glows */
+        .neon-rock-title {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 12px #ff6600,
+                0 0 25px #ff6600,
+                0 0 50px #ff0000;
+        }
+
+        .neon-gold-title {
+            color: #ffda66;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 12px #ffaa00,
+                0 0 25px #d4af37,
+                0 0 45px #ff6600;
+        }
+
+        /* 3D Flip Card Container CSS */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .flip-card-front {
+            z-index: 2;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        /* Amp Frame Styling */
+        .amp-card {
+            background: linear-gradient(165deg, rgba(28, 24, 36, 0.95), rgba(12, 10, 15, 0.98));
+            border: 2px solid #332a40;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .amp-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 120, 0, 0.5), transparent 60%, rgba(255, 0, 0, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Vinyl Record Animations */
+        @keyframes vinylSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-vinyl {
+            animation: vinylSpin 10s linear infinite;
+        }
+
+        /* Analog VU Needle Animation */
+        @keyframes vuPulse {
+            0% { transform: rotate(-35deg); }
+            50% { transform: rotate(20deg); }
+            100% { transform: rotate(-35deg); }
+        }
+        .vu-needle-active {
+            animation: vuPulse 0.35s ease-in-out infinite alternate;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #070609; }
+        ::-webkit-scrollbar-thumb { background: #ff5500; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffaa00; }
+    </style>
 </head>
-<body>
+<body class="rock-bg min-h-screen text-gray-100 flex flex-col justify-between relative selection:bg-orange-600 selection:text-white">
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-brand">
-      <i class="fa-solid fa-star"></i> The Texas Cruisers
-    </div>
-    <ul class="nav-links">
-      <li><a href="#shows">Shows</a></li>
-      <li><a href="#members">Band</a></li>
-      <li><a href="#media">Music &amp; Video</a></li>
-      <li><a href="#booking">Book Us</a></li>
-      <li>
-        <button class="admin-btn" onclick="openAdminEditorModal()">
-          <i class="fa-solid fa-gear"></i> Admin Editor
-        </button>
-      </li>
-    </ul>
-  </nav>
+    <canvas id="stageCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-30"></canvas>
 
-  <!-- HERO POSTER SECTION -->
-  <header class="poster-hero">
-    <div class="poster-container">
-      <div class="poster-the">The</div>
-      
-      <div class="poster-texas-wrapper">
-        <div class="poster-texas">TEXAS</div>
-        <div class="texas-star"><i class="fa-solid fa-star"></i></div>
-      </div>
+    <nav class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b-2 border-orange-600/70 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-red-600 to-amber-500 p-0.5 flex items-center justify-center shadow-[0_0_15px_rgba(255,102,0,0.6)] group-hover:scale-110 transition-transform">
+                        <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-guitar text-amber-400 text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-bebas text-2xl tracking-widest text-white uppercase group-hover:text-orange-400 transition-colors">
+                            TEXAS CRUISERS
+                        </span>
+                        <span class="block text-[10px] font-tech text-orange-400 tracking-widest -mt-1">CLASSIC ROCK • COUNTRY • BLUES</span>
+                    </div>
+                </a>
 
-      <div class="poster-cruisers">CRUISERS</div>
-      <div><span class="poster-band">BAND</span></div>
+                <div class="hidden md:flex items-center space-x-8 font-bebas text-xl tracking-widest text-gray-300">
+                    <a href="#shows" class="hover:text-orange-400 hover:scale-105 transition-all">Shows</a>
+                    <a href="#band" class="hover:text-orange-400 hover:scale-105 transition-all">The Band</a>
+                    <a href="#soundboard" class="hover:text-orange-400 hover:scale-105 transition-all">Soundboard</a>
+                    <a href="#media" class="hover:text-orange-400 hover:scale-105 transition-all">Media</a>
+                    <a href="#guestbook" class="hover:text-orange-400 hover:scale-105 transition-all">Guestbook</a>
+                    <a href="#booking" class="hover:text-orange-400 hover:scale-105 transition-all">Booking</a>
+                </div>
 
-      <div class="poster-genre">Classic Rock, Country &amp; Blues</div>
-      <div class="poster-socials-text">
-        Follow us on 
-        <a href="https://facebook.com/thetexascruisersband" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-      </div>
-      <div class="poster-lets-cruise">Let's Cruise!</div>
-
-      <div class="hero-actions">
-        <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Upcoming Shows</a>
-        <a href="https://facebook.com/thetexascruisersband" target="_blank" class="btn-facebook">
-          <i class="fa-brands fa-facebook-f"></i> Facebook Page
-        </a>
-        <button class="btn-secondary" onclick="openAdminEditorModal()">
-          <i class="fa-solid fa-lock"></i> Admin Editor
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- SHOWS SECTION -->
-  <section id="shows">
-    <h2 class="section-title">Upcoming Shows</h2>
-    <p class="section-subtitle">Catch The Texas Cruisers Band Live On Stage</p>
-
-    <div class="shows-container" id="showsList">
-      <!-- Dynamic Show Cards -->
-    </div>
-  </section>
-
-  <!-- BAND MEMBERS SECTION -->
-  <section id="members">
-    <h2 class="section-title">Meet The Band</h2>
-    <p class="section-subtitle">The Musicians Behind The Texas Sound</p>
-
-    <div class="members-grid">
-      <!-- Chris Oliver - Lead Vocals -->
-      <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Chris Oliver">
-          <div class="member-instrument-icon" title="Lead Vocals">
-            <i class="fa-solid fa-microphone"></i>
-          </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="promptAdminLogin()" class="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-black font-bebas text-lg px-4 py-1.5 rounded-md transition-all shadow-[0_0_15px_rgba(255,165,0,0.4)] flex items-center gap-2 cursor-pointer font-bold">
+                        <i class="fa-solid fa-lock"></i> Admin
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden text-orange-400 text-2xl p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="member-info">
-          <div class="member-name">Chris Oliver</div>
-          <div class="member-role">
-            <i class="fa-solid fa-microphone"></i> Lead Vocals
-          </div>
-          <div class="member-bio">Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country.</div>
-        </div>
-      </div>
 
-      <!-- Mark McFarlane - Bass -->
-      <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Mark McFarlane">
-          <div class="member-instrument-icon" title="Bass Guitar">
-            <i class="fa-solid fa-guitar"></i>
-          </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-zinc-950 border-b border-orange-900 px-4 py-4 space-y-3 font-bebas text-xl text-center">
+            <a href="#shows" class="block text-gray-200 hover:text-orange-400">Shows</a>
+            <a href="#band" class="block text-gray-200 hover:text-orange-400">The Band</a>
+            <a href="#soundboard" class="block text-gray-200 hover:text-orange-400">Soundboard</a>
+            <a href="#media" class="block text-gray-200 hover:text-orange-400">Media</a>
+            <a href="#guestbook" class="block text-gray-200 hover:text-orange-400">Guestbook</a>
+            <a href="#booking" class="block text-gray-200 hover:text-orange-400">Booking</a>
         </div>
-        <div class="member-info">
-          <div class="member-name">Mark McFarlane</div>
-          <div class="member-role">
-            <i class="fa-solid fa-guitar"></i> Bass Guitar
-          </div>
-          <div class="member-bio">Laying down driving bass lines that form the heavy groove of every Texas Cruisers set.</div>
-        </div>
-      </div>
+    </nav>
 
-      <!-- Al Montez - Lead Guitar -->
-      <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Al Montez">
-          <div class="member-instrument-icon" title="Electric Lead Guitar">
-            <i class="fa-solid fa-guitar"></i>
-          </div>
+    <header class="relative pt-16 pb-20 overflow-hidden flex flex-col items-center justify-center text-center px-4">
+        <div class="absolute -z-10 w-96 h-96 rounded-full border-8 border-zinc-900/60 flex items-center justify-center opacity-20 animate-vinyl pointer-events-none">
+            <div class="w-48 h-48 rounded-full border-4 border-amber-500/30 flex items-center justify-center">
+                <i class="fa-solid fa-compact-disc text-8xl text-orange-500/40"></i>
+            </div>
         </div>
-        <div class="member-info">
-          <div class="member-name">Al Montez</div>
-          <div class="member-role">
-            <i class="fa-solid fa-guitar"></i> Lead Guitar
-          </div>
-          <div class="member-bio">Firing up fiery electric guitar solos across classic rock riffs and blues bends.</div>
+
+        <div class="mb-4 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-b from-orange-500 to-red-700 p-1 shadow-[0_0_30px_rgba(255,102,0,0.8)]">
+            <div class="w-full h-full bg-black rounded-full flex items-center justify-center border border-amber-300">
+                <i class="fa-solid fa-star text-3xl text-amber-400 drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]"></i>
+            </div>
         </div>
-      </div>
 
-      <!-- Brian Martin - Drums -->
-      <div class="member-card">
-        <div class="member-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" class="member-img" alt="Brian Martin">
-          <div class="member-instrument-icon" title="Drums & Percussion">
-            <i class="fa-solid fa-drum"></i>
-          </div>
+        <h2 class="font-rye text-2xl sm:text-4xl text-amber-400 tracking-widest uppercase mb-1 drop-shadow">THE</h2>
+        <h1 class="font-bebas text-6xl sm:text-8xl md:text-9xl uppercase tracking-wider leading-none neon-rock-title mb-2">
+            TEXAS CRUISERS
+        </h1>
+        <div class="bg-gradient-to-r from-red-600 via-amber-500 to-red-600 text-black font-bebas text-2xl sm:text-4xl px-8 py-1 rounded tracking-widest font-black shadow-[0_0_20px_rgba(255,102,0,0.5)] mb-6">
+            B A N D
         </div>
-        <div class="member-info">
-          <div class="member-name">Brian Martin</div>
-          <div class="member-role">
-            <i class="fa-solid fa-drum"></i> Drums
-          </div>
-          <div class="member-bio">Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- MEDIA SECTION (MUSIC & VIDEO) -->
-  <section id="media">
-    <h2 class="section-title">Music &amp; Video Highlights</h2>
-    <p class="section-subtitle">Listen To Our Hits &amp; Watch Live Performances</p>
-
-    <div class="media-container">
-      <!-- Audio Player Box -->
-      <div class="media-card">
-        <h3><i class="fa-solid fa-music"></i> Audio Demos</h3>
-        <div id="audioTracksContainer">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-
-      <!-- Video Box -->
-      <div class="media-card">
-        <h3><i class="fa-solid fa-video"></i> Live Performance Video</h3>
-        <div class="video-container" id="videoContainer">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING & FAN COMMENTS SECTION -->
-  <section id="booking">
-    <div class="grid-two-col">
-      
-      <!-- Booking Form -->
-      <div class="form-box">
-        <h3><i class="fa-solid fa-envelope-open-text"></i> Book The Band</h3>
-        <p style="color: #b3a286; font-size: 0.85rem; margin-bottom: 20px;">
-          Available for festivals, corporate events, private parties, and venue bookings across Texas!
-        </p>
-        <form onsubmit="handleBookingSubmit(event)">
-          <div class="form-group">
-            <label>Your Name / Contact</label>
-            <input type="text" id="bookName" placeholder="John Doe" required>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="bookEmail" placeholder="name@example.com" required>
-          </div>
-          <div class="form-group">
-            <label>Event Date &amp; Location</label>
-            <input type="text" id="bookEventDetails" placeholder="e.g. Nov 15th in Conroe, TX" required>
-          </div>
-          <div class="form-group">
-            <label>Message / Event Details</label>
-            <textarea id="bookMessage" rows="3" placeholder="Tell us about your event..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width: 100%;">
-            <i class="fa-solid fa-paper-plane"></i> Send Booking Request
-          </button>
-        </form>
-      </div>
-
-      <!-- Fan Guestbook & Comments -->
-      <div class="form-box">
-        <h3><i class="fa-solid fa-comments"></i> Fan Guestbook</h3>
-        <p style="color: #b3a286; font-size: 0.85rem; margin-bottom: 15px;">
-          Leave a comment for The Texas Cruisers Band!
+        <p class="font-tech text-xl sm:text-3xl text-gray-300 tracking-wide max-w-2xl font-semibold mb-8">
+            CLASSIC ROCK • COUNTRY • BLUES
         </p>
 
-        <!-- Comments Container -->
-        <div class="comments-list" id="commentsContainer">
-          <!-- Dynamic Comments -->
+        <div class="space-y-4">
+            <h3 class="font-marker neon-gold-title text-5xl sm:text-7xl -rotate-3 hover:rotate-0 transition-transform duration-300 cursor-pointer">
+                Let's Cruise!
+            </h3>
+            
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#shows" class="bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-600 hover:to-orange-500 text-white font-bebas text-2xl px-8 py-3 rounded-lg shadow-[0_0_20px_rgba(255,0,0,0.5)] border border-red-400 hover:scale-105 transition-all">
+                    <i class="fa-solid fa-ticket mr-2"></i> Upcoming Shows
+                </a>
+                <a href="#band" class="bg-zinc-900/90 hover:bg-zinc-800 text-amber-400 font-bebas text-2xl px-8 py-3 rounded-lg border border-amber-500/50 hover:scale-105 transition-all shadow-lg">
+                    <i class="fa-solid fa-users mr-2"></i> Meet The Band
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="shows" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="font-rye text-3xl sm:text-5xl text-orange-500 uppercase tracking-wider mb-2">LIVE SHOWS</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto"></div>
+            <p class="mt-2 text-gray-400 font-tech text-lg">Catch The Texas Cruisers Live On Stage</p>
         </div>
 
-        <!-- Add Comment Input -->
-        <form onsubmit="handleAddComment(event)">
-          <div class="form-group">
-            <input type="text" id="commenterName" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <textarea id="commenterText" rows="2" placeholder="Write a fan comment..." required></textarea>
-          </div>
-          <button type="submit" class="btn-secondary" style="width: 100%; border-color: #ffd700;">
-            <i class="fa-solid fa-plus"></i> Post Comment
-          </button>
-        </form>
-      </div>
+        <div id="showsContainer" class="space-y-6"></div>
+    </section>
 
+    <section id="band" class="py-16 bg-black/70 border-y-2 border-orange-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-2">MEET THE BAND</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-3"></div>
+                <p class="text-orange-400 font-tech text-lg uppercase font-bold tracking-widest">
+                    <i class="fa-solid fa-arrows-rotate mr-2 animate-spin"></i> Click or tap any tile to flip card & view picture + bio
+                </p>
+            </div>
+
+            <div id="membersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <section id="soundboard" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="font-rye text-3xl sm:text-5xl text-orange-500 uppercase tracking-wider mb-2">ROCK SOUNDBOARD</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto mb-2"></div>
+            <p class="text-gray-400 font-tech text-lg">Live Web Audio Synth & Riff Sampler</p>
+        </div>
+
+        <div class="amp-card p-6 sm:p-8 rounded-2xl max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-zinc-800 pb-6 mb-6 gap-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 rounded-full bg-zinc-900 border-2 border-orange-500 flex items-center justify-center shadow-[0_0_15px_rgba(255,102,0,0.5)]">
+                        <i id="soundboardStatusIcon" class="fa-solid fa-volume-high text-orange-400 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bebas text-3xl text-amber-300 tracking-wider" id="currentGenreTitle">SELECT SOUND STYLE</h3>
+                        <p class="text-xs font-tech text-orange-400 tracking-widest uppercase" id="currentGenreDesc">Click buttons below to trigger live synth audio</p>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-950 border-2 border-zinc-700 rounded-lg p-3 w-44 text-center relative overflow-hidden shadow-inner">
+                    <div class="text-[10px] font-tech text-amber-500 uppercase font-bold tracking-widest mb-1">ANALOG OUTPUT VU</div>
+                    <div class="h-10 relative flex items-end justify-center">
+                        <div id="vuNeedle" class="w-0.5 h-8 bg-red-500 origin-bottom transform -rotate-35 transition-transform duration-200"></div>
+                    </div>
+                    <div class="flex justify-between text-[8px] font-mono text-gray-500 -mt-2">
+                        <span>-20</span><span>0</span><span>+3dB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <button onclick="playGuitarRiff('rock')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-orange-950 hover:to-black border-2 border-orange-600/60 hover:border-orange-400 p-5 rounded-xl text-left transition-all group shadow-lg cursor-pointer">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-bolt text-orange-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-orange-950 text-orange-400 border border-orange-700 px-2 py-0.5 rounded">HEAVY RIFF</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">CLASSIC ROCK</h4>
+                    <p class="text-xs text-gray-400">Distorted overdrive guitar solo</p>
+                </button>
+
+                <button onclick="playGuitarRiff('country')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-amber-950 hover:to-black border-2 border-amber-600/60 hover:border-amber-400 p-5 rounded-xl text-left transition-all group shadow-lg cursor-pointer">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-guitar text-amber-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-amber-950 text-amber-400 border border-amber-700 px-2 py-0.5 rounded">TWANG PICK</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">COUNTRY TWANG</h4>
+                    <p class="text-xs text-gray-400">Clean southern telecaster shuffle</p>
+                </button>
+
+                <button onclick="playGuitarRiff('blues')" class="bg-gradient-to-b from-zinc-800 to-zinc-950 hover:from-red-950 hover:to-black border-2 border-red-600/60 hover:border-red-400 p-5 rounded-xl text-left transition-all group shadow-lg cursor-pointer">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fa-solid fa-music text-red-500 text-2xl group-hover:scale-125 transition-transform"></i>
+                        <span class="text-xs font-tech bg-red-950 text-red-400 border border-red-700 px-2 py-0.5 rounded">SOUL BEND</span>
+                    </div>
+                    <h4 class="font-bebas text-2xl text-white">TEXAS BLUES</h4>
+                    <p class="text-xs text-gray-400">Expressive blues scale bend</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="py-16 bg-black/60 border-t-2 border-orange-900/60 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 uppercase tracking-wider mb-2">BAND MEDIA</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-2"></div>
+                <p class="text-gray-400 font-tech text-lg">Featured Performances & Live Recordings</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="amp-card p-6 rounded-2xl">
+                    <h3 class="font-bebas text-2xl text-amber-300 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-video text-orange-500"></i> Featured Live Video
+                    </h3>
+                    <div class="relative w-full aspect-video bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 flex items-center justify-center">
+                        <iframe id="mediaVideoIframe" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Featured Band Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="amp-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bebas text-2xl text-amber-300 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-headphones text-orange-500"></i> Demo Tracks
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="playGuitarRiff('rock')" class="w-10 h-10 rounded-full bg-orange-600 text-black flex items-center justify-center font-bold hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                    <div>
+                                        <h4 class="font-bebas text-lg text-white leading-none">Texas Pride Rock Medley</h4>
+                                        <span class="text-xs text-gray-400 font-tech">Live Studio Demo • 3:45</span>
+                                    </div>
+                                </div>
+                                <span class="bg-orange-950 text-orange-400 border border-orange-700 text-[10px] px-2 py-0.5 rounded font-tech font-bold">ROCK</span>
+                            </div>
+
+                            <div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="playGuitarRiff('country')" class="w-10 h-10 rounded-full bg-amber-600 text-black flex items-center justify-center font-bold hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                    <div>
+                                        <h4 class="font-bebas text-lg text-white leading-none">Lone Star Country Jam</h4>
+                                        <span class="text-xs text-gray-400 font-tech">Live at North Shore Park • 4:12</span>
+                                    </div>
+                                </div>
+                                <span class="bg-amber-950 text-amber-400 border border-amber-700 text-[10px] px-2 py-0.5 rounded font-tech font-bold">COUNTRY</span>
+                            </div>
+
+                            <div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="playGuitarRiff('blues')" class="w-10 h-10 rounded-full bg-red-600 text-black flex items-center justify-center font-bold hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                    <div>
+                                        <h4 class="font-bebas text-lg text-white leading-none">Midnight Blues Breakdown</h4>
+                                        <span class="text-xs text-gray-400 font-tech">Acoustic Session • 2:50</span>
+                                    </div>
+                                </div>
+                                <span class="bg-red-950 text-red-400 border border-red-700 text-[10px] px-2 py-0.5 rounded font-tech font-bold">BLUES</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-zinc-800 text-center text-xs text-gray-400 font-tech">
+                        Press Play to test sound clips synthesized live with Web Audio!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guestbook" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
+        <div class="text-center mb-10">
+            <h2 class="font-rye text-3xl sm:text-5xl text-orange-500 uppercase tracking-wider mb-2">FAN GUESTBOOK</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto mb-2"></div>
+            <p class="text-gray-400 font-tech text-lg">Leave a Shoutout For The Texas Cruisers</p>
+        </div>
+
+        <div class="amp-card p-6 sm:p-8 rounded-2xl mb-8">
+            <form onsubmit="handleGuestbookSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bebas text-lg text-amber-300 mb-1">Your Name / Handle *</label>
+                        <input id="gbName" type="text" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-orange-500" placeholder="RockFan99">
+                    </div>
+                    <div>
+                        <label class="block font-bebas text-lg text-amber-300 mb-1">City / Hometown</label>
+                        <input id="gbCity" type="text" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-orange-500" placeholder="Houston, TX">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bebas text-lg text-amber-300 mb-1">Shoutout Message *</label>
+                    <textarea id="gbMessage" rows="3" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-orange-500" placeholder="Great show at the Woodlands! Can't wait for the next classic rock night!"></textarea>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-black font-bebas text-xl px-8 py-2.5 rounded-lg font-bold transition-all cursor-pointer shadow-md">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Post Shoutout
+                </button>
+            </form>
+        </div>
+
+        <div id="guestbookPosts" class="space-y-4"></div>
+    </section>
+
+    <section id="booking" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
+        <div class="amp-card p-8 sm:p-12 rounded-3xl border-2 border-orange-600">
+            <div class="text-center mb-8">
+                <h2 class="font-rye text-3xl sm:text-5xl text-amber-400 uppercase">BOOK THE BAND</h2>
+                <p class="text-gray-400 font-tech text-lg mt-1">Festivals, Clubs, Rodeos & Private Events Across Texas</p>
+            </div>
+
+            <form onsubmit="handleBooking(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Your Name *</label>
+                        <input type="text" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Email Address *</label>
+                        <input type="email" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Event Date *</label>
+                        <input type="date" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block font-bebas text-xl text-amber-300 mb-1">Event Venue / Location *</label>
+                        <input type="text" required class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="Venue Name & City">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bebas text-xl text-amber-300 mb-1">Message Details</label>
+                    <textarea rows="4" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-500" placeholder="Tell us about the event duration, stage size, or special song requests..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-red-600 via-orange-500 to-red-600 hover:from-red-500 hover:to-orange-400 text-black font-bebas text-3xl py-4 rounded-xl font-bold tracking-wider shadow-[0_0_20px_rgba(255,102,0,0.6)] transition-all transform hover:scale-[1.01] cursor-pointer">
+                    SUBMIT BOOKING REQUEST
+                </button>
+            </form>
+
+            <div id="bookingConfirmation" class="hidden mt-6 bg-green-950/90 border border-green-500 p-6 rounded-xl text-center text-green-300">
+                <i class="fa-solid fa-circle-check text-4xl mb-2 text-green-400"></i>
+                <h4 class="font-bebas text-2xl text-white">BOOKING REQUEST RECEIVED!</h4>
+                <p class="text-sm font-tech">Thank you! The Texas Cruisers management will respond promptly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Admin Launcher -->
+    <button onclick="promptAdminLogin()" title="Open Admin Manager" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-orange-600 to-amber-400 text-black shadow-[0_0_25px_rgba(255,102,0,0.8)] flex items-center justify-center text-2xl hover:scale-110 transition-transform cursor-pointer border-2 border-white">
+        <i class="fa-solid fa-gear"></i>
+    </button>
+
+    <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="amp-card p-6 sm:p-8 rounded-2xl max-w-2xl w-full border-2 border-orange-500 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-6 border-b border-zinc-800 pb-4">
+                <i class="fa-solid fa-sliders text-orange-500 text-3xl"></i>
+                <div>
+                    <h3 class="font-rye text-2xl text-amber-400">BAND MANAGER ADMIN</h3>
+                    <p class="text-xs font-tech text-gray-400">Update show details & member picture URLs</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Edit Member Photos -->
+                <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                    <h4 class="font-bebas text-xl text-orange-400 mb-3"><i class="fa-solid fa-image mr-2"></i>Band Member Picture URLs (3D Flip Cards)</h4>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <label class="block text-amber-300 text-xs mb-1 font-bold">Chris Oliver Photo URL (Lead Vocals - Mic Icon)</label>
+                            <input id="adminImgChris" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white font-mono text-xs focus:border-orange-500" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="block text-amber-300 text-xs mb-1 font-bold">Mark McFarlane Photo URL (Bass Guitar - Guitar Icon)</label>
+                            <input id="adminImgMark" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white font-mono text-xs focus:border-orange-500" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="block text-amber-300 text-xs mb-1 font-bold">Al Montez Photo URL (Lead Guitar - Guitar Icon)</label>
+                            <input id="adminImgAl" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white font-mono text-xs focus:border-orange-500" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="block text-amber-300 text-xs mb-1 font-bold">Brian Martin Photo URL (Drums - Drum Icon)</label>
+                            <input id="adminImgBrian" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white font-mono text-xs focus:border-orange-500" placeholder="https://...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Featured Show Info -->
+                <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                    <h4 class="font-bebas text-xl text-orange-400 mb-3"><i class="fa-solid fa-calendar-days mr-2"></i>Edit Featured Show</h4>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Show Date</label>
+                            <input id="adminShowDate" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Event Title</label>
+                            <input id="adminShowTitle" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Venue & Location</label>
+                            <input id="adminShowLocation" type="text" class="w-full bg-zinc-900 border border-zinc-700 rounded p-2 text-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save / Reset Controls -->
+                <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                    <button onclick="resetDataToDefault()" class="text-xs text-red-400 hover:underline cursor-pointer">Reset Defaults</button>
+                    <div class="space-x-3">
+                        <button onclick="closeAdminModal()" class="bg-zinc-800 hover:bg-zinc-700 text-gray-300 font-bebas px-4 py-2 rounded cursor-pointer">Cancel</button>
+                        <button onclick="saveAdminChanges()" class="bg-orange-600 hover:bg-orange-500 text-black font-bebas px-6 py-2 rounded font-bold cursor-pointer">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- FLOATING ADMIN GEAR BUTTON -->
-  <button class="floating-admin-btn" onclick="openAdminEditorModal()" title="Open Admin Editor">
-    <i class="fa-solid fa-gear"></i>
-  </button>
-
-  <!-- ADMIN EDITOR MODAL -->
-  <div class="modal-overlay" id="adminModalOverlay">
-    <div class="modal-box">
-      <span class="modal-close-btn" onclick="closeAdminEditorModal()">&times;</span>
-      <h2 style="font-family: 'Rye', serif; color: #ffd700; margin-bottom: 10px;">
-        <i class="fa-solid fa-sliders"></i> Band Admin Editor
-      </h2>
-
-      <!-- Password Login View -->
-      <div id="loginStep">
-        <div class="admin-field-group">
-          <label>Enter Admin Password:</label>
-          <input type="password" id="adminPasswordInput" placeholder="Password (default: texas2026)">
+    <!-- Password Modal -->
+    <div id="passwordModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="amp-card p-6 rounded-2xl max-w-sm w-full border-2 border-amber-500 text-center">
+            <i class="fa-solid fa-shield-halved text-amber-400 text-4xl mb-3"></i>
+            <h3 class="font-bebas text-2xl text-white mb-1">ADMIN AUTHENTICATION</h3>
+            <p class="text-xs text-gray-400 font-tech mb-4">Enter band management passcode (default: <span class="text-orange-400 font-bold">texas2026</span>)</p>
+            <input id="adminPasswordInput" type="password" class="w-full bg-black border border-zinc-700 rounded-lg p-3 text-white mb-3 text-center focus:outline-none focus:border-amber-400" placeholder="Passcode">
+            <div id="passError" class="text-red-500 text-xs mb-3 hidden font-tech">Invalid password. Please try again.</div>
+            <div class="flex justify-end space-x-2">
+                <button onclick="closePasswordModal()" class="bg-zinc-800 text-gray-300 font-bebas px-4 py-2 rounded cursor-pointer">Cancel</button>
+                <button onclick="verifyAdminPassword()" class="bg-amber-500 text-black font-bebas px-6 py-2 rounded font-bold cursor-pointer">Login</button>
+            </div>
         </div>
-        <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="verifyAdminPassword()">
-          Unlock Admin Editor
-        </button>
-      </div>
-
-      <!-- Editing View (Hidden until password verified) -->
-      <div id="editorStep" style="display: none;">
-        
-        <!-- SHOW MANAGEMENT -->
-        <div class="admin-section-divider"><i class="fa-solid fa-calendar-days"></i> Upcoming Show Info</div>
-        <div class="admin-field-group">
-          <label>Show Title:</label>
-          <input type="text" id="editShowTitle">
-        </div>
-        <div class="admin-field-group">
-          <label>Show Date (e.g. October 10, 2026):</label>
-          <input type="text" id="editShowDate">
-        </div>
-        <div class="admin-field-group">
-          <label>Venue Name:</label>
-          <input type="text" id="editShowVenue">
-        </div>
-        <div class="admin-field-group">
-          <label>City &amp; State:</label>
-          <input type="text" id="editShowLocation">
-        </div>
-
-        <!-- MUSIC MANAGEMENT -->
-        <div class="admin-section-divider"><i class="fa-solid fa-music"></i> Audio Tracks</div>
-        <div class="admin-field-group">
-          <label>Song 1 Title:</label>
-          <input type="text" id="editSong1Title">
-        </div>
-        <div class="admin-field-group">
-          <label>Song 1 Audio File / MP3 Link:</label>
-          <input type="text" id="editSong1Url">
-        </div>
-        <div class="admin-field-group">
-          <label>Song 2 Title:</label>
-          <input type="text" id="editSong2Title">
-        </div>
-        <div class="admin-field-group">
-          <label>Song 2 Audio File / MP3 Link:</label>
-          <input type="text" id="editSong2Url">
-        </div>
-
-        <!-- VIDEO MANAGEMENT -->
-        <div class="admin-section-divider"><i class="fa-solid fa-video"></i> YouTube / Video Embed</div>
-        <div class="admin-field-group">
-          <label>YouTube Embed Link (or YouTube URL):</label>
-          <input type="text" id="editVideoUrl" placeholder="e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID">
-        </div>
-
-        <button class="btn-primary" style="width: 100%; margin-top: 15px;" onclick="saveAdminData()">
-          <i class="fa-solid fa-floppy-disk"></i> Save &amp; Update Live Site
-        </button>
-      </div>
-
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
-    <div class="social-links">
-      <a href="https://facebook.com/thetexascruisersband" target="_blank" class="social-icon-btn" title="Facebook">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-    </div>
-  </footer>
+    <footer class="bg-black border-t-2 border-orange-900/60 py-12 relative z-10 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="font-bebas text-4xl text-orange-500 tracking-widest mb-1">THE TEXAS CRUISERS BAND</h3>
+            <p class="font-marker neon-gold-title text-3xl mb-6">Let's Cruise!</p>
 
-  <script>
-    // Show Data Storage
-    let showData = JSON.parse(localStorage.getItem('texas_cruisers_show_data')) || {
-      title: "Herman Memorial 10 for Texas Run",
-      month: "OCT",
-      day: "10",
-      year: "2026",
-      venue: "North Shore Park",
-      location: "The Woodlands, Texas"
-    };
+            <div class="flex justify-center space-x-6 mb-8 text-2xl">
+                <a href="https://facebook.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="w-12 h-12 rounded-full bg-zinc-900 border border-orange-600/50 flex items-center justify-center text-orange-400 hover:bg-orange-600 hover:text-black transition-all">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
 
-    // Media Links Storage
-    let mediaData = JSON.parse(localStorage.getItem('texas_cruisers_media_data')) || {
-      song1Title: "Texas Cruisers Jam (Live Sample 1)",
-      song1Url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      song2Title: "Classic Country Rock Medley",
-      song2Url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-    };
-
-    // Fan Comments Storage
-    let fanComments = JSON.parse(localStorage.getItem('texas_cruisers_comments')) || [
-      { name: "Sarah M.", date: "Sept 12, 2026", text: "Saw you guys play last weekend! Best classic rock band in Texas!" },
-      { name: "Dave R.", date: "Aug 28, 2026", text: "Awesome electric guitar solos by Al! Keep cruising!" }
-    ];
-
-    let isLoggedIn = false;
-
-    // Render Show Card
-    function renderShows() {
-      const container = document.getElementById('showsList');
-      container.innerHTML = `
-        <div class="show-card">
-          <div class="show-date-badge">
-            <div class="month">${showData.month}</div>
-            <div class="day">${showData.day}</div>
-            <div class="year">${showData.year}</div>
-          </div>
-          <div class="show-details">
-            <div class="show-title">${showData.title}</div>
-            <div class="show-venue"><i class="fa-solid fa-map-pin"></i> ${showData.venue}</div>
-            <div class="show-location">${showData.location}</div>
-          </div>
+            <p class="text-xs font-tech text-gray-500">&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
         </div>
-      `;
-    }
+    </footer>
 
-    // Render Media (Songs & Video)
-    function renderMedia() {
-      // Render Audio
-      const audioContainer = document.getElementById('audioTracksContainer');
-      audioContainer.innerHTML = `
-        <div class="track-item">
-          <div class="track-title">${mediaData.song1Title}</div>
-          <audio controls src="${mediaData.song1Url}">Your browser does not support audio.</audio>
-        </div>
-        <div class="track-item">
-          <div class="track-title">${mediaData.song2Title}</div>
-          <audio controls src="${mediaData.song2Url}">Your browser does not support audio.</audio>
-        </div>
-      `;
+    <script>
+        const svgGuitarFallback = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23ff6600'><path d='M494.3 17.7c-23.6-23.6-61.9-23.6-85.5 0L247.5 179c-7.2-2.3-14.8-3.5-22.6-3.5-44.2 0-80 35.8-80 80 0 10.3 2 20.2 5.6 29.3L16 419.3c-21.3 21.3-21.3 55.9 0 77.2 21.3 21.3 55.9 21.3 77.2 0l134.5-134.5c9.1 3.7 19 5.6 29.3 5.6 44.2 0 80-35.8 80-80 0-7.8-1.2-15.4-3.5-22.6l161.3-161.3c23.6-23.6 23.6-61.9 0-85.5z'/></svg>`;
 
-      // Render Video
-      const videoContainer = document.getElementById('videoContainer');
-      videoContainer.innerHTML = `
-        <iframe src="${mediaData.videoUrl}" title="Texas Cruisers Video" allowfullscreen></iframe>
-      `;
-    }
+        // Initial Default Band Member Data with Assigned Icons & Photos
+        const defaultBandMembers = [
+            {
+                id: "chris",
+                name: "Chris Oliver",
+                role: "Lead Vocals",
+                icon: "fa-microphone", // Mic for Chris Oliver
+                bio: "Delivering powerful, soulful lead vocals that capture the heart of Texas rock and country with commanding stage presence.",
+                photoFront: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+                photoBack: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: "mark",
+                name: "Mark McFarlane",
+                role: "Bass Guitar",
+                icon: "fa-guitar", // Guitar for Mark McFarlane
+                bio: "Laying down driving bass lines that form the heavy groove of every Texas Cruisers set across all venues.",
+                photoFront: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
+                photoBack: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: "al",
+                name: "Al Montez",
+                role: "Lead Guitar",
+                icon: "fa-guitar", // Guitar for Al Montez
+                bio: "Firing up fiery electric guitar solos across classic rock riffs and soulful Texas blues bends.",
+                photoFront: "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80",
+                photoBack: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: "brian",
+                name: "Brian Martin",
+                role: "Drums",
+                icon: "fa-drum", // Drum for Brian Martin
+                bio: "Keeping the high-octane tempo steady with heavy-hitting classic rock drum rhythms and explosive fills.",
+                photoFront: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80",
+                photoBack: "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
 
-    // Render Fan Comments
-    function renderComments() {
-      const container = document.getElementById('commentsContainer');
-      container.innerHTML = fanComments.map(c => `
-        <div class="comment-card">
-          <div class="comment-author">${c.name}</div>
-          <div class="comment-date">${c.date}</div>
-          <div class="comment-text">${c.text}</div>
-        </div>
-      `).join('');
-    }
+        // Load Persistent Band Member Data or Default
+        let bandMembers = JSON.parse(localStorage.getItem('tc_band_members')) || defaultBandMembers;
 
-    // Add New Comment
-    function handleAddComment(e) {
-      e.preventDefault();
-      const name = document.getElementById('commenterName').value;
-      const text = document.getElementById('commenterText').value;
-      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        let currentShow = JSON.parse(localStorage.getItem('tc_next_show')) || {
+            date: "October 10, 2026",
+            title: "Herman Memorial 10 for Texas Run",
+            location: "North Shore Park, The Woodlands, Texas"
+        };
 
-      fanComments.unshift({ name, date: today, text });
-      localStorage.setItem('texas_cruisers_comments', JSON.stringify(fanComments));
-      
-      renderComments();
-      document.getElementById('commenterName').value = '';
-      document.getElementById('commenterText').value = '';
-      alert('Thank you for your comment!');
-    }
+        let guestbookEntries = JSON.parse(localStorage.getItem('tc_guestbook')) || [
+            { name: "Dave Stevens", city: "Conroe, TX", message: "Caught your set last month, best classic rock band in Montgomery County!", date: "Sep 12, 2026" },
+            { name: "Sarah & Mike", city: "The Woodlands, TX", message: "Can't wait to see y'all at the 10 for Texas run!", date: "Sep 10, 2026" }
+        ];
 
-    // Handle Booking Form Submission
-    function handleBookingSubmit(e) {
-      e.preventDefault();
-      alert('Thank you for your booking request! The Texas Cruisers Band will contact you shortly.');
-      e.target.reset();
-    }
+        function renderBandMembers() {
+            const grid = document.getElementById('membersGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
 
-    // Open Admin Modal
-    function openAdminEditorModal() {
-      const modal = document.getElementById('adminModalOverlay');
-      modal.style.display = 'flex';
-      
-      if (!isLoggedIn) {
-        document.getElementById('loginStep').style.display = 'block';
-        document.getElementById('editorStep').style.display = 'none';
-      } else {
-        document.getElementById('loginStep').style.display = 'none';
-        document.getElementById('editorStep').style.display = 'block';
-        populateEditorFields();
-      }
-    }
+            bandMembers.forEach(m => {
+                const card = document.createElement('div');
+                card.className = "flip-card h-[430px] w-full";
+                card.innerHTML = `
+                    <div class="flip-card-inner amp-card rounded-2xl" onclick="toggleCardFlip(this)">
+                        
+                        <!-- FRONT OF CARD -->
+                        <div class="flip-card-front flex flex-col justify-between bg-zinc-950 border border-zinc-800">
+                            <div class="h-64 overflow-hidden relative">
+                                <img src="${m.photoFront}" alt="${m.name}" class="w-full h-full object-cover opacity-85" onerror="this.src='${svgGuitarFallback}'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                                
+                                <div class="absolute bottom-3 right-3 w-12 h-12 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 p-0.5 shadow-[0_0_15px_rgba(255,102,0,0.8)]">
+                                    <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+                                        <i class="fa-solid ${m.icon} text-amber-400 text-xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-5 flex-1 flex flex-col justify-center items-center bg-gradient-to-b from-zinc-950 to-black">
+                                <h3 class="font-rye text-2xl sm:text-3xl text-amber-400 mb-0.5 tracking-wide">${m.name}</h3>
+                                <div class="flex items-center space-x-1 mb-3">
+                                    <i class="fa-solid ${m.icon} text-orange-500 text-xs"></i>
+                                    <span class="text-xs font-tech text-red-500 uppercase font-bold tracking-widest">${m.role}</span>
+                                </div>
+                                <div class="text-[11px] font-tech text-gray-400 border border-zinc-800 rounded-full px-3 py-1 flex items-center gap-1.5 bg-zinc-900/80">
+                                    <i class="fa-solid fa-hand-pointer text-orange-400"></i> Click tile to flip bio & photo
+                                </div>
+                            </div>
+                        </div>
 
-    // Close Admin Modal
-    function closeAdminEditorModal() {
-      document.getElementById('adminModalOverlay').style.display = 'none';
-    }
+                        <!-- BACK OF CARD -->
+                        <div class="flip-card-back flex flex-col justify-between bg-gradient-to-b from-zinc-900 via-zinc-950 to-black border-2 border-orange-500 p-6 text-left relative">
+                            <div class="flex items-center space-x-4 border-b border-zinc-800 pb-4 mb-3">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-orange-500 shrink-0 bg-zinc-900">
+                                    <img src="${m.photoBack || m.photoFront}" alt="${m.name}" class="w-full h-full object-cover" onerror="this.src='${svgGuitarFallback}'">
+                                </div>
+                                <div>
+                                    <h4 class="font-rye text-xl text-amber-300">${m.name}</h4>
+                                    <span class="text-xs font-tech text-orange-400 uppercase font-bold tracking-widest">${m.role}</span>
+                                </div>
+                            </div>
 
-    // Password Check (Default password: texas2026)
-    function verifyAdminPassword() {
-      const input = document.getElementById('adminPasswordInput').value;
-      if (input === 'texas2026' || input === 'admin') {
-        isLoggedIn = true;
-        document.getElementById('loginStep').style.display = 'none';
-        document.getElementById('editorStep').style.display = 'block';
-        populateEditorFields();
-      } else {
-        alert('Incorrect password! Try: texas2026');
-      }
-    }
+                            <div class="flex-1 overflow-y-auto pr-1">
+                                <p class="text-xs text-gray-300 leading-relaxed font-sans mb-3">${m.bio}</p>
+                                <div class="bg-black/60 p-3 rounded-lg border border-zinc-800 space-y-1 text-[11px] font-tech">
+                                    <div class="text-orange-400"><i class="fa-solid fa-guitar mr-1"></i> Style: Classic Rock / Texas Blues</div>
+                                    <div class="text-gray-400"><i class="fa-solid fa-location-dot mr-1"></i> Origin: Texas, USA</div>
+                                </div>
+                            </div>
 
-    // Populate Fields
-    function populateEditorFields() {
-      document.getElementById('editShowTitle').value = showData.title;
-      document.getElementById('editShowDate').value = `${showData.month} ${showData.day}, ${showData.year}`;
-      document.getElementById('editShowVenue').value = showData.venue;
-      document.getElementById('editShowLocation').value = showData.location;
+                            <div class="pt-3 border-t border-zinc-800 text-center">
+                                <span class="text-[10px] font-tech text-amber-400 uppercase tracking-widest">
+                                    <i class="fa-solid fa-rotate-left mr-1"></i> Click to flip back
+                                </span>
+                            </div>
+                        </div>
 
-      document.getElementById('editSong1Title').value = mediaData.song1Title;
-      document.getElementById('editSong1Url').value = mediaData.song1Url;
-      document.getElementById('editSong2Title').value = mediaData.song2Title;
-      document.getElementById('editSong2Url').value = mediaData.song2Url;
-      document.getElementById('editVideoUrl').value = mediaData.videoUrl;
-    }
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
 
-    // Save Data
-    function saveAdminData() {
-      // Save Show
-      showData.title = document.getElementById('editShowTitle').value;
-      showData.venue = document.getElementById('editShowVenue').value;
-      showData.location = document.getElementById('editShowLocation').value;
+        function toggleCardFlip(element) {
+            const parentCard = element.closest('.flip-card');
+            if (parentCard) parentCard.classList.toggle('flipped');
+        }
 
-      const rawDate = document.getElementById('editShowDate').value;
-      const parts = rawDate.replace(',', '').split(' ');
-      if (parts.length >= 3) {
-        showData.month = parts[0].substring(0, 3).toUpperCase();
-        showData.day = parts[1];
-        showData.year = parts[2];
-      }
+        function renderShows() {
+            const container = document.getElementById('showsContainer');
+            if (!container) return;
+            container.innerHTML = `
+                <div class="amp-card p-6 sm:p-8 rounded-2xl border-l-8 border-l-red-600 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                    <div class="flex items-center space-x-6">
+                        <div class="bg-black border-2 border-orange-500 rounded-xl p-4 text-center min-w-[105px] shadow-[0_0_15px_rgba(255,102,0,0.4)]">
+                            <span class="block font-bebas text-3xl text-orange-400 leading-none">${currentShow.date.split(',')[0]}</span>
+                            <span class="block text-xs font-tech text-gray-400">${currentShow.date.split(',')[1] || '2026'}</span>
+                        </div>
+                        <div>
+                            <span class="bg-red-600 text-black font-bebas text-xs px-2.5 py-0.5 rounded font-bold uppercase tracking-wider">NEXT FEATURED SHOW</span>
+                            <h3 class="font-bebas text-3xl sm:text-4xl text-white mt-1">${currentShow.title}</h3>
+                            <p class="text-amber-400 text-sm font-tech"><i class="fa-solid fa-location-dot mr-1"></i>${currentShow.location}</p>
+                        </div>
+                    </div>
+                    <a href="#booking" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-bebas text-xl px-6 py-2.5 rounded-lg font-bold shadow-md hover:scale-105 transition-all">
+                        Book Event / Details
+                    </a>
+                </div>
 
-      // Save Media
-      mediaData.song1Title = document.getElementById('editSong1Title').value;
-      mediaData.song1Url = document.getElementById('editSong1Url').value;
-      mediaData.song2Title = document.getElementById('editSong2Title').value;
-      mediaData.song2Url = document.getElementById('editSong2Url').value;
-      
-      let rawVideoUrl = document.getElementById('editVideoUrl').value;
-      if (rawVideoUrl.includes('watch?v=')) {
-        rawVideoUrl = rawVideoUrl.replace('watch?v=', 'embed/');
-      }
-      mediaData.videoUrl = rawVideoUrl;
+                <div class="amp-card p-6 rounded-2xl text-center border-dashed border-zinc-700">
+                    <i class="fa-solid fa-compact-disc text-3xl text-orange-500 mb-2 animate-vinyl"></i>
+                    <h4 class="font-bebas text-2xl text-gray-300">MORE DATES COMING SOON!</h4>
+                    <p class="text-gray-400 text-sm font-tech">We are currently booking Texas club, festival, and private event dates.</p>
+                </div>
+            `;
+        }
 
-      // Save to Storage
-      localStorage.setItem('texas_cruisers_show_data', JSON.stringify(showData));
-      localStorage.setItem('texas_cruisers_media_data', JSON.stringify(mediaData));
+        function renderGuestbook() {
+            const container = document.getElementById('guestbookPosts');
+            if (!container) return;
+            container.innerHTML = '';
 
-      renderShows();
-      renderMedia();
-      closeAdminEditorModal();
-      alert('Site updated successfully!');
-    }
+            guestbookEntries.forEach(entry => {
+                const card = document.createElement('div');
+                card.className = "bg-zinc-950 border border-zinc-800 p-4 rounded-xl flex flex-col space-y-1 shadow-md";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="font-bebas text-lg text-amber-300">${entry.name} <span class="text-xs font-tech text-gray-400 font-normal">(${entry.city})</span></span>
+                        <span class="text-[10px] font-tech text-orange-400">${entry.date}</span>
+                    </div>
+                    <p class="text-sm text-gray-300 font-sans leading-relaxed">"${entry.message}"</p>
+                `;
+                container.appendChild(card);
+            });
+        }
 
-    // Initial Setup
-    renderShows();
-    renderMedia();
-    renderComments();
-  </script>
-</body>
-</html>
+        function handleGuestbookSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('gbName').value.trim();
+            const city = document.getElementById('gbCity').value.trim() || 'Texas';
+            const message = document.getElementById('gbMessage').value.trim();
+
+            if (!name || !message) return;
+
+            const newEntry = {
+                name,
+                city,
+                message,
+                date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+            };
+
+            guestbookEntries.unshift(newEntry);
+            localStorage.setItem('tc_guestbook', JSON.stringify(guestbookEntries));
+            renderGuestbook();
+
+            document.getElementById('gbName').value = '';
+            document.getElementById('gbCity').value = '';
+            document.getElementById('gbMessage').value = '';
+        }
+
+        // Synth Web Audio Soundboard
+        let audioCtx = null;
+        function playGuitarRiff(type) {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+            const vuNeedle = document.getElementById('vuNeedle');
+            const genreTitle = document.getElementById('currentGenreTitle');
+            const genreDesc = document.getElementById('currentGenreDesc');
+
+            if (vuNeedle) vuNeedle.classList.add('vu-needle-active');
+
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = type === 'rock' ? 'sawtooth' : (type === 'country' ? 'triangle' : 'square');
+
+            if (type === 'rock') {
+                genreTitle.innerText = "CLASSIC ROCK POWER RIFF";
+                genreDesc.innerText = "Synthesizing Overdriven Sawtooth Lead Scale";
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.exponentialRampToValueAtTime(440, now + 0.2);
+                osc.frequency.exponentialRampToValueAtTime(330, now + 0.4);
+            } else if (type === 'country') {
+                genreTitle.innerText = "COUNTRY TELECASTER TWANG";
+                genreDesc.innerText = "Synthesizing Sharp Major Pentatonic Bend";
+                osc.frequency.setValueAtTime(293.66, now);
+                osc.frequency.exponentialRampToValueAtTime(587.33, now + 0.3);
+            } else {
+                genreTitle.innerText = "TEXAS BLUES BEND";
+                genreDesc.innerText = "Synthesizing Warm Expressive Blues Scale";
+                osc.frequency.setValueAtTime(196, now);
+                osc.frequency.exponentialRampToValueAtTime(392, now + 0.5);
+            }
+
+            gain.gain.setValueAtTime(0.35, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.6);
+
+            setTimeout(() => {
+                if (vuNeedle) vuNeedle.classList.remove('vu-needle-active');
+            }, 600);
+        }
+
+        function promptAdminLogin() {
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('passError').classList.add('hidden');
+            document.getElementById('passwordModal').classList.remove('hidden');
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.add('hidden');
+        }
+
+        function verifyAdminPassword() {
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === 'texas2026') {
+                closePasswordModal();
+                openAdminModal();
+            } else {
+                document.getElementById('passError').classList.remove('hidden');
+            }
+        }
+
+        function openAdminModal() {
+            // Populate current show settings
+            document.getElementById('adminShowDate').value = currentShow.date;
+            document.getElementById('adminShowTitle').value = currentShow.title;
+            document.getElementById('adminShowLocation').value = currentShow.location;
+
+            // Populate current photo URLs for each member
+            document.getElementById('adminImgChris').value = bandMembers.find(m => m.id === 'chris')?.photoFront || '';
+            document.getElementById('adminImgMark').value = bandMembers.find(m => m.id === 'mark')?.photoFront || '';
+            document.getElementById('adminImgAl').value = bandMembers.find(m => m.id === 'al')?.photoFront || '';
+            document.getElementById('adminImgBrian').value = bandMembers.find(m => m.id === 'brian')?.photoFront || '';
+
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function saveAdminChanges() {
+            // Save show info
+            currentShow.date = document.getElementById('adminShowDate').value;
+            currentShow.title = document.getElementById('adminShowTitle').value;
+            currentShow.location = document.getElementById('adminShowLocation').value;
+            localStorage.setItem('tc_next_show', JSON.stringify(currentShow));
+
+            // Save photo URLs
+            const chrisUrl = document.getElementById('adminImgChris').value.trim();
+            const markUrl = document.getElementById('adminImgMark').value.trim();
+            const alUrl = document.getElementById('adminImgAl').value.trim();
+            const brianUrl = document.getElementById('adminImgBrian').value.trim();
+
+            bandMembers.forEach(m => {
+                if (m.id === 'chris' && chrisUrl) { m.photoFront = chrisUrl; m.photoBack = chrisUrl; }
+                if (m.id === 'mark' && markUrl) { m.photoFront = markUrl; m.photoBack = markUrl; }
+                if (m.id === 'al' && alUrl) { m.photoFront = alUrl; m.photoBack = alUrl; }
+                if (m.id === 'brian' && brianUrl) { m.photoFront = brianUrl; m.photoBack = brianUrl; }
+            });
+
+            localStorage.setItem('tc_band_members', JSON.stringify(bandMembers));
+
+            renderShows();
+            renderBandMembers();
+            closeAdminModal();
+        }
+
+        function resetDataToDefault() {
+            localStorage.removeItem('tc_next_show');
+            localStorage.removeItem('tc_band_members');
+            currentShow = {
+                date: "October 10, 2026",
+                title: "Herman Memorial 10 for Texas Run",
+                location: "North Shore Park, The Woodlands, Texas"
+            };
+            bandMembers = [...defaultBandMembers];
+            renderShows();
+            renderBandMembers();
+            closeAdminModal();
+        }
+
+        function handleBooking(e) {
+            e.preventDefault();
+            document.getElementById('bookingConfirmation').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        // Particle Lights Canvas Background
+        function initStageLights() {
+            const canvas = document.getElementById('stageCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = Array.from({ length: 45 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 3.5 + 1,
+                speedY: Math.random() * 0.8 + 0.2,
+                opacity: Math.random() * 0.5 + 0.2
+            }));
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 102, 0, ${p.opacity})`;
+                    ctx.fill();
+
+                    p.y -= p.speedY;
+                    if (p.y < 0) {
+                        p.y = height;
 

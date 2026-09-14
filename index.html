@@ -125,20 +125,6 @@
       box-shadow: inset 0 0 100px #000;
     }
 
-    .poster-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 40px,
-        rgba(0, 0, 0, 0.25) 40px,
-        rgba(0, 0, 0, 0.25) 42px
-      );
-      pointer-events: none;
-    }
-
     .poster-container {
       position: relative;
       z-index: 10;
@@ -272,11 +258,11 @@
     }
 
     .btn-secondary {
-      background: rgba(0, 0, 0, 0.6);
-      color: #e5be75;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ffd700;
       font-weight: 800;
       padding: 12px 28px;
-      border: 2px solid #e5be75;
+      border: 2px solid #ffd700;
       border-radius: 30px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -284,76 +270,8 @@
     }
 
     .btn-secondary:hover {
-      background: #e5be75;
+      background: #ffd700;
       color: #000;
-    }
-
-    /* INLINE ADMIN PANEL SECTION */
-    .admin-panel-section {
-      display: none;
-      background: #1a1009;
-      border-bottom: 3px solid #ffd700;
-      padding: 40px 20px;
-    }
-
-    .admin-panel-section.active {
-      display: block;
-    }
-
-    .admin-card-box {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #100a06;
-      border: 2px solid #ffd700;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-    }
-
-    .admin-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #4a3219;
-      padding-bottom: 10px;
-    }
-
-    .admin-header h3 {
-      font-family: 'Rye', serif;
-      color: #ffd700;
-      font-size: 1.6rem;
-    }
-
-    .admin-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-    }
-
-    .admin-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .admin-group label {
-      color: #d1b894;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .admin-group input {
-      padding: 10px;
-      background: #050302;
-      border: 1px solid #5a3a1b;
-      border-radius: 6px;
-      color: #fff;
-    }
-
-    .admin-group input:focus {
-      border-color: #ffd700;
-      outline: none;
     }
 
     /* SECTIONS */
@@ -499,6 +417,83 @@
       line-height: 1.5;
     }
 
+    /* POPUP ADMIN MODAL WINDOW */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: #120904;
+      border: 3px solid #ffd700;
+      border-radius: 12px;
+      max-width: 550px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: #ffd700;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .admin-field-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .admin-field-group label {
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .admin-field-group input {
+      padding: 10px;
+      background: #000;
+      border: 1px solid #5a3a1b;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .admin-field-group input:focus {
+      border-color: #ffd700;
+      outline: none;
+    }
+
+    /* FLOATING BUTTON */
+    .floating-admin-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #ffd700;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+      z-index: 9999;
+    }
+
     /* FOOTER */
     footer {
       background: #050302;
@@ -506,43 +501,6 @@
       padding: 40px 20px;
       text-align: center;
       color: #8c785c;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .social-icons a {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #140c07;
-      border: 1px solid #5a3a1b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffd700;
-      font-size: 1.2rem;
-    }
-
-    .floating-admin-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #ffd700;
-      color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-      z-index: 999;
     }
   </style>
 </head>
@@ -556,7 +514,11 @@
     <ul class="nav-links">
       <li><a href="#shows">Shows</a></li>
       <li><a href="#members">Band Members</a></li>
-      <li><button class="admin-btn" onclick="toggleAdminPanel()"><i class="fa-solid fa-gear"></i> Admin Editor</button></li>
+      <li>
+        <button class="admin-btn" onclick="openAdminEditorModal()">
+          <i class="fa-solid fa-gear"></i> Admin Editor
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -578,46 +540,17 @@
       <div class="poster-lets-cruise">Let's Cruise!</div>
 
       <div class="hero-actions">
-        <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Next Show Info</a>
-        <button onclick="toggleAdminPanel()" class="btn-secondary"><i class="fa-solid fa-pen-to-square"></i> Open Admin Editor</button>
+        <a href="#shows" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Upcoming Shows</a>
+        <button class="btn-secondary" onclick="openAdminEditorModal()">
+          <i class="fa-solid fa-lock"></i> Open Admin Editor
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- INLINE ADMIN PANEL SECTION -->
-  <div class="admin-panel-section" id="adminPanel">
-    <div class="admin-card-box">
-      <div class="admin-header">
-        <h3><i class="fa-solid fa-sliders"></i> Live Band Admin Panel</h3>
-        <button class="btn-secondary" style="padding: 4px 12px; font-size: 0.8rem;" onclick="toggleAdminPanel()">Close Editor</button>
-      </div>
-
-      <div class="admin-grid">
-        <div class="admin-group">
-          <label>Next Show Title</label>
-          <input type="text" id="adminTitle" value="Herman Memorial 10 for Texas Run">
-        </div>
-        <div class="admin-group">
-          <label>Date (e.g. October 10, 2026)</label>
-          <input type="text" id="adminDate" value="October 10, 2026">
-        </div>
-        <div class="admin-group">
-          <label>Venue Name</label>
-          <input type="text" id="adminVenue" value="North Shore Park">
-        </div>
-        <div class="admin-group">
-          <label>Location City/State</label>
-          <input type="text" id="adminLocation" value="The Woodlands, Texas">
-        </div>
-      </div>
-
-      <button class="btn-primary" style="margin-top: 20px; width: 100%;" onclick="saveAdminData()">Save &amp; Update Website</button>
-    </div>
-  </div>
-
   <!-- SHOWS SECTION -->
   <section id="shows">
-    <h2 class="section-title">Next Show</h2>
+    <h2 class="section-title">Upcoming Shows</h2>
     <p class="section-subtitle">Catch The Texas Cruisers Band Live On Stage</p>
 
     <div class="shows-container" id="showsList">
@@ -677,23 +610,65 @@
     </div>
   </section>
 
-  <!-- FLOATING ADMIN BUTTON -->
-  <button class="floating-admin-btn" onclick="toggleAdminPanel()" title="Open Admin Panel">
+  <!-- FLOATING ADMIN GEAR BUTTON -->
+  <button class="floating-admin-btn" onclick="openAdminEditorModal()" title="Open Admin Editor">
     <i class="fa-solid fa-gear"></i>
   </button>
 
+  <!-- ADMIN EDITOR MODAL -->
+  <div class="modal-overlay" id="adminModalOverlay">
+    <div class="modal-box">
+      <span class="modal-close-btn" onclick="closeAdminEditorModal()">&times;</span>
+      <h2 style="font-family: 'Rye', serif; color: #ffd700; margin-bottom: 20px;">
+        <i class="fa-solid fa-sliders"></i> Band Admin Editor
+      </h2>
+
+      <!-- Password Login View -->
+      <div id="loginStep">
+        <div class="admin-field-group">
+          <label>Enter Admin Password:</label>
+          <input type="password" id="adminPasswordInput" placeholder="Password">
+        </div>
+        <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="verifyAdminPassword()">
+          Unlock Admin Editor
+        </button>
+      </div>
+
+      <!-- Editing View (Hidden until password verified) -->
+      <div id="editorStep" style="display: none;">
+        <div class="admin-field-group">
+          <label>Show Title:</label>
+          <input type="text" id="editShowTitle">
+        </div>
+        <div class="admin-field-group">
+          <label>Show Date (e.g. October 10, 2026):</label>
+          <input type="text" id="editShowDate">
+        </div>
+        <div class="admin-field-group">
+          <label>Venue Name:</label>
+          <input type="text" id="editShowVenue">
+        </div>
+        <div class="admin-field-group">
+          <label>City & State:</label>
+          <input type="text" id="editShowLocation">
+        </div>
+
+        <button class="btn-primary" style="width: 100%; margin-top: 15px;" onclick="saveAdminData()">
+          Save & Update Live Site
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    </div>
     <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
   </footer>
 
   <script>
-    let showData = {
+    // Initial Show Data
+    let showData = JSON.parse(localStorage.getItem('texas_cruisers_show_data')) || {
       title: "Herman Memorial 10 for Texas Run",
       month: "OCT",
       day: "10",
@@ -702,6 +677,9 @@
       location: "The Woodlands, Texas"
     };
 
+    let isLoggedIn = false;
+
+    // Render Show Card
     function renderShows() {
       const container = document.getElementById('showsList');
       container.innerHTML = `
@@ -720,41 +698,68 @@
       `;
     }
 
-    function toggleAdminPanel() {
-      const panel = document.getElementById('adminPanel');
-      if (panel.style.display === 'block') {
-        panel.style.display = 'none';
+    // Open Admin Modal
+    function openAdminEditorModal() {
+      const modal = document.getElementById('adminModalOverlay');
+      modal.style.display = 'flex';
+      
+      if (!isLoggedIn) {
+        document.getElementById('loginStep').style.display = 'block';
+        document.getElementById('editorStep').style.display = 'none';
       } else {
-        panel.style.display = 'block';
-        panel.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('loginStep').style.display = 'none';
+        document.getElementById('editorStep').style.display = 'block';
+        populateEditorFields();
       }
     }
 
+    // Close Admin Modal
+    function closeAdminEditorModal() {
+      document.getElementById('adminModalOverlay').style.display = 'none';
+    }
+
+    // Password Check (Default password: texas2026)
+    function verifyAdminPassword() {
+      const input = document.getElementById('adminPasswordInput').value;
+      if (input === 'texas2026' || input === 'admin') {
+        isLoggedIn = true;
+        document.getElementById('loginStep').style.display = 'none';
+        document.getElementById('editorStep').style.display = 'block';
+        populateEditorFields();
+      } else {
+        alert('Incorrect password! Try: texas2026');
+      }
+    }
+
+    // Populate Fields
+    function populateEditorFields() {
+      document.getElementById('editShowTitle').value = showData.title;
+      document.getElementById('editShowDate').value = `${showData.month} ${showData.day}, ${showData.year}`;
+      document.getElementById('editShowVenue').value = showData.venue;
+      document.getElementById('editShowLocation').value = showData.location;
+    }
+
+    // Save Data
     function saveAdminData() {
-      showData.title = document.getElementById('adminTitle').value;
-      showData.venue = document.getElementById('adminVenue').value;
-      showData.location = document.getElementById('adminLocation').value;
-      
-      const rawDate = document.getElementById('adminDate').value;
-      const parts = rawDate.split(' ');
+      showData.title = document.getElementById('editShowTitle').value;
+      showData.venue = document.getElementById('editShowVenue').value;
+      showData.location = document.getElementById('editShowLocation').value;
+
+      const rawDate = document.getElementById('editShowDate').value;
+      const parts = rawDate.replace(',', '').split(' ');
       if (parts.length >= 3) {
         showData.month = parts[0].substring(0, 3).toUpperCase();
-        showData.day = parts[1].replace(',', '');
+        showData.day = parts[1];
         showData.year = parts[2];
       }
 
+      localStorage.setItem('texas_cruisers_show_data', JSON.stringify(showData));
       renderShows();
-      toggleAdminPanel();
-      alert('Website show details updated!');
+      closeAdminEditorModal();
+      alert('Site updated successfully!');
     }
 
-    // Keyboard shortcut (Ctrl + Shift + A)
-    window.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
-        toggleAdminPanel();
-      }
-    });
-
+    // Initial Run
     renderShows();
   </script>
 </body>

@@ -1,119 +1,915 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texas Cruisers Band</title>
+    <title>The Texas Cruisers Band | Classic Rock, Country & Blues</title>
 
-    style.css
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Rye (Western), Oswald (Headers), Open Sans (Body Text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Oswald:wght@500;600;700;800&family=Rye&display=swap" rel="stylesheet">
 
-    <link://fonts.googleapis.com
-    <link rel="preconnect" href="https://href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600Yellowtail&display=swap
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        rustic: {
+                            950: '#0a0705',
+                            900: '#130d09',
+                            800: '#1d140e',
+                            700: '#2d1f16',
+                            600: '#422d20',
+                            gold: '#d4a017',
+                            goldLight: '#f3c64c',
+                            goldDark: '#99730d',
+                            red: '#b91c1c',
+                            blue: '#1d4ed8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                        western: ['Rye', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0705;
+            color: #f3f4f6;
+            font-family: 'Open Sans', sans-serif;
+            background-image: 
+                radial-gradient(rgba(212, 160, 23, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, #0a0705, #130d09 50%, #0a0705);
+            background-size: 24px 24px, 100% 100%;
+        }
+
+        .wood-texture {
+            background-color: #130d09;
+            background-image: 
+                linear-gradient(90deg, rgba(255,255,255,.015) 50%, transparent 50%),
+                linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 50%);
+            background-size: 4px 4px, 100% 12px;
+        }
+
+        .stage-glow {
+            box-shadow: 0 0 35px rgba(212, 160, 23, 0.22), 0 0 12px rgba(185, 28, 28, 0.2);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #f3c64c 0%, #d4a017 50%, #99730d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gold-gradient {
+            border-image: linear-gradient(to bottom right, #d4a017, #422d20, #d4a017) 1;
+        }
+
+        /* Animated Sound Equalizer Bars */
+        .eq-bar {
+            animation: eqPulse 1.2s ease-in-out infinite alternate;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.2s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.4s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.1s; }
+        .eq-bar:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes eqPulse {
+            0% { height: 20%; }
+            100% { height: 100%; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0705;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d1f16;
+            border: 1px solid #d4a017;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4a017;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col selection:bg-rustic-gold selection:text-rustic-950">
 
-<header>
-    <div class="logo">
-        TEXAS CRUISERS BAND
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-rustic-950/95 backdrop-blur-md border-b border-rustic-gold/30 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand / Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-rustic-800 border-2 border-rustic-gold flex items-center justify-center text-rustic-gold group-hover:scale-110 transition-transform shadow-md">
+                        <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl sm:text-3xl font-black font-western text-gold-gradient leading-none tracking-wide">
+                            TEXAS CRUISERS
+                        </span>
+                        <span class="text-[10px] tracking-widest text-rustic-gold font-semibold uppercase mt-0.5">
+                            Classic Rock • Country • Blues
+                        </span>
+                    </div>
+                </a>
 
-    <nav>
-        #aboutAbout</a>
-        #bandBand</a>
-        <a href="#shows
-        <a href="#contact">Contact</a>
-</header>
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-7 font-semibold text-xs tracking-widest uppercase">
+                    <a href="#home" class="hover:text-rustic-gold transition-colors">Home</a>
+                    <a href="#shows" class="hover:text-rustic-gold transition-colors">Shows</a>
+                    <a href="#band" class="hover:text-rustic-gold transition-colors">The Band</a>
+                    <a href="#jukebox" class="hover:text-rustic-gold transition-colors">Music & Audio</a>
+                    <a href="#epk" class="hover:text-rustic-gold transition-colors">EPK</a>
+                    <a href="#booking" class="bg-gradient-to-r from-rustic-gold to-amber-500 hover:from-amber-500 hover:to-rustic-gold text-rustic-950 font-black px-5 py-2.5 rounded-md uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg border border-amber-300 flex items-center gap-2">
+                        <i class="fa-solid fa-guitar"></i> Book Now
+                    </a>
+                </div>
 
-<section class="hero">
-
-    <img src="images/banner.jpg"
-         alt="Texas Cruisers Band"
-         class="banner">
-
-    <div class="  <p>
-            Bringing Texas-Sized Entertainment To Every Stage
-        </p>
-
-        <a href="#           LET'S CRUISE
-        </a>
-
-    </div>
-
-</section>
-
-<section id="about">
-
-    <h2>About The Band</h2>
-
-    <div class="content-box">
-        <p>
-            Texas Cruisers Band delivers high-energy performances
-            featuring Classic Rock, Country and Blues. From local
-            festivals and dance halls to private events and community
-            celebrations, we bring crowd-pleasing favorites to every show.
-        </p>
-    </div>
-
-</section>
-
-<section id="band">
-
-    <h2>Meet The Band</h2>
-
-    <div class="members">
-
-        <div class="member-card">
-            <h3>Brian Martin</h3>
+                <!-- Mobile Navigation Toggle -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-rustic-gold hover:text-white p-2 focus:outline-none" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="member-card">
-            <h3>Al Montez</h3>
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-rustic-900 border-b border-rustic-gold/40 px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-semibold hover:bg-rustic-800 hover:text-rustic-gold">Home</a>
+            <a href="#shows" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-semibold hover:bg-rustic-800 hover:text-rustic-gold">Shows</a>
+            <a href="#band" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-semibold hover:bg-rustic-800 hover:text-rustic-gold">The Band</a>
+            <a href="#jukebox" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-semibold hover:bg-rustic-800 hover:text-rustic-gold">Cruisers Jukebox</a>
+            <a href="#epk" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-semibold hover:bg-rustic-800 hover:text-rustic-gold">EPK & Downloads</a>
+            <a href="#booking" class="mobile-nav-link block w-full text-center bg-rustic-gold text-rustic-950 px-4 py-3 rounded-md font-bold uppercase mt-4 shadow-md">
+                <i class="fa-solid fa-guitar mr-2"></i> Book The Band
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header id="home" class="relative bg-rustic-950 border-b-2 border-rustic-gold/40 overflow-hidden py-8 sm:py-12">
+        
+        <!-- Ambient Stage Glow Filters -->
+        <div class="absolute inset-0 pointer-events-none opacity-30">
+            <div class="absolute -top-24 left-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -top-24 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
         </div>
 
-        <div class="member-card">
-            <h3>Chris Oliver</h3>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            
+            <!-- Hero Banner Container -->
+            <div class="relative rounded-2xl overflow-hidden border-2 border-rustic-gold/60 shadow-2xl stage-glow bg-rustic-900 group">
+                
+                <!-- Responsive Banner Aspect Ratio -->
+                <div class="w-full relative aspect-[21/9] sm:aspect-[2.5/1] md:aspect-[2.8/1] bg-rustic-950 flex items-center justify-center">
+                    
+                    <!-- Banner Graphic Image with Fallback Placeholder -->
+                    <img id="hero-banner-img" 
+                         src="hero-banner.jpg" 
+                         alt="The Texas Cruisers Band Banner" 
+                         class="w-full h-full object-cover object-center"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80'; document.getElementById('banner-fallback-badge').classList.remove('hidden');" />
+
+                    <!-- Fallback Badge Overlay (Visible if hero-banner.jpg fails to load) -->
+                    <div id="banner-fallback-badge" class="hidden absolute top-4 right-4 bg-rustic-950/80 backdrop-blur-md border border-rustic-gold/50 px-3 py-1 rounded text-[10px] text-rustic-gold font-mono uppercase tracking-widest">
+                        <i class="fa-solid fa-triangle-exclamation mr-1 text-amber-400"></i> Local hero-banner.jpg placeholder active
+                    </div>
+
+                    <!-- Subtle Lighting Flare Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-rustic-950 via-black/30 to-transparent pointer-events-none"></div>
+
+                    <!-- Overlay Banner Title Content -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                        <span class="text-rustic-gold font-bold text-xs sm:text-sm tracking-widest uppercase mb-1 drop-shadow-md">
+                            <i class="fa-solid fa-star mr-2 text-amber-400"></i>Live Classic Rock, Country & Blues<i class="fa-solid fa-star ml-2 text-amber-400"></i>
+                        </span>
+                        <h1 class="text-3xl sm:text-6xl md:text-7xl font-western text-gold-gradient drop-shadow-2xl">
+                            THE TEXAS CRUISERS
+                        </h1>
+                        <p class="text-gray-200 text-xs sm:text-base font-semibold tracking-wider mt-1 sm:mt-2 drop-shadow-md">
+                            Brian Martin • Al Montez • Chris Oliver • Mark McFarlane
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner Action Bar -->
+                <div class="bg-rustic-900 border-t border-rustic-gold/30 p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-center md:text-left">
+                        <span class="text-rustic-gold font-western text-xl sm:text-2xl block tracking-wide">LET'S CRUISE!</span>
+                        <p class="text-xs sm:text-sm text-gray-300">High-energy cover hits from Texas blues to classic rock dance anthems.</p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 w-full md:w-auto">
+                        <a href="#shows" class="flex-1 sm:flex-none bg-rustic-800 hover:bg-rustic-700 text-rustic-gold border-2 border-rustic-gold font-bold px-6 py-3 rounded-lg uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-all transform hover:scale-105 text-center">
+                            <i class="fa-solid fa-calendar-days mr-2"></i>Upcoming Shows
+                        </a>
+                        <a href="#booking" class="flex-1 sm:flex-none bg-gradient-to-r from-rustic-gold via-amber-500 to-rustic-gold hover:from-amber-500 hover:to-rustic-gold text-rustic-950 font-black px-6 py-3 rounded-lg uppercase tracking-wider text-xs sm:text-sm shadow-xl transition-all transform hover:scale-105 border border-amber-300 text-center">
+                            <i class="fa-solid fa-envelope mr-2"></i>Book The Band
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social & Branding Strip -->
+            <div id="social-strip" class="mt-6 flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-gray-400 text-xs sm:text-sm font-semibold uppercase tracking-wider bg-rustic-900/60 p-4 rounded-xl border border-rustic-gold/20">
+                <span class="text-rustic-gold font-western text-base"><i class="fa-solid fa-guitar mr-2"></i>Let's Cruise!</span>
+                <span class="hidden sm:inline text-rustic-800">|</span>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-rustic-gold transition-colors">
+                    <i class="fa-brands fa-facebook-f text-rustic-gold"></i> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-rustic-gold transition-colors">
+                    <i class="fa-brands fa-instagram text-rustic-gold"></i> Instagram
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-rustic-gold transition-colors">
+                    <i class="fa-brands fa-youtube text-rustic-gold"></i> YouTube
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Upcoming Shows Section -->
+    <section id="shows" class="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-12">
+            <span class="text-rustic-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-music mr-2"></i>On The Road</span>
+            <h2 class="text-4xl sm:text-5xl font-black font-western text-gold-gradient tracking-wider uppercase mt-1 mb-3">
+                Tour Dates & Shows
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-rustic-red via-rustic-gold to-rustic-blue mx-auto mb-4"></div>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Catch The Texas Cruisers live across Texas music venues, dance halls, and private events.</p>
+            
+            <!-- Filter Tabs -->
+            <div class="flex justify-center gap-3 sm:gap-4 mt-8">
+                <button id="tab-upcoming" onclick="filterShows('upcoming')" class="px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-gold text-rustic-950 border-2 border-rustic-gold transition-all shadow-md">
+                    Upcoming Shows
+                </button>
+                <button id="tab-past" onclick="filterShows('past')" class="px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-900 text-gray-400 border-2 border-rustic-800 hover:border-rustic-gold transition-all">
+                    Past Highlights
+                </button>
+            </div>
         </div>
 
-        <div class="member-card">
-            <h3>Mark McFarlane</h3>
+        <!-- Show Cards Container -->
+        <div id="shows-list" class="space-y-4 max-w-4xl mx-auto">
+            <!-- Dynamically populated via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Band Members Section -->
+    <section id="band" class="py-16 bg-rustic-900 wood-texture border-y-2 border-rustic-gold/30 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-rustic-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-users mr-2"></i>Meet The Lineup</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-western text-gold-gradient tracking-wider uppercase mt-1 mb-3">
+                    The Band Members
+                </h2>
+                <div class="w-24 h-1 bg-rustic-gold mx-auto mb-4"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Four experienced musicians bringing authentic Texas guitar tone, tight rhythm, and classic rock energy.</p>
+            </div>
+
+            <!-- 4 Band Members Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Member 1: Brian Martin -->
+                <div class="bg-rustic-950 rounded-xl overflow-hidden border border-rustic-gold/30 hover:border-rustic-gold transition-all hover:-translate-y-2 group shadow-xl flex flex-col">
+                    <div class="h-64 bg-rustic-900 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Brian Martin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rustic-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-rustic-gold text-rustic-950 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">Lead Guitar</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold font-western text-white group-hover:text-rustic-gold transition-colors">Brian Martin</h3>
+                            <p class="text-rustic-gold font-bold text-xs uppercase tracking-wider mb-3">Guitar & Vocals</p>
+                            <p class="text-gray-300 text-xs leading-relaxed mb-4">Delivers electric lead guitar riffs, classic blues phrasing, and backing vocals.</p>
+                        </div>
+                        <button onclick="openMemberModal('Brian Martin', 'Guitar & Vocals', 'Brian brings over two decades of classic rock lead guitar expertise. Known for his blues phrasing, tone shaping, and high-octane guitar solos.', 'Fender Custom Shop Stratocaster, Marshall JCM Stack, Vintage Tube Screamer')" class="text-xs font-bold uppercase tracking-wider text-rustic-gold hover:text-white flex items-center gap-1.5 self-start">
+                            Read Bio <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Member 2: Al Montez -->
+                <div class="bg-rustic-950 rounded-xl overflow-hidden border border-rustic-gold/30 hover:border-rustic-gold transition-all hover:-translate-y-2 group shadow-xl flex flex-col">
+                    <div class="h-64 bg-rustic-900 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80" alt="Al Montez" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rustic-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-rustic-gold text-rustic-950 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">Frontman</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold font-western text-white group-hover:text-rustic-gold transition-colors">Al Montez</h3>
+                            <p class="text-rustic-gold font-bold text-xs uppercase tracking-wider mb-3">Lead Vocals & Rhythm</p>
+                            <p class="text-gray-300 text-xs leading-relaxed mb-4">Commands the stage with powerful lead vocals and steady rhythm guitar work.</p>
+                        </div>
+                        <button onclick="openMemberModal('Al Montez', 'Lead Vocals & Rhythm Guitar', 'Al is the voice of the Cruisers. His soulful classic rock and country vocals connect instantly with crowd audiences, while his acoustic & electric rhythm keeps the band driving forward.', 'Gibson Les Paul Standard, Takamine Acoustic, Fender Twin Reverb')" class="text-xs font-bold uppercase tracking-wider text-rustic-gold hover:text-white flex items-center gap-1.5 self-start">
+                            Read Bio <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Member 3: Chris Oliver -->
+                <div class="bg-rustic-950 rounded-xl overflow-hidden border border-rustic-gold/30 hover:border-rustic-gold transition-all hover:-translate-y-2 group shadow-xl flex flex-col">
+                    <div class="h-64 bg-rustic-900 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" alt="Chris Oliver" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rustic-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-rustic-gold text-rustic-950 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">Rhythm Engine</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold font-western text-white group-hover:text-rustic-gold transition-colors">Chris Oliver</h3>
+                            <p class="text-rustic-gold font-bold text-xs uppercase tracking-wider mb-3">Drums & Percussion</p>
+                            <p class="text-gray-300 text-xs leading-relaxed mb-4">Powers the beat engine with steady rock shuffles, crisp fills, and tight stage tempo.</p>
+                        </div>
+                        <button onclick="openMemberModal('Chris Oliver', 'Drums & Percussion', 'Chris keeps the party moving with rock-solid timing. From slow Texas blues shuffles to fast-paced Southern rock anthems, Chris lays down the foundation.', 'DW Collector Series Drumkit, Zildjian Custom Cymbals, Vic Firth Sticks')" class="text-xs font-bold uppercase tracking-wider text-rustic-gold hover:text-white flex items-center gap-1.5 self-start">
+                            Read Bio <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Member 4: Mark McFarlane -->
+                <div class="bg-rustic-950 rounded-xl overflow-hidden border border-rustic-gold/30 hover:border-rustic-gold transition-all hover:-translate-y-2 group shadow-xl flex flex-col">
+                    <div class="h-64 bg-rustic-900 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80" alt="Mark McFarlane" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rustic-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-rustic-gold text-rustic-950 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">Groove Anchor</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold font-western text-white group-hover:text-rustic-gold transition-colors">Mark McFarlane</h3>
+                            <p class="text-rustic-gold font-bold text-xs uppercase tracking-wider mb-3">Bass & Backing Vocals</p>
+                            <p class="text-gray-300 text-xs leading-relaxed mb-4">Lays down thunderous basslines and rich vocal harmonies that complete the band's sound.</p>
+                        </div>
+                        <button onclick="openMemberModal('Mark McFarlane', 'Bass & Backing Vocals', 'Mark provides the deep low-end groove and tight vocal harmonies. His bass work locks in seamlessly with Chris to give the Texas Cruisers their signature punch.', 'Fender Jazz Bass, Ampeg SVT-4PRO Stack, SansAmp Bass Driver DI')" class="text-xs font-bold uppercase tracking-wider text-rustic-gold hover:text-white flex items-center gap-1.5 self-start">
+                            Read Bio <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cruisers Jukebox Section -->
+    <section id="jukebox" class="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-14">
+            <span class="text-rustic-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-compact-disc mr-2"></i>Live Repertoire & Audio</span>
+            <h2 class="text-4xl sm:text-5xl font-black font-western text-gold-gradient tracking-wider uppercase mt-1 mb-3">
+                Cruisers Jukebox
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-rustic-red via-rustic-gold to-rustic-blue mx-auto mb-4"></div>
+            <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base">Listen to preview demos of our live classic rock, country, and blues song catalog.</p>
         </div>
 
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Player Main Panel -->
+            <div class="lg:col-span-7 bg-rustic-900 border-2 border-rustic-gold/40 rounded-2xl p-6 sm:p-8 shadow-2xl stage-glow relative overflow-hidden">
+                
+                <div class="flex items-center justify-between border-b border-rustic-800 pb-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-rustic-gold/10 border border-rustic-gold/40 flex items-center justify-center text-rustic-gold text-2xl">
+                            <i class="fa-solid fa-record-vinyl animate-spin" style="animation-duration: 8s;"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold font-heading text-xl text-white tracking-wide">LIVE DEMO PLAYER</h3>
+                            <p class="text-[11px] text-rustic-gold uppercase tracking-widest font-semibold">The Texas Cruisers Studio & Live Mix</p>
+                        </div>
+                    </div>
+
+                    <!-- Equalizer visualizer indicator -->
+                    <div id="eq-visualizer" class="flex items-end gap-1 h-6 px-2 opacity-50">
+                        <div class="w-1.5 bg-rustic-gold rounded-t eq-bar h-3"></div>
+                        <div class="w-1.5 bg-rustic-gold rounded-t eq-bar h-5"></div>
+                        <div class="w-1.5 bg-rustic-gold rounded-t eq-bar h-2"></div>
+                        <div class="w-1.5 bg-rustic-gold rounded-t eq-bar h-6"></div>
+                        <div class="w-1.5 bg-rustic-gold rounded-t eq-bar h-4"></div>
+                    </div>
+                </div>
+
+                <!-- Active Track Box -->
+                <div class="bg-rustic-950 rounded-xl p-6 mb-6 border border-rustic-gold/30 text-center relative shadow-inner">
+                    <span id="player-status" class="text-[10px] uppercase text-rustic-gold tracking-widest font-bold bg-rustic-gold/10 px-3 py-1 rounded-full border border-rustic-gold/20 inline-block mb-2">
+                        Ready To Play
+                    </span>
+                    <h4 id="current-track-title" class="text-2xl sm:text-3xl font-black font-western text-white mt-1">Texas Flood</h4>
+                    <p id="current-track-artist" class="text-xs sm:text-sm text-gray-300 mt-1">Stevie Ray Vaughan Cover • Live Demo</p>
+                    
+                    <!-- Seek / Progress Bar -->
+                    <div class="mt-6 flex items-center gap-3">
+                        <span id="current-time" class="text-xs font-mono text-gray-400">0:00</span>
+                        <div class="flex-1 bg-rustic-900 h-3 rounded-full overflow-hidden cursor-pointer border border-rustic-800" onclick="seekAudio(event)">
+                            <div id="progress-bar" class="bg-gradient-to-r from-rustic-gold to-amber-400 h-full w-0 transition-all"></div>
+                        </div>
+                        <span id="total-time" class="text-xs font-mono text-gray-400">3:30</span>
+                    </div>
+                </div>
+
+                <!-- Player Controls -->
+                <div class="flex justify-center items-center gap-6 mb-6">
+                    <button onclick="prevTrack()" class="text-gray-400 hover:text-rustic-gold text-2xl transition-colors p-2" title="Previous Track">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+                    <button id="play-btn" onclick="togglePlay()" class="w-16 h-16 rounded-full bg-rustic-gold hover:bg-amber-400 text-rustic-950 flex items-center justify-center text-2xl font-bold transition-transform hover:scale-110 shadow-xl border-2 border-amber-200">
+                        <i id="play-icon" class="fa-solid fa-play ml-1"></i>
+                    </button>
+                    <button onclick="nextTrack()" class="text-gray-400 hover:text-rustic-gold text-2xl transition-colors p-2" title="Next Track">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+                </div>
+
+                <div class="text-center text-gray-400 text-[11px] italic">
+                    <i class="fa-solid fa-volume-high mr-1 text-rustic-gold"></i> Web Audio Synthesizer sound generator active for interactive playback preview.
+                </div>
+            </div>
+
+            <!-- Playlist Side Panel -->
+            <div class="lg:col-span-5 bg-rustic-900 border border-rustic-gold/30 rounded-2xl p-6 shadow-xl">
+                <h4 class="font-heading text-lg text-rustic-gold uppercase font-bold mb-4 flex items-center justify-between border-b border-rustic-800 pb-2">
+                    <span>Featured Tracklist</span>
+                    <span class="text-xs font-mono text-gray-400 font-normal">6 Songs</span>
+                </h4>
+
+                <div id="playlist-container" class="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
+                    <!-- Tracks rendered via JS -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EPK Section -->
+    <section id="epk" class="py-16 bg-rustic-900 wood-texture border-y-2 border-rustic-gold/30 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-rustic-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-folder-open mr-2"></i>Venue & Promoter Resources</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-western text-gold-gradient uppercase mt-1 mb-3">
+                    Electronic Press Kit (EPK)
+                </h2>
+                <div class="w-24 h-1 bg-rustic-gold mx-auto mb-4"></div>
+                <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base">Download promotional materials, stage plots, technical specs, and press kit documentation for event buyers.</p>
+            </div>
+
+            <!-- EPK Asset Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                
+                <!-- EPK Item 1: Press Kit PDF -->
+                <div class="bg-rustic-950 border border-rustic-gold/40 p-6 rounded-2xl flex flex-col justify-between hover:border-rustic-gold transition-colors shadow-xl group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rustic-gold/10 border border-rustic-gold/30 flex items-center justify-center text-rustic-gold text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-2">Official Press Kit PDF</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">Complete band overview, biography, full song catalog list, high-res photos, and venue testimonial quotes.</p>
+                    </div>
+                    <button onclick="downloadEPKFile('Texas_Cruisers_Press_Kit.pdf', 'Complete Band Press Kit')" class="w-full bg-rustic-900 hover:bg-rustic-gold hover:text-rustic-950 text-rustic-gold border border-rustic-gold/50 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-solid fa-download"></i> Download EPK PDF
+                    </button>
+                </div>
+
+                <!-- EPK Item 2: Stage Plot & Tech Rider -->
+                <div class="bg-rustic-950 border border-rustic-gold/40 p-6 rounded-2xl flex flex-col justify-between hover:border-rustic-gold transition-colors shadow-xl group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rustic-gold/10 border border-rustic-gold/30 flex items-center justify-center text-rustic-gold text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-2">Stage Plot & Tech Specs</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">Sound channel strip assignments, stage layout, power requirements, and vocal mic configurations for sound engineers.</p>
+                    </div>
+                    <button onclick="downloadEPKFile('Texas_Cruisers_Stage_Plot.pdf', 'Stage Plot & Tech Rider')" class="w-full bg-rustic-900 hover:bg-rustic-gold hover:text-rustic-950 text-rustic-gold border border-rustic-gold/50 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-solid fa-download"></i> Download Stage Plot
+                    </button>
+                </div>
+
+                <!-- EPK Item 3: High-Res Logo & Banner Pack -->
+                <div class="bg-rustic-950 border border-rustic-gold/40 p-6 rounded-2xl flex flex-col justify-between hover:border-rustic-gold transition-colors shadow-xl group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rustic-gold/10 border border-rustic-gold/30 flex items-center justify-center text-rustic-gold text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-images"></i>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white mb-2">Logos & Flyer Assets</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">High-resolution banner graphics, transparent PNG logos, and customizable promo flyer templates for venue marketing.</p>
+                    </div>
+                    <button onclick="downloadEPKFile('Texas_Cruisers_Media_Pack.zip', 'Logos & Media Asset Pack')" class="w-full bg-rustic-900 hover:bg-rustic-gold hover:text-rustic-950 text-rustic-gold border border-rustic-gold/50 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-solid fa-file-zipper"></i> Download Media Pack
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-16 px-4 max-w-5xl mx-auto w-full">
+        <div class="bg-rustic-900 border-2 border-rustic-gold/50 rounded-3xl p-6 sm:p-12 shadow-2xl stage-glow relative overflow-hidden">
+            
+            <div class="text-center mb-10">
+                <span class="text-rustic-gold font-bold text-xs uppercase tracking-widest"><i class="fa-solid fa-envelope-open-text mr-2"></i>Direct Booking</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-western text-gold-gradient uppercase mt-1 mb-3">
+                    Book The Band
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-rustic-red via-rustic-gold to-rustic-blue mx-auto mb-4"></div>
+                <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base">Ready to bring live Classic Rock, Country & Blues to your venue, party, or festival? Submit details below!</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Name or Organization *</label>
+                        <input type="text" required placeholder="e.g. John Smith / Lone Star Saloon" class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-rustic-gold transition-colors text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Email Address *</label>
+                        <input type="email" required placeholder="john@example.com" class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-rustic-gold transition-colors text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Phone Number</label>
+                        <input type="tel" placeholder="(936) 555-0199" class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-rustic-gold transition-colors text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Event Date *</label>
+                        <input type="date" required class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-rustic-gold transition-colors text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Location / City *</label>
+                        <input type="text" required placeholder="e.g. Conroe, TX" class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-rustic-gold transition-colors text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-rustic-gold mb-2">Venue & Event Notes / Requests</label>
+                    <textarea rows="4" placeholder="Describe venue size, set length (e.g. 3 sets of 45 mins), budget, or specific cover song requests..." class="w-full bg-rustic-950 border border-rustic-800 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-rustic-gold transition-colors text-sm"></textarea>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button type="submit" class="w-full sm:w-auto bg-gradient-to-r from-rustic-gold via-amber-500 to-rustic-gold hover:from-amber-500 hover:to-rustic-gold text-rustic-950 font-black text-base px-10 py-4 rounded-xl uppercase tracking-wider transition-all transform hover:scale-105 shadow-xl border-2 border-amber-300">
+                        <i class="fa-solid fa-paper-plane mr-2"></i>Send Booking Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rustic-950 border-t-2 border-rustic-gold/30 py-12 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-2xl font-black font-western text-gold-gradient">
+                    THE TEXAS CRUISERS BAND
+                </p>
+                <p class="text-xs text-gray-400 mt-1">
+                    Classic Rock, Country & Blues | <span class="text-rustic-gold font-bold">Let's Cruise!</span>
+                </p>
+                <p class="text-[11px] text-gray-500 mt-0.5">© 2026 The Texas Cruisers Band. All Rights Reserved. GitHub Pages Ready (index.html).</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center gap-4">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-rustic-900 border border-rustic-gold/40 text-rustic-gold hover:bg-rustic-gold hover:text-rustic-950 flex items-center justify-center transition-all shadow-md">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-rustic-900 border border-rustic-gold/40 text-rustic-gold hover:bg-rustic-gold hover:text-rustic-950 flex items-center justify-center transition-all shadow-md">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-rustic-900 border border-rustic-gold/40 text-rustic-gold hover:bg-rustic-gold hover:text-rustic-950 flex items-center justify-center transition-all shadow-md">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Member Bio Modal -->
+    <div id="member-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-rustic-900 border-2 border-rustic-gold rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeMemberModal()" class="absolute top-4 right-4 text-gray-400 hover:text-rustic-gold text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modal-name" class="text-3xl font-black font-western text-rustic-gold uppercase"></h3>
+            <p id="modal-role" class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-3"></p>
+            <div class="w-16 h-1 bg-rustic-gold mb-5"></div>
+            
+            <p id="modal-bio" class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6"></p>
+            
+            <div class="bg-rustic-950 p-4 rounded-xl border border-rustic-800">
+                <p class="text-[10px] font-bold uppercase text-rustic-gold tracking-widest mb-1">Rig & Instruments</p>
+                <p id="modal-gear" class="text-xs text-gray-300 italic"></p>
+            </div>
+        </div>
     </div>
 
-</section>
-
-<section id="shows">
-
-    <h2>Upcoming Shows</h2>
-
-    <div class="show-card">
-        <h3>Show Schedule Coming Soon</h3>
-        <p>Check back for upcoming performances.</p>
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-rustic-gold text-rustic-950 px-6 py-4 rounded-xl shadow-2xl font-bold flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 border-2 border-white">
+        <i class="fa-solid fa-circle-check text-2xl"></i>
+        <span id="toast-message" class="text-sm">Action completed!</span>
     </div>
 
-</section>
+    <script>
+        const showsData = [
+            {
+                date: 'SAT, OCT 10, 2026',
+                venue: 'Lone Star Saloon',
+                location: 'Conroe, TX',
+                time: '8:00 PM - 11:30 PM',
+                status: 'upcoming'
+            },
+            {
+                date: 'FRI, OCT 24, 2026',
+                venue: 'Lake Conroe Music Hall',
+                location: 'Montgomery, TX',
+                time: '7:30 PM - 11:00 PM',
+                status: 'upcoming'
+            },
+            {
+                date: 'SAT, NOV 14, 2026',
+                venue: 'Red River Country Club',
+                location: 'Woodlands, TX',
+                time: '8:30 PM - 12:00 AM',
+                status: 'upcoming'
+            },
+            {
+                date: 'SAT, DEC 05, 2026',
+                venue: 'Pacific Yard House',
+                location: 'Conroe, TX',
+                time: '9:00 PM - 1:00 AM',
+                status: 'upcoming'
+            },
+            {
+                date: 'SAT, AUG 22, 2026',
+                venue: 'Montgomery Summer Fest',
+                location: 'Montgomery, TX',
+                time: '6:00 PM - 10:00 PM',
+                status: 'past'
+            },
+            {
+                date: 'FRI, JUL 03, 2026',
+                venue: 'Woodlands Stars & Stripes Night',
+                location: 'Woodlands, TX',
+                time: '7:00 PM - 10:30 PM',
+                status: 'past'
+            }
+        ];
 
-<section id="contact">
+        function renderShows(filter = 'upcoming') {
+            const container = document.getElementById('shows-list');
+            const filtered = showsData.filter(s => s.status === filter);
 
-    <h2>Book The Band</h2>
+            if (filtered.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 py-8 text-sm">No ${filter} shows scheduled at the moment. Check back soon!</p>`;
+                return;
+            }
 
-    <form id="contactForm">
+            container.innerHTML = filtered.map(show => `
+                <div class="bg-rustic-900/90 border border-rustic-gold/30 hover:border-rustic-gold rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all shadow-md">
+                    <div class="space-y-1.5">
+                        <span class="text-rustic-gold font-bold font-mono text-[11px] uppercase tracking-widest bg-rustic-gold/10 px-3 py-1 rounded border border-rustic-gold/30 inline-block">
+                            ${show.date}
+                        </span>
+                        <h3 class="text-2xl font-bold font-western text-white pt-1">${show.venue}</h3>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            <i class="fa-solid fa-location-dot text-rustic-red mr-1.5"></i>${show.location} 
+                            <span class="text-rustic-gold mx-2">•</span> 
+                            <i class="fa-regular fa-clock text-rustic-gold mr-1"></i>${show.time}
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 w-full sm:w-auto pt-2 sm:pt-0">
+                        ${show.status === 'upcoming' ? `
+                            <button onclick="showToast('Show details saved to your reminder calendar!')" class="flex-1 sm:flex-none bg-rustic-950 hover:bg-rustic-800 text-rustic-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors border border-rustic-gold/40">
+                                <i class="fa-regular fa-calendar-plus mr-1"></i> Remind
+                            </button>
+                            <button onclick="showToast('Venue directions & RSVP details copied to clipboard!')" class="flex-1 sm:flex-none bg-rustic-gold hover:bg-amber-400 text-rustic-950 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                                Venue / RSVP
+                            </button>
+                        ` : `
+                            <span class="text-xs text-gray-500 font-bold uppercase tracking-wider italic">Show Completed</span>
+                        `}
+                    </div>
+                </div>
+            `).join('');
+        }
 
-        <input type="text" placeholder="Name" required>
+        function filterShows(type) {
+            document.getElementById('tab-upcoming').className = type === 'upcoming' 
+                ? 'px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-gold text-rustic-950 border-2 border-rustic-gold transition-all shadow-md'
+                : 'px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-900 text-gray-400 border-2 border-rustic-800 hover:border-rustic-gold transition-all';
+            
+            document.getElementById('tab-past').className = type === 'past' 
+                ? 'px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-gold text-rustic-950 border-2 border-rustic-gold transition-all shadow-md'
+                : 'px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-rustic-900 text-gray-400 border-2 border-rustic-800 hover:border-rustic-gold transition-all';
 
-        <input type="email" placeholder="Email Address" required>
+            renderShows(type);
+        }
 
-        <textarea rows="5"
-                  placeholder="Tell us about your event"></textarea>
+        const playlist = [
+            { title: "Texas Flood", artist: "Stevie Ray Vaughan Cover • Live Demo", duration: "3:30", notes: [196, 246, 293, 329, 392, 440] },
+            { title: "Sweet Home Alabama", artist: "Lynyrd Skynyrd Cover • Live Demo", duration: "4:15", notes: [293, 220, 196, 246, 293, 329] },
+            { title: "Copperhead Road", artist: "Steve Earle Cover • Live Demo", duration: "3:45", notes: [220, 261, 293, 329, 392, 440] },
+            { title: "Gimme Three Steps", artist: "Lynyrd Skynyrd Cover • Live Demo", duration: "4:10", notes: [293, 370, 440, 293, 370, 440] },
+            { title: "Sharp Dressed Man", artist: "ZZ Top Cover • Live Demo", duration: "3:50", notes: [196, 220, 246, 293, 329, 392] },
+            { title: "Cruisin' Texas Skies", artist: "Texas Cruisers Original • Studio Mix", duration: "4:05", notes: [220, 277, 329, 440, 329, 277] }
+        ];
 
-        <button type="submit">
-            Send Request
-        </button>
+        let currentTrackIdx = 0;
+        let isPlaying = false;
+        let audioCtx = null;
+        let synthInterval = null;
+        let progressInterval = null;
+        let progressPercent = 0;
 
-    </form>
+        function renderPlaylist() {
+            const container = document.getElementById('playlist-container');
+            container.innerHTML = playlist.map((track, idx) => `
+                <div onclick="playTrack(${idx})" class="track-item p-3 rounded-lg flex items-center justify-between cursor-pointer transition-colors border ${idx === currentTrackIdx ? 'bg-rustic-950 border-rustic-gold/60' : 'bg-rustic-950/40 border-transparent hover:bg-rustic-800'}">
+                    <div class="flex items-center gap-3">
+                        <span class="font-mono text-xs font-bold ${idx === currentTrackIdx ? 'text-rustic-gold' : 'text-gray-500'}">
+                            0${idx + 1}
+                        </span>
+                        <div>
+                            <p class="font-bold text-xs text-white">${track.title}</p>
+                            <p class="text-[10px] text-gray-400">${track.artist.split('•')[0]}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400 font-mono">${track.duration}</span>
+                </div>
+            `).join('');
+        }
 
-    <div id="message"></div>
+        // Web Audio API Synthesizer sound preview
+        function playSynthGroove() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
 
-</section>
+            const scale = playlist[currentTrackIdx].notes;
+            let noteStep = 0;
 
-<footer
+            if (synthInterval) clearInterval(synthInterval);
+            
+            synthInterval = setInterval(() => {
+                if (!isPlaying) return;
+
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = noteStep % 3 === 0 ? 'sawtooth' : 'triangle';
+                osc.frequency.setValueAtTime(scale[noteStep % scale.length], audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.35);
+
+                noteStep++;
+            }, 300);
+        }
+
+        function stopSynthGroove() {
+            if (synthInterval) clearInterval(synthInterval);
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const playIcon = document.getElementById('play-icon');
+            const status = document.getElementById('player-status');
+            const eq = document.getElementById('eq-visualizer');
+
+            if (isPlaying) {
+                playIcon.className = 'fa-solid fa-pause';
+                status.textContent = 'Playing Audio Demo';
+                eq.classList.remove('opacity-50');
+                startProgress();
+                playSynthGroove();
+            } else {
+                playIcon.className = 'fa-solid fa-play ml-1';
+                status.textContent = 'Paused';
+                eq.classList.add('opacity-50');
+                clearInterval(progressInterval);
+                stopSynthGroove();
+            }
+        }
+
+        function startProgress() {
+            clearInterval(progressInterval);
+            progressInterval = setInterval(() => {
+                progressPercent += 0.5;
+                if (progressPercent > 100) {
+                    nextTrack();
+                    return;
+                }
+                document.getElementById('progress-bar').style.width = progressPercent + '%';
+            }, 200);
+        }
+
+        function playTrack(idx) {
+            currentTrackIdx = idx;
+            progressPercent = 0;
+            document.getElementById('progress-bar').style.width = '0%';
+            document.getElementById('current-track-title').textContent = playlist[idx].title;
+            document.getElementById('current-track-artist').textContent = playlist[idx].artist;
+            document.getElementById('total-time').textContent = playlist[idx].duration;
+            
+            renderPlaylist();
+
+            if (!isPlaying) {
+                togglePlay();
+            } else {
+                playSynthGroove();
+            }
+        }
+
+        function nextTrack() {
+            currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
+            playTrack(currentTrackIdx);
+        }
+
+        function prevTrack() {
+            currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
+            playTrack(currentTrackIdx);
+        }
+
+        function seekAudio(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            progressPercent = (clickX / rect.width) * 100;
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
+        }
+
+        function openMemberModal(name, role, bio, gear) {
+            document.getElementById('modal-name').textContent = name;
+            document.getElementById('modal-role').textContent = role;
+            document.getElementById('modal-bio').textContent = bio;
+            document.getElementById('modal-gear').textContent = gear;
+            const modal = document.getElementById('member-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeMemberModal() {
+            const modal = document.getElementById('member-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function downloadEPKFile(fileName, title) {
+            showToast(`Generating & downloading ${title}...`);
+            
+            // Create a text file download blob demo
+            const content = `THE TEXAS CRUISERS BAND - ${title.toUpperCase()}\n\nOfficial promotional asset file for venue buyers & press media.\nContact: booking@texascruisersband.com\nWebsite: https://texascruisersband.com\n\nThank you for supporting live Classic Rock, Country & Blues!`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            showToast('Booking Request Received! The Texas Cruisers will reach out within 24 hours.');
+            e.target.reset();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');

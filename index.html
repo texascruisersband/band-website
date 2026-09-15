@@ -498,6 +498,11 @@
             text-align: center;
         }
 
+        .youtube-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
         /* Booking Form & EPK */
         .booking-grid {
             display: grid;
@@ -731,7 +736,7 @@
                 <div class="social-links">
                     <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com" target="_blank" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://youtube.com/@thetexascruisersband?si=BQYjQZlxEqyEy_eC" target="_blank" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </section>
@@ -821,49 +826,25 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Music & Live Videos</h2>
-                    <p>Sample performance clips and video highlights</p>
-                </div>
-
-                <!-- Jukebox -->
-                <div class="jukebox">
-                    <div class="now-playing">
-                        <p class="now-playing-label">Now Previewing</p>
-                        <h4 id="currentTrackTitle">Texas Flood (Live Sample)</h4>
-                    </div>
-
-                    <ul class="track-list">
-                        <li class="track-item active" onclick="playTrack(this, 'Texas Flood (Live Sample)')">
-                            <div class="track-title">
-                                <i class="fas fa-play play-icon"></i>
-                                <span>Texas Flood</span>
-                            </div>
-                            <span class="track-genre">Blues Cover</span>
-                        </li>
-                        <li class="track-item" onclick="playTrack(this, 'Sweet Home Alabama (Live Sample)')">
-                            <div class="track-title">
-                                <i class="fas fa-play play-icon"></i>
-                                <span>Sweet Home Alabama</span>
-                            </div>
-                            <span class="track-genre">Classic Rock</span>
-                        </li>
-                        <li class="track-item" onclick="playTrack(this, 'Copperhead Road (Live Sample)')">
-                            <div class="track-title">
-                                <i class="fas fa-play play-icon"></i>
-                                <span>Copperhead Road</span>
-                            </div>
-                            <span class="track-genre">Country Rock</span>
-                        </li>
-                    </ul>
+                    <p>Watch our latest performances and musical performances on YouTube</p>
                 </div>
 
                 <!-- Video Gallery -->
                 <div class="video-grid">
                     <div class="video-card">
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Live Performance Video" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf" title="Texas Cruisers YouTube Channel" allowfullscreen></iframe>
                         </div>
-                        <h4>Live Performance Highlight</h4>
+                        <h4>Watch Us Live on YouTube</h4>
                     </div>
+                </div>
+
+                <!-- YouTube Channel Link -->
+                <div class="youtube-link">
+                    <a href="https://youtube.com/@thetexascruisersband?si=BQYjQZlxEqyEy_eC" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-youtube"></i> Visit Our YouTube Channel
+                    </a>
+                    <p style="color: var(--text-muted); margin-top: 15px; font-size: 0.95rem;">Subscribe to see all our live performances, music videos, and band updates!</p>
                 </div>
             </div>
         </section>
@@ -960,16 +941,6 @@
             event.preventDefault();
             showToast('Booking Request Received! We will be in touch shortly.');
             document.getElementById('contactForm').reset();
-        }
-
-        // Track Selector Switcher
-        function playTrack(element, title) {
-            document.getElementById('currentTrackTitle').innerText = title;
-            document.querySelectorAll('.track-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            element.classList.add('active');
-            showToast('Selected: ' + title);
         }
     </script>
 </body>

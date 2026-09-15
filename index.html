@@ -73,7 +73,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
+        /* Navigation Header */
         .navbar {
             background-color: rgba(13, 8, 5, 0.95);
             border-bottom: 2px solid var(--border-gold);
@@ -141,6 +141,10 @@
             background: var(--wood-medium);
             max-width: 1200px;
             margin: 0 auto;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-banner-img {
@@ -148,6 +152,27 @@
             height: auto;
             display: block;
             object-fit: contain;
+        }
+
+        .banner-fallback {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .banner-fallback h1 {
+            font-family: 'Rye', cursive;
+            font-size: 2.8rem;
+            color: var(--gold-primary);
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .banner-fallback p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            letter-spacing: 2px;
         }
 
         .hero-cta {
@@ -257,16 +282,12 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        .member-img-placeholder {
+        .member-photo {
             width: 100%;
             height: 240px;
-            background: var(--wood-medium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--border-gold);
+            object-fit: cover;
             border-bottom: 2px solid var(--border-dark);
+            display: block;
         }
 
         .member-info {
@@ -281,7 +302,7 @@
         .member-info .role {
             color: var(--gold-primary);
             font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-top: 5px;
             text-transform: uppercase;
         }
@@ -422,7 +443,7 @@
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 4px;
@@ -620,8 +641,13 @@
         <section id="home" class="hero-section">
             <div class="container">
                 <div class="banner-wrapper">
-                    <!-- High-Resolution Branding Banner -->
-                    <img src="hero-banner.jpg" alt="The Texas Cruisers Band - Classic Rock, Country & Blues" class="hero-banner-img">
+                    <!-- HERO BANNER IMAGE -->
+                    <img id="heroImg" src="banner.png" alt="The Texas Cruisers Band" class="hero-banner-img" onerror="handleImageError()">
+                    
+                    <div id="bannerFallback" class="banner-fallback">
+                        <h1>THE TEXAS CRUISERS BAND</h1>
+                        <p>CLASSIC ROCK &bull; COUNTRY &bull; BLUES</p>
+                    </div>
                 </div>
                 <div class="hero-cta">
                     <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book The Band</a>
@@ -653,9 +679,7 @@
 
                 <div class="members-grid">
                     <div class="member-card">
-                        <div class="member-img-placeholder">
-                            <i class="fas fa-drum"></i>
-                        </div>
+                        <img src="brian.png" alt="Brian Martin" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Brian+Martin'">
                         <div class="member-info">
                             <h3>Brian Martin</h3>
                             <div class="role">Drums</div>
@@ -663,9 +687,7 @@
                     </div>
 
                     <div class="member-card">
-                        <div class="member-img-placeholder">
-                            <i class="fas fa-guitar"></i>
-                        </div>
+                        <img src="al.png" alt="Al Montez" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Al+Montez'">
                         <div class="member-info">
                             <h3>Al Montez</h3>
                             <div class="role">Lead Guitar</div>
@@ -673,9 +695,7 @@
                     </div>
 
                     <div class="member-card">
-                        <div class="member-img-placeholder">
-                            <i class="fas fa-microphone"></i>
-                        </div>
+                        <img src="chris.png" alt="Chris Oliver" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Chris+Oliver'">
                         <div class="member-info">
                             <h3>Chris Oliver</h3>
                             <div class="role">Lead Vocals</div>
@@ -683,9 +703,7 @@
                     </div>
 
                     <div class="member-card">
-                        <div class="member-img-placeholder">
-                            <i class="fas fa-music"></i>
-                        </div>
+                        <img src="mark.png" alt="Mark McFarlane" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Mark+McFarlane'">
                         <div class="member-info">
                             <h3>Mark McFarlane</h3>
                             <div class="role">Bass Guitar</div>
@@ -703,7 +721,6 @@
                     <p>Check back for local venue dates and festival appearances</p>
                 </div>
                 
-                <!-- EDIT SHOW LISTINGS HERE -->
                 <div class="shows-list">
                     <div class="show-item">
                         <div class="show-date">
@@ -735,7 +752,6 @@
                         <h4 id="currentTrackTitle">Texas Flood (Live Sample)</h4>
                     </div>
 
-                    <!-- EDIT TRACKLIST HERE -->
                     <ul class="track-list">
                         <li class="track-item active" onclick="playTrack('Texas Flood (Live Sample)')">
                             <div class="track-title">
@@ -762,7 +778,6 @@
                 </div>
 
                 <!-- Video Gallery -->
-                <!-- EDIT YOUTUBE VIDEO EMBEDS HERE -->
                 <div class="video-grid">
                     <div class="video-card">
                         <div class="video-container">
@@ -847,6 +862,12 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // Banner Image Error Handler
+        function handleImageError() {
+            document.getElementById('heroImg').style.display = 'none';
+            document.getElementById('bannerFallback').style.display = 'block';
+        }
 
         // Toast Notification Handler
         function showToast(message) {

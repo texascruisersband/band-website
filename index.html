@@ -390,73 +390,86 @@
             color: var(--gold-primary);
         }
 
-        /* Audio Jukebox Section */
-        .jukebox {
-            background: var(--bg-card);
-            border: 2px solid var(--border-gold);
+        /* Recent Shows Photo Gallery Integration */
+        #recent-shows {
+            padding: 40px 0;
+        }
+
+        .show-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
             border-radius: 10px;
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        .now-playing {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-dark);
-        }
-
-        .now-playing h4 {
-            color: var(--gold-primary);
-            font-size: 1.2rem;
-        }
-
-        .now-playing-label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
-        .track-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .track-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            background: var(--wood-dark);
-            border-radius: 5px;
+            border: 2px solid var(--border-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             cursor: pointer;
-            transition: all 0.2s ease;
+            aspect-ratio: 4 / 3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--bg-card);
         }
 
-        .track-item:hover, 
-        .track-item.active {
-            background: var(--wood-medium);
-            border-left: 3px solid var(--gold-primary);
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
         }
 
-        .track-title {
-            display: flex;
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Lightbox Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
             align-items: center;
-            gap: 12px;
-            font-weight: 600;
+            padding: 20px;
         }
 
-        .play-icon {
-            color: var(--gold-primary);
+        .modal.active {
+            display: flex;
         }
 
-        .track-genre {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ff5252;
         }
 
         /* Video Section */
@@ -685,25 +698,7 @@
             .show-details {
                 text-align: center;
             }
-        }#recent-shows {
-    padding: 60px 20px;
-}
-
-.show-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.show-gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid #8c6819;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+        }
     </style>
 </head>
 <body>
@@ -731,7 +726,6 @@
         <section id="home" class="hero-section">
             <div class="container">
                 <div class="banner-wrapper">
-                 
                     <img id="heroImg" src="banner.png" alt="The Texas Cruisers Band" class="hero-banner-img" onerror="handleImageError()">
                     
                     <div id="bannerFallback" class="banner-fallback">
@@ -836,6 +830,19 @@
                         <button class="btn btn-secondary disabled" disabled>TBD</button>
                     </div>
                 </div>
+
+                <!-- Recent Shows Photo Gallery -->
+                <div id="recent-shows">
+                    <div class="section-header" style="margin-top: 50px;">
+                        <h3 style="font-size: 1.8rem; color: var(--gold-primary);">Recent Show Moments</h3>
+                        <p>A glimpse from our latest performances</p>
+                    </div>
+                    <div class="show-gallery">
+                        <div class="gallery-item" onclick="openModal('images/shows/latest/showpic1.png')">
+                            <img src="images/shows/latest/showpic1.png" alt="Live Performance Moment" onerror="this.src='https://via.placeholder.com/400x300?text=Texas+Cruisers+Live'">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -878,7 +885,7 @@
                 <div class="booking-grid">
                     <div class="booking-form">
                         <h3>Send a Booking Inquiry</h3>
-                       <form action="https://formspree.io/f/xyezyvdz" method="POST">
+                       <form action="https://formspree.io/f/xyezyvdz" method="POST" onsubmit="handleFormSubmit(event)">
                             <div class="form-group">
                                 <label for="name">Your Name / Venue Name</label>
                             <input type="text" id="name" name="name" class="form-control" required placeholder="e.g. John Doe / Saloon">
@@ -889,8 +896,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="date">Requested Event Date & Location</label>
-                              
                            <input type="text" id="date" name="event_date" class="form-control" placeholder="e.g. Nov 12, Conroe TX">
+                            </div>
                             <div class="form-group">
                                 <label for="message">Event Details</label>
                               <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your venue or event..."></textarea>
@@ -903,7 +910,7 @@
                         <i class="fas fa-file-download epk-icon"></i>
                         <h3>Electronic Press Kit (EPK)</h3>
                         <p>Download high-res promo photo assets, stage plot, technical rider, and band bio sheet for venue booking managers.</p>
-                       <a href="TexasCruisersBand-EPK.pdf" class=
+                        <a href="TexasCruisersBand-EPK.pdf" class="btn btn-primary" download>
                             <i class="fas fa-download"></i> Download Press Kit (PDF)
                         </a>
                     </div>
@@ -912,8 +919,11 @@
         </section>
     </main>
 
-
-images/shows/latest/showpic1.png
+    <!-- Modal Lightbox for Gallery -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged gallery view">
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -961,10 +971,21 @@ images/shows/latest/showpic1.png
         function handleFormSubmit(event) {
             event.preventDefault();
             showToast('Booking Request Received! We will be in touch shortly.');
-            document.getElementById('contactForm').reset();
+            event.target.reset();
+        }
+
+        // Modal Lightbox Functions
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.classList.add('active');
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
         }
     </script>
 </body>
-
-    
 </html>

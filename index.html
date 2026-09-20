@@ -688,6 +688,22 @@
             font-size: 0.85rem;
         }
 
+        .empty-notice {
+            grid-column: 1 / -1;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-gold);
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        .empty-notice i {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
         /* Fan Comments Section Styles */
         .comments-grid {
             display: grid;
@@ -1188,7 +1204,7 @@
             </div>
         </section>
 
-        <!-- Song Repertoire & Video Section (Audio Sampler Removed) -->
+        <!-- Song Repertoire & Video Section -->
         <section id="media" class="section">
             <div class="container">
                 <div class="section-header">
@@ -1238,7 +1254,7 @@
                     <p>What club owners and event managers have to say</p>
                 </div>
 
-                <!-- Dynamic Venue Testimonials Grid -->
+                <!-- Dynamic Venue Testimonials Grid (Starts Empty) -->
                 <div class="testimonials-grid" id="venueReviewsGrid">
                     <!-- Populated dynamically via JS -->
                 </div>
@@ -1602,18 +1618,26 @@
             });
         }
 
-        // Venue Testimonials Dynamic Loading & Submission
+        // Venue Testimonials Dynamic Loading & Submission (Starts Empty)
         function loadVenueReviews() {
             const grid = document.getElementById('venueReviewsGrid');
             if (!grid) return;
 
-            let reviews = JSON.parse(localStorage.getItem('texascruisers_venue_reviews')) || [
-                { author: 'Marcus Vance', title: 'Lake Conroe Bar & Grill Owner', message: 'The Texas Cruisers completely packed our venue on a Saturday night. Great crowd engagement, professional sound, and very easy to work with!' },
-                { author: 'Elena Rostova', title: 'The Woodlands Private Event Coordinator', message: 'From booking setup to the final encore, these guys are top-tier professionals. Their classic rock and country sets had our guests dancing all night.' },
-                { author: 'Captain Jim Miller', title: 'Montgomery Outdoor Festival Director', message: 'If you need a band that understands how to read a room and keep the energy high from the first chord, look no further than the Texas Cruisers.' }
-            ];
+            let reviews = JSON.parse(localStorage.getItem('texascruisers_venue_reviews')) || [];
 
             grid.innerHTML = '';
+            
+            if (reviews.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-notice">
+                        <i class="fas fa-comment-alt"></i>
+                        <h3>Reviews Coming Soon</h3>
+                        <p>Venue and event manager reviews will appear here once submitted.</p>
+                    </div>
+                `;
+                return;
+            }
+
             reviews.forEach(r => {
                 let card = document.createElement('div');
                 card.className = 'testimonial-card';

@@ -561,6 +561,86 @@
             margin-top: 30px;
         }
 
+        /* Fan Comments Section Styles */
+        .comments-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .comment-form-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-dark);
+        }
+
+        .comment-form-box h3 {
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            color: var(--border-dark);
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .star-rating .star.active {
+            color: var(--gold-primary);
+        }
+
+        .comments-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .comment-card {
+            background: var(--wood-medium);
+            border: 1px solid var(--border-dark);
+            border-left: 3px solid var(--gold-primary);
+            padding: 18px;
+            border-radius: 6px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .comment-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .comment-stars {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .comment-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+
         /* Booking Form & EPK */
         .booking-grid {
             display: grid;
@@ -731,7 +811,8 @@
                 display: block;
             }
 
-            .booking-grid {
+            .booking-grid,
+            .comments-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -760,6 +841,7 @@
                 <li><a href="#band">The Band</a></li>
                 <li><a href="#shows">Shows</a></li>
                 <li><a href="#media">Music & Video</a></li>
+                <li><a href="#fans">Fan Feed</a></li>
                 <li><a href="#booking">Booking & EPK</a></li>
             </ul>
         </div>
@@ -936,8 +1018,55 @@
             </div>
         </section>
 
+        <!-- Fan Comments Section -->
+        <section id="fans" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cruisers Fan Wall</h2>
+                    <p>Leave a note about your experience seeing the band live!</p>
+                </div>
+
+                <div class="comments-grid">
+                    <!-- Comment Form -->
+                    <div class="comment-form-box">
+                        <h3>Leave Your Feedback</h3>
+                        <form id="commentForm" onsubmit="handleCommentSubmit(event)">
+                            <div class="form-group">
+                                <label for="fanName">Your Name</label>
+                                <input type="text" id="fanName" class="form-control" required placeholder="e.g. Texas Fan">
+                            </div>
+                            <div class="form-group">
+                                <label>Rating</label>
+                                <div class="star-rating" id="starRating">
+                                    <i class="fas fa-star star active" data-value="1" onclick="setRating(1)"></i>
+                                    <i class="fas fa-star star active" data-value="2" onclick="setRating(2)"></i>
+                                    <i class="fas fa-star star active" data-value="3" onclick="setRating(3)"></i>
+                                    <i class="fas fa-star star active" data-value="4" onclick="setRating(4)"></i>
+                                    <i class="fas fa-star star active" data-value="5" onclick="setRating(5)"></i>
+                                </div>
+                                <input type="hidden" id="fanRating" value="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="fanMessage">Your Experience / Review</label>
+                                <textarea id="fanMessage" class="form-control" rows="4" required placeholder="How was the show? Favorite song? Let us know!"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <!-- Comments Feed -->
+                    <div>
+                        <h3 style="color: var(--gold-primary); margin-bottom: 20px; font-family: 'Oswald', sans-serif;">Recent Fan Reviews</h3>
+                        <div class="comments-feed" id="commentsFeed">
+                            <!-- Dynamic Comments Loaded Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Booking & EPK Section -->
-        <section id="booking" class="section section-alt">
+        <section id="booking" class="section">
             <div class="container">
                 <div class="section-header">
                     <h2>Book The Band / EPK</h2>
@@ -1075,6 +1204,71 @@
             }, 5000);
         });
 
+        // Fan Comments / Reviews Logic
+        function setRating(rating) {
+            document.getElementById('fanRating').value = rating;
+            const stars = document.querySelectorAll('#starRating .star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function loadComments() {
+            const feed = document.getElementById('commentsFeed');
+            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [
+                { name: 'Sarah Miller', rating: 5, message: 'Saw them live at Lake Conroe and they completely rocked the house! Best cover band around.', date: 'September 18, 2026' },
+                { name: 'Dave K.', rating: 5, message: 'Incredible guitar work by Al and killer vocals by Chris. Can’t wait for the next show!', date: 'September 10, 2026' }
+            ];
+
+            feed.innerHTML = '';
+            comments.forEach(c => {
+                let starsHTML = '<i class="fas fa-star"></i>'.repeat(c.rating);
+                let card = document.createElement('div');
+                card.className = 'comment-card';
+                card.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-author">${escapeHtml(c.name)}</span>
+                        <span class="comment-date">${c.date}</span>
+                    </div>
+                    <div class="comment-stars">${starsHTML}</div>
+                    <div class="comment-text">${escapeHtml(c.message)}</div>
+                `;
+                feed.appendChild(card);
+            });
+        }
+
+        function handleCommentSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('fanName').value;
+            const rating = parseInt(document.getElementById('fanRating').value);
+            const message = document.getElementById('fanMessage').value;
+            const date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [
+                { name: 'Sarah Miller', rating: 5, message: 'Saw them live at Lake Conroe and they completely rocked the house! Best cover band around.', date: 'September 18, 2026' },
+                { name: 'Dave K.', rating: 5, message: 'Incredible guitar work by Al and killer vocals by Chris. Can’t wait for the next show!', date: 'September 10, 2026' }
+            ];
+
+            comments.unshift({ name, rating, message, date });
+            localStorage.setItem('texascruisers_comments', JSON.stringify(comments));
+
+            loadComments();
+            showToast('Thank you! Your fan review has been posted.');
+            event.target.reset();
+            setRating(5);
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Initialize comments on load
+        document.addEventListener('DOMContentLoaded', loadComments);
+
         // Modal Lightbox Functions
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
@@ -1085,7 +1279,7 @@
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
+            modal.classList.remove('imageModal') || modal.classList.remove('active');
         }
     </script>
 </body>

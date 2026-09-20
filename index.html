@@ -518,68 +518,11 @@
             color: #ff5252;
         }
 
-        /* Audio Jukebox & Song Repertoire Styles */
+        /* Song Repertoire Styles (Standalone now) */
         .media-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
+            display: flex;
+            justify-content: center;
             margin-bottom: 40px;
-        }
-
-        .jukebox-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-dark);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            border-top: 3px solid var(--gold-primary);
-        }
-
-        .jukebox-box h3 {
-            color: var(--gold-primary);
-            margin-bottom: 10px;
-        }
-
-        .jukebox-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .audio-player-wrapper {
-            background: var(--wood-medium);
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid var(--border-gold);
-        }
-
-        .track-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-            text-align: left;
-        }
-
-        .track-btn {
-            background: var(--wood-dark);
-            border: 1px solid var(--border-dark);
-            color: var(--text-light);
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s;
-        }
-
-        .track-btn:hover, .track-btn.active {
-            border-color: var(--gold-primary);
-            background: rgba(212, 160, 23, 0.1);
-            color: var(--gold-primary);
         }
 
         .repertoire-box {
@@ -588,15 +531,26 @@
             border-radius: 8px;
             padding: 30px;
             border-top: 3px solid var(--gold-primary);
+            width: 100%;
+            max-width: 700px;
         }
 
         .repertoire-box h3 {
             color: var(--gold-primary);
             margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .repertoire-box > p {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .repertoire-categories {
             display: flex;
+            justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
         }
@@ -1031,8 +985,7 @@
             }
 
             .booking-grid,
-            .comments-grid,
-            .media-layout {
+            .comments-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1060,7 +1013,7 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#band">The Band</a></li>
                 <li><a href="#shows">Shows</a></li>
-                <li><a href="#media">Music & Media</a></li>
+                <li><a href="#media">Repertoire & Media</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#fans">Fan Feed</a></li>
                 <li><a href="#booking">Booking & EPK</a></li>
@@ -1235,39 +1188,15 @@
             </div>
         </section>
 
-        <!-- Audio Jukebox, Song Repertoire & Video Section -->
+        <!-- Song Repertoire & Video Section (Audio Sampler Removed) -->
         <section id="media" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Music & Repertoire</h2>
-                    <p>Listen to audio samples, explore our song list, and watch our live sets</p>
+                    <h2>Repertoire & Media</h2>
+                    <p>Explore our song list and watch our live sets</p>
                 </div>
 
                 <div class="media-layout">
-                    <!-- Audio Jukebox Sampler -->
-                    <div class="jukebox-box">
-                        <h3><i class="fas fa-headphones"></i> Audio Sampler</h3>
-                        <p>Quick samples of our high-energy live performance style.</p>
-                        <div class="audio-player-wrapper">
-                            <audio id="audioPlayer" controls style="width: 100%; margin-bottom: 10px;">
-                                <source src="" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                            <div id="nowPlaying" style="font-family: 'Oswald', sans-serif; color: var(--gold-primary); font-size: 1.05rem; margin-bottom: 10px;">Select a track below</div>
-                            <div class="track-list">
-                                <button class="track-btn" onclick="playTrack('Classic Rock Medley', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', this)">
-                                    <span><i class="fas fa-play-circle"></i> Classic Rock Anthem Medley</span> <span>3:45</span>
-                                </button>
-                                <button class="track-btn" onclick="playTrack('Texas Country Groove', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', this)">
-                                    <span><i class="fas fa-play-circle"></i> Texas Country Groove</span> <span>3:12</span>
-                                </button>
-                                <button class="track-btn" onclick="playTrack('Blues & Soul Jam', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', this)">
-                                    <span><i class="fas fa-play-circle"></i> Midnight Blues & Soul Jam</span> <span>4:05</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Song Repertoire List -->
                     <div class="repertoire-box">
                         <h3><i class="fas fa-list-ul"></i> Repertoire Preview</h3>
@@ -1445,61 +1374,43 @@
         <img class="modal-content" id="modalImg" alt="Enlarged gallery view">
     </div>
 
-    <!-- Floating Admin Gear Button (Lower Right) -->
-    <div id="adminGearBtn" onclick="toggleAdminPanel()" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); color: var(--gold-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.2s;">
+    <!-- Floating Admin Gear Button (Lower Right - Repertoire Manager Only) -->
+    <div id="adminGearBtn" onclick="toggleAdminPanel()" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); color: var(--gold-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.2s;" title="Manage Repertoire">
         <i class="fas fa-cog" style="font-size: 1.2rem;"></i>
     </div>
 
     <!-- Hidden Admin Modal Overlay -->
     <div id="adminModalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: 40px 20px;">
-        <div style="max-width: 800px; margin: 40px auto; background: var(--wood-dark); border: 2px solid var(--gold-primary); border-radius: 8px; padding: 30px; position: relative;">
+        <div style="max-width: 500px; margin: 40px auto; background: var(--wood-dark); border: 2px solid var(--gold-primary); border-radius: 8px; padding: 30px; position: relative;">
             <button onclick="toggleAdminPanel()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;"><i class="fas fa-times"></i></button>
 
             <div class="section-header" style="margin-bottom: 20px;">
-                <h2>Site Content Manager</h2>
-                <p>Manage your audio sampler and song repertoire</p>
+                <h2>Repertoire Manager</h2>
+                <p>Add songs to your set list</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                <!-- Audio Manager Form -->
-                <div class="comment-form-box">
-                    <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-headphones"></i> Add Audio Track</h3>
-                    <form onsubmit="adminAddTrack(event)">
-                        <div class="form-group">
-                            <label>Track Title</label>
-                            <input type="text" id="newTrackTitle" class="form-control" required placeholder="e.g. Cover Song">
-                        </div>
-                        <div class="form-group">
-                            <label>Audio URL (MP3 link)</label>
-                            <input type="url" id="newTrackUrl" class="form-control" required placeholder="https://example.com/song.mp3">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Jukebox</button>
-                    </form>
-                </div>
-
-                <!-- Repertoire Manager Form -->
-                <div class="comment-form-box">
-                    <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-list-ul"></i> Add Repertoire Song</h3>
-                    <form onsubmit="adminAddSong(event)">
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select id="newSongCategory" class="form-control">
-                                <option value="rock">Classic Rock</option>
-                                <option value="country">Country</option>
-                                <option value="blues">Blues</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Song Name</label>
-                            <input type="text" id="newSongTitle" class="form-control" required placeholder="Song Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Artist Name</label>
-                            <input type="text" id="newSongArtist" class="form-control" required placeholder="Original Artist">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Repertoire</button>
-                    </form>
-                </div>
+            <!-- Repertoire Manager Form -->
+            <div class="comment-form-box">
+                <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-list-ul"></i> Add Repertoire Song</h3>
+                <form onsubmit="adminAddSong(event)">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="newSongCategory" class="form-control">
+                            <option value="rock">Classic Rock</option>
+                            <option value="country">Country</option>
+                            <option value="blues">Blues</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Song Name</label>
+                        <input type="text" id="newSongTitle" class="form-control" required placeholder="Song Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Artist Name</label>
+                        <input type="text" id="newSongArtist" class="form-control" required placeholder="Original Artist">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Repertoire</button>
+                </form>
             </div>
         </div>
     </div>
@@ -1559,19 +1470,6 @@
             event.target.reset();
         }
 
-        // Audio Jukebox Player Logic
-        function playTrack(title, url, btnElement) {
-            const player = document.getElementById('audioPlayer');
-            const nowPlaying = document.getElementById('nowPlaying');
-            
-            player.src = url;
-            player.play();
-            nowPlaying.innerText = `Now Playing: ${title}`;
-
-            document.querySelectorAll('.track-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-        }
-
         // Repertoire Data & Switcher Logic
         const repertoireData = {
             rock: [
@@ -1617,35 +1515,6 @@
             });
         }
 
-        // Admin Management: Add Track
-        function adminAddTrack(event) {
-            event.preventDefault();
-            const title = document.getElementById('newTrackTitle').value;
-            const url = document.getElementById('newTrackUrl').value;
-
-            let customTracks = JSON.parse(localStorage.getItem('cruisers_custom_tracks')) || [];
-            customTracks.push({ title, url });
-            localStorage.setItem('cruisers_custom_tracks', JSON.stringify(customTracks));
-
-            loadCustomTracks();
-            showToast(`Added "${title}" to Jukebox!`);
-            event.target.reset();
-            toggleAdminPanel();
-        }
-
-        function loadCustomTracks() {
-            const trackListContainer = document.querySelector('.track-list');
-            let customTracks = JSON.parse(localStorage.getItem('cruisers_custom_tracks')) || [];
-            
-            customTracks.forEach(track => {
-                let btn = document.createElement('button');
-                btn.className = 'track-btn';
-                btn.innerHTML = `<span><i class="fas fa-play-circle"></i> ${escapeHtml(track.title)}</span> <span>Live</span>`;
-                btn.onclick = () => playTrack(track.title, track.url, btn);
-                trackListContainer.appendChild(btn);
-            });
-        }
-
         // Admin Management: Add Song
         function adminAddSong(event) {
             event.preventDefault();
@@ -1675,7 +1544,7 @@
             const modal = document.getElementById('adminModalOverlay');
             
             if (modal.style.display === 'none' || modal.style.display === '') {
-                let pin = prompt("Enter Admin PIN to access content manager:");
+                let pin = prompt("Enter Admin PIN to access repertoire manager:");
                 
                 if (pin === "texas2026") {
                     modal.style.display = 'block';
@@ -1849,7 +1718,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadVenueReviews();
             loadComments();
-            loadCustomTracks();
             const defaultTab = document.querySelector('.rep-tab');
             if(defaultTab) switchCategory('rock', defaultTab);
         });

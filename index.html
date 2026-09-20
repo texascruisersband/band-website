@@ -457,8 +457,9 @@
         .carousel-dots {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .dot {
@@ -958,7 +959,7 @@
                     </div>
                 </div>
 
-                <!-- Recent Shows Photo Carousel -->
+                <!-- Recent Shows Photo Carousel (All 9 Showpics) -->
                 <div id="recent-shows">
                     <div class="section-header" style="margin-top: 50px;">
                         <h3 style="font-size: 1.8rem; color: var(--gold-primary);">Recent Show Moments</h3>
@@ -977,6 +978,24 @@
                             <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic3.png')">
                                 <img src="images/shows/latest/showpic3.png" alt="Live Performance Moment 3" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+3'">
                             </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic4.png')">
+                                <img src="images/shows/latest/showpic4.png" alt="Live Performance Moment 4" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+4'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic5.png')">
+                                <img src="images/shows/latest/showpic5.png" alt="Live Performance Moment 5" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+5'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic6.png')">
+                                <img src="images/shows/latest/showpic6.png" alt="Live Performance Moment 6" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+6'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic7.png')">
+                                <img src="images/shows/latest/showpic7.png" alt="Live Performance Moment 7" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+7'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic8.png')">
+                                <img src="images/shows/latest/showpic8.png" alt="Live Performance Moment 8" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+8'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic9.png')">
+                                <img src="images/shows/latest/showpic9.png" alt="Live Performance Moment 9" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+9'">
+                            </div>
                         </div>
                         <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
                     </div>
@@ -985,6 +1004,12 @@
                         <span class="dot active" onclick="currentSlide(0)"></span>
                         <span class="dot" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <span class="dot" onclick="currentSlide(6)"></span>
+                        <span class="dot" onclick="currentSlide(7)"></span>
+                        <span class="dot" onclick="currentSlide(8)"></span>
                     </div>
                 </div>
             </div>
@@ -1279,7 +1304,7 @@
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
-            modal.classList.remove('imageModal') || modal.classList.remove('active');
+            modal.classList.remove('active');
         }
     </script>
 </body>

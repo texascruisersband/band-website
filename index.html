@@ -102,12 +102,12 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -518,11 +518,138 @@
             color: #ff5252;
         }
 
-        /* Video Section */
+        /* Audio Jukebox & Song Repertoire Styles */
+        .media-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .jukebox-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid var(--gold-primary);
+        }
+
+        .jukebox-box h3 {
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+        }
+
+        .jukebox-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .audio-player-wrapper {
+            background: var(--wood-medium);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .track-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .track-btn {
+            background: var(--wood-dark);
+            border: 1px solid var(--border-dark);
+            color: var(--text-light);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .track-btn:hover, .track-btn.active {
+            border-color: var(--gold-primary);
+            background: rgba(212, 160, 23, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .repertoire-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 30px;
+            border-top: 3px solid var(--gold-primary);
+        }
+
+        .repertoire-box h3 {
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .repertoire-categories {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .rep-tab {
+            background: var(--wood-dark);
+            border: 1px solid var(--border-dark);
+            color: var(--text-muted);
+            padding: 6px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .rep-tab.active {
+            background: var(--gold-primary);
+            color: #000;
+            border-color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .rep-list {
+            list-style: none;
+            max-height: 220px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-right: 5px;
+        }
+
+        .rep-list li {
+            background: var(--wood-medium);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            border-left: 2px solid var(--gold-primary);
+        }
+
+        .rep-list li span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .video-card {
@@ -560,6 +687,51 @@
         .youtube-link {
             text-align: center;
             margin-top: 30px;
+        }
+
+        /* Venue Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-left: 4px solid var(--gold-primary);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .testimonial-card i.fa-quote-left {
+            color: var(--border-dark);
+            font-size: 2rem;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold-primary);
+            font-size: 1.05rem;
+        }
+
+        .testimonial-venue {
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         /* Fan Comments Section Styles */
@@ -715,6 +887,52 @@
             font-size: 0.95rem;
         }
 
+        /* Mailing List Signup Banner */
+        .newsletter-section {
+            background: linear-gradient(to bottom, var(--wood-dark), var(--bg-dark));
+            padding: 40px 0;
+            border-top: 1px solid var(--border-gold);
+            text-align: center;
+        }
+
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-box h3 {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+        }
+
+        .newsletter-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px;
+            background: var(--wood-medium);
+            border: 1px solid var(--border-dark);
+            border-radius: 4px;
+            color: var(--text-light);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
         /* Social Banner & Footer */
         .social-banner {
             background: var(--wood-medium);
@@ -813,7 +1031,8 @@
             }
 
             .booking-grid,
-            .comments-grid {
+            .comments-grid,
+            .media-layout {
                 grid-template-columns: 1fr;
             }
 
@@ -841,7 +1060,7 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#band">The Band</a></li>
                 <li><a href="#shows">Shows</a></li>
-                <li><a href="#media">Music & Video</a></li>
+                <li><a href="#media">Music & Media</a></li>
                 <li><a href="#fans">Fan Feed</a></li>
                 <li><a href="#booking">Booking & EPK</a></li>
             </ul>
@@ -959,7 +1178,7 @@
                     </div>
                 </div>
 
-                <!-- Recent Shows Photo Carousel (All 9 Showpics) -->
+                <!-- Recent Shows Photo Carousel -->
                 <div id="recent-shows">
                     <div class="section-header" style="margin-top: 50px;">
                         <h3 style="font-size: 1.8rem; color: var(--gold-primary);">Recent Show Moments</h3>
@@ -1015,12 +1234,52 @@
             </div>
         </section>
 
-        <!-- Audio Jukebox & Video Section -->
+        <!-- Audio Jukebox, Song Repertoire & Video Section -->
         <section id="media" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Music & Live Videos</h2>
-                    <p>Watch our latest performances and musical performances on YouTube</p>
+                    <h2>Music & Repertoire</h2>
+                    <p>Listen to audio samples, explore our song list, and watch our live sets</p>
+                </div>
+
+                <div class="media-layout">
+                    <!-- Audio Jukebox Sampler -->
+                    <div class="jukebox-box">
+                        <h3><i class="fas fa-headphones"></i> Audio Sampler</h3>
+                        <p>Quick samples of our high-energy live performance style.</p>
+                        <div class="audio-player-wrapper">
+                            <audio id="audioPlayer" controls style="width: 100%; margin-bottom: 10px;">
+                                <source src="" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div id="nowPlaying" style="font-family: 'Oswald', sans-serif; color: var(--gold-primary); font-size: 1.05rem; margin-bottom: 10px;">Select a track below</div>
+                            <div class="track-list">
+                                <button class="track-btn" onclick="playTrack('Classic Rock Medley', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', this)">
+                                    <span><i class="fas fa-play-circle"></i> Classic Rock Anthem Medley</span> <span>3:45</span>
+                                </button>
+                                <button class="track-btn" onclick="playTrack('Texas Country Groove', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', this)">
+                                    <span><i class="fas fa-play-circle"></i> Texas Country Groove</span> <span>3:12</span>
+                                </button>
+                                <button class="track-btn" onclick="playTrack('Blues & Soul Jam', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', this)">
+                                    <span><i class="fas fa-play-circle"></i> Midnight Blues & Soul Jam</span> <span>4:05</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Song Repertoire List -->
+                    <div class="repertoire-box">
+                        <h3><i class="fas fa-list-ul"></i> Repertoire Preview</h3>
+                        <p>A small taste of the cover hits we bring to the stage.</p>
+                        <div class="repertoire-categories">
+                            <button class="rep-tab active" onclick="switchCategory('rock', this)">Classic Rock</button>
+                            <button class="rep-tab" onclick="switchCategory('country', this)">Country</button>
+                            <button class="rep-tab" onclick="switchCategory('blues', this)">Blues</button>
+                        </div>
+                        <ul id="repList" class="rep-list">
+                            <!-- Populated dynamically via JS -->
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Video Gallery -->
@@ -1029,22 +1288,53 @@
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/V5Pem-oARc4" title="Texas Cruisers Band Video" allowfullscreen></iframe>
                         </div>
-                        <h4>Watch Us Live</h4>
+                        <h4>Watch Us Live on YouTube</h4>
                     </div>
                 </div>
 
-                <!-- YouTube Channel Link -->
                 <div class="youtube-link">
                     <a href="https://youtube.com/@thetexascruisersband?si=BQYjQZlxEqyEy_eC" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-youtube"></i> Visit Our YouTube Channel
+                        <i class="fab fa-youtube"></i> Visit Our Full YouTube Channel
                     </a>
-                    <p style="color: var(--text-muted); margin-top: 15px; font-size: 0.95rem;">Subscribe to see all our live performances, music videos, and band updates!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Testimonials Section -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Venue & Event Reviews</h2>
+                    <p>What club owners and event managers have to say</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">"The Texas Cruisers completely packed our venue on a Saturday night. Great crowd engagement, professional sound, and very easy to work with!"</p>
+                        <div class="testimonial-author">Marcus Vance</div>
+                        <div class="testimonial-venue">Lake Conroe Bar & Grill Owner</div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">"From booking setup to the final encore, these guys are top-tier professionals. Their classic rock and country sets had our guests dancing all night."</p>
+                        <div class="testimonial-author">Elena Rostova</div>
+                        <div class="testimonial-venue">The Woodlands Private Event Coordinator</div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="testimonial-text">"If you need a band that understands how to read a room and keep the energy high from the first chord, look no further than the Texas Cruisers."</p>
+                        <div class="testimonial-author">Captain Jim Miller</div>
+                        <div class="testimonial-venue">Montgomery Outdoor Festival Director</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Fan Comments Section -->
-        <section id="fans" class="section section-alt">
+        <section id="fans" class="section">
             <div class="container">
                 <div class="section-header">
                     <h2>Cruisers Fan Wall</h2>
@@ -1052,7 +1342,6 @@
                 </div>
 
                 <div class="comments-grid">
-                    <!-- Comment Form -->
                     <div class="comment-form-box">
                         <h3>Leave Your Feedback</h3>
                         <form id="commentForm" onsubmit="handleCommentSubmit(event)">
@@ -1079,19 +1368,16 @@
                         </form>
                     </div>
 
-                    <!-- Comments Feed -->
                     <div>
                         <h3 style="color: var(--gold-primary); margin-bottom: 20px; font-family: 'Oswald', sans-serif;">Recent Fan Reviews</h3>
-                        <div class="comments-feed" id="commentsFeed">
-                            <!-- Dynamic Comments Loaded Here -->
-                        </div>
+                        <div class="comments-feed" id="commentsFeed"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Booking & EPK Section -->
-        <section id="booking" class="section">
+        <section id="booking" class="section section-alt">
             <div class="container">
                 <div class="section-header">
                     <h2>Book The Band / EPK</h2>
@@ -1101,22 +1387,22 @@
                 <div class="booking-grid">
                     <div class="booking-form">
                         <h3>Send a Booking Inquiry</h3>
-                       <form action="https://formspree.io/f/xyezyvdz" method="POST" onsubmit="handleFormSubmit(event)">
+                        <form action="https://formspree.io/f/xyezyvdz" method="POST" onsubmit="handleFormSubmit(event)">
                             <div class="form-group">
                                 <label for="name">Your Name / Venue Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required placeholder="e.g. John Doe / Saloon">
+                                <input type="text" id="name" name="name" class="form-control" required placeholder="e.g. John Doe / Saloon">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                               <input type="email" id="email" name="email" class="form-control" required placeholder="name@example.com">
+                                <input type="email" id="email" name="email" class="form-control" required placeholder="name@example.com">
                             </div>
                             <div class="form-group">
                                 <label for="date">Requested Event Date & Location</label>
-                           <input type="text" id="date" name="event_date" class="form-control" placeholder="e.g. Nov 12, Conroe TX">
+                                <input type="text" id="date" name="event_date" class="form-control" placeholder="e.g. Nov 12, Conroe TX">
                             </div>
                             <div class="form-group">
                                 <label for="message">Event Details</label>
-                              <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your venue or event..."></textarea>
+                                <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your venue or event..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Submit Inquiry</button>
                         </form>
@@ -1133,12 +1419,85 @@
                 </div>
             </div>
         </section>
+
+        <!-- Mailing List Signup Banner -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-box">
+                    <h3>Join the Cruisers Mailing List</h3>
+                    <p>Get exclusive updates on upcoming shows, secret gigs, and backstage photos straight to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                        <input type="email" placeholder="Enter your email address..." required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Modal Lightbox for Gallery -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modalImg" alt="Enlarged gallery view">
+    </div>
+
+    <!-- Floating Admin Gear Button (Lower Right) -->
+    <div id="adminGearBtn" onclick="toggleAdminPanel()" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); color: var(--gold-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.2s;">
+        <i class="fas fa-cog" style="font-size: 1.2rem;"></i>
+    </div>
+
+    <!-- Hidden Admin Modal Overlay -->
+    <div id="adminModalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: 40px 20px;">
+        <div style="max-width: 800px; margin: 40px auto; background: var(--wood-dark); border: 2px solid var(--gold-primary); border-radius: 8px; padding: 30px; position: relative;">
+            <button onclick="toggleAdminPanel()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;"><i class="fas fa-times"></i></button>
+
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Site Content Manager</h2>
+                <p>Manage your audio sampler and song repertoire</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <!-- Audio Manager Form -->
+                <div class="comment-form-box">
+                    <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-headphones"></i> Add Audio Track</h3>
+                    <form onsubmit="adminAddTrack(event)">
+                        <div class="form-group">
+                            <label>Track Title</label>
+                            <input type="text" id="newTrackTitle" class="form-control" required placeholder="e.g. Cover Song">
+                        </div>
+                        <div class="form-group">
+                            <label>Audio URL (MP3 link)</label>
+                            <input type="url" id="newTrackUrl" class="form-control" required placeholder="https://example.com/song.mp3">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Jukebox</button>
+                    </form>
+                </div>
+
+                <!-- Repertoire Manager Form -->
+                <div class="comment-form-box">
+                    <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-list-ul"></i> Add Repertoire Song</h3>
+                    <form onsubmit="adminAddSong(event)">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="newSongCategory" class="form-control">
+                                <option value="rock">Classic Rock</option>
+                                <option value="country">Country</option>
+                                <option value="blues">Blues</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Song Name</label>
+                            <input type="text" id="newSongTitle" class="form-control" required placeholder="Song Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Artist Name</label>
+                            <input type="text" id="newSongArtist" class="form-control" required placeholder="Original Artist">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Repertoire</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1183,11 +1542,152 @@
             }, 3000);
         }
 
-        // Booking Form Submission Handler
+        // Form Submission Handlers
         function handleFormSubmit(event) {
             event.preventDefault();
             showToast('Booking Request Received! We will be in touch shortly.');
             event.target.reset();
+        }
+
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            showToast("You're on the list! Welcome aboard the Cruisers.");
+            event.target.reset();
+        }
+
+        // Audio Jukebox Player Logic
+        function playTrack(title, url, btnElement) {
+            const player = document.getElementById('audioPlayer');
+            const nowPlaying = document.getElementById('nowPlaying');
+            
+            player.src = url;
+            player.play();
+            nowPlaying.innerText = `Now Playing: ${title}`;
+
+            document.querySelectorAll('.track-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+
+        // Repertoire Data & Switcher Logic
+        const repertoireData = {
+            rock: [
+                { song: "Born to be Wild", artist: "Steppenwolf" },
+                { song: "Sweet Child O' Mine", artist: "Guns N' Roses" },
+                { song: "Hotel California", artist: "Eagles" },
+                { song: "Livin' on a Prayer", artist: "Bon Jovi" },
+                { song: "Bad Moon Rising", artist: "Creedence Clearwater Revival" },
+                { song: "Old Time Rock & Roll", artist: "Bob Seger" }
+            ],
+            country: [
+                { song: "Tennessee Whiskey", artist: "Chris Stapleton" },
+                { song: "Amarillo by Morning", artist: "George Strait" },
+                { song: "Chicken Fried", artist: "Zac Brown Band" },
+                { song: "Copperhead Road", artist: "Steve Earle" },
+                { song: "Should've Been a Cowboy", artist: "Toby Keith" }
+            ],
+            blues: [
+                { song: "Pride and Joy", artist: "Stevie Ray Vaughan" },
+                { song: "The Thrill Is Gone", artist: "B.B. King" },
+                { song: "Crossroads", artist: "Eric Clapton" },
+                { song: "Hoochie Coochie Man", artist: "Muddy Waters" }
+            ]
+        };
+
+        function switchCategory(category, tabElement) {
+            document.querySelectorAll('.rep-tab').forEach(tab => tab.classList.remove('active'));
+            tabElement.classList.add('active');
+
+            const listContainer = document.getElementById('repList');
+            listContainer.innerHTML = '';
+
+            let combinedSongs = [...repertoireData[category]];
+            let customSongs = JSON.parse(localStorage.getItem('cruisers_custom_repertoire')) || { rock: [], country: [], blues: [] };
+            if (customSongs[category]) {
+                combinedSongs = combinedSongs.concat(customSongs[category]);
+            }
+
+            combinedSongs.forEach(item => {
+                let li = document.createElement('li');
+                li.innerHTML = `${escapeHtml(item.song)} <span>${escapeHtml(item.artist)}</span>`;
+                listContainer.appendChild(li);
+            });
+        }
+
+        // Admin Management: Add Track
+        function adminAddTrack(event) {
+            event.preventDefault();
+            const title = document.getElementById('newTrackTitle').value;
+            const url = document.getElementById('newTrackUrl').value;
+
+            let customTracks = JSON.parse(localStorage.getItem('cruisers_custom_tracks')) || [];
+            customTracks.push({ title, url });
+            localStorage.setItem('cruisers_custom_tracks', JSON.stringify(customTracks));
+
+            loadCustomTracks();
+            showToast(`Added "${title}" to Jukebox!`);
+            event.target.reset();
+            toggleAdminPanel();
+        }
+
+        function loadCustomTracks() {
+            const trackListContainer = document.querySelector('.track-list');
+            let customTracks = JSON.parse(localStorage.getItem('cruisers_custom_tracks')) || [];
+            
+            customTracks.forEach(track => {
+                let btn = document.createElement('button');
+                btn.className = 'track-btn';
+                btn.innerHTML = `<span><i class="fas fa-play-circle"></i> ${escapeHtml(track.title)}</span> <span>Live</span>`;
+                btn.onclick = () => playTrack(track.title, track.url, btn);
+                trackListContainer.appendChild(btn);
+            });
+        }
+
+        // Admin Management: Add Song
+        function adminAddSong(event) {
+            event.preventDefault();
+            const category = document.getElementById('newSongCategory').value;
+            const song = document.getElementById('newSongTitle').value;
+            const artist = document.getElementById('newSongArtist').value;
+
+            let customSongs = JSON.parse(localStorage.getItem('cruisers_custom_repertoire')) || { rock: [], country: [], blues: [] };
+            if (!customSongs[category]) customSongs[category] = [];
+            
+            customSongs[category].push({ song, artist });
+            localStorage.setItem('cruisers_custom_repertoire', JSON.stringify(customSongs));
+
+            const activeTab = document.querySelector('.rep-tab.active');
+            if (activeTab) {
+                const catKey = activeTab.innerText.toLowerCase().includes('rock') ? 'rock' : activeTab.innerText.toLowerCase().includes('country') ? 'country' : 'blues';
+                switchCategory(catKey, activeTab);
+            }
+
+            showToast(`Added "${song}" to ${category} list!`);
+            event.target.reset();
+            toggleAdminPanel();
+        }
+
+        // Toggle Admin Modal with PIN Protection
+        function toggleAdminPanel() {
+            const modal = document.getElementById('adminModalOverlay');
+            
+            if (modal.style.display === 'none' || modal.style.display === '') {
+                let pin = prompt("Enter Admin PIN to access content manager:");
+                
+                if (pin === "texas2026") {
+                    modal.style.display = 'block';
+                } else if (pin !== null) {
+                    alert("Incorrect PIN. Access denied.");
+                }
+            } else {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Gear hover animation
+        const gear = document.getElementById('adminGearBtn');
+        if (gear) {
+            gear.addEventListener('mouseenter', () => gear.style.transform = 'rotate(90deg)');
+            gear.addEventListener('mouseleave', () => gear.style.transform = 'rotate(0deg)');
         }
 
         // Carousel Functionality
@@ -1215,19 +1715,19 @@
             updateCarousel();
         }
 
-        // Auto-advance carousel every 5 seconds
         let carouselInterval = setInterval(() => {
             moveSlide(1);
         }, 5000);
 
-        // Pause auto-advance when hovering over the carousel
         const carouselContainer = document.querySelector('.carousel-container');
-        carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-        carouselContainer.addEventListener('mouseleave', () => {
-            carouselInterval = setInterval(() => {
-                moveSlide(1);
-            }, 5000);
-        });
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            carouselContainer.addEventListener('mouseleave', () => {
+                carouselInterval = setInterval(() => {
+                    moveSlide(1);
+                }, 5000);
+            });
+        }
 
         // Fan Comments / Reviews Logic
         function setRating(rating) {
@@ -1244,6 +1744,7 @@
 
         function loadComments() {
             const feed = document.getElementById('commentsFeed');
+            if(!feed) return;
             let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [
                 { name: 'Sarah Miller', rating: 5, message: 'Saw them live at Lake Conroe and they completely rocked the house! Best cover band around.', date: 'September 18, 2026' },
                 { name: 'Dave K.', rating: 5, message: 'Incredible guitar work by Al and killer vocals by Chris. Can’t wait for the next show!', date: 'September 10, 2026' }
@@ -1273,11 +1774,7 @@
             const message = document.getElementById('fanMessage').value;
             const date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [
-                { name: 'Sarah Miller', rating: 5, message: 'Saw them live at Lake Conroe and they completely rocked the house! Best cover band around.', date: 'September 18, 2026' },
-                { name: 'Dave K.', rating: 5, message: 'Incredible guitar work by Al and killer vocals by Chris. Can’t wait for the next show!', date: 'September 10, 2026' }
-            ];
-
+            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [];
             comments.unshift({ name, rating, message, date });
             localStorage.setItem('texascruisers_comments', JSON.stringify(comments));
 
@@ -1291,9 +1788,6 @@
             return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
-        // Initialize comments on load
-        document.addEventListener('DOMContentLoaded', loadComments);
-
         // Modal Lightbox Functions
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
@@ -1306,6 +1800,14 @@
             const modal = document.getElementById('imageModal');
             modal.classList.remove('active');
         }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComments();
+            loadCustomTracks();
+            const defaultTab = document.querySelector('.rep-tab');
+            if(defaultTab) switchCategory('rock', defaultTab);
+        });
     </script>
 </body>
 </html>

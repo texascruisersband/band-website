@@ -856,52 +856,6 @@
             font-size: 0.95rem;
         }
 
-        /* Mailing List Signup Banner */
-        .newsletter-section {
-            background: linear-gradient(to bottom, var(--wood-dark), var(--bg-dark));
-            padding: 40px 0;
-            border-top: 1px solid var(--border-gold);
-            text-align: center;
-        }
-
-        .newsletter-box {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter-box h3 {
-            font-size: 1.8rem;
-            color: var(--gold-primary);
-            margin-bottom: 10px;
-        }
-
-        .newsletter-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 12px;
-            background: var(--wood-medium);
-            border: 1px solid var(--border-dark);
-            border-radius: 4px;
-            color: var(--text-light);
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--gold-primary);
-        }
-
         /* Social Banner & Footer */
         .social-banner {
             background: var(--wood-medium);
@@ -1418,20 +1372,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Mailing List Signup Banner -->
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-box">
-                    <h3>Join the Cruisers Mailing List</h3>
-                    <p>Get exclusive updates on upcoming shows, secret gigs, and backstage photos straight to your inbox.</p>
-                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-                        <input type="email" placeholder="Enter your email address..." required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Modal Lightbox for Gallery -->
@@ -1486,12 +1426,6 @@
         function handleFormSubmit(event) {
             event.preventDefault();
             showToast('Booking Request Received! We will be in touch shortly.');
-            event.target.reset();
-        }
-
-        function handleNewsletterSubmit(event) {
-            event.preventDefault();
-            showToast("You're on the list! Welcome aboard the Cruisers.");
             event.target.reset();
         }
 

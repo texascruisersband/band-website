@@ -131,7 +131,7 @@
 
         /* Hero Banner Section */
         .hero-section {
-            padding: 20px 0 40px;
+            padding: 20px 0 30px;
             text-align: center;
         }
 
@@ -185,6 +185,81 @@
             gap: 20px;
             margin-top: 25px;
             flex-wrap: wrap;
+        }
+
+        /* Scrolling Venue Ticker Bar */
+        .venue-ticker-section {
+            background: var(--wood-dark);
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+        }
+
+        .venue-ticker-section::before,
+        .venue-ticker-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .venue-ticker-section::before {
+            left: 0;
+            background: linear-gradient(to right, var(--wood-dark), transparent);
+        }
+
+        .venue-ticker-section::after {
+            right: 0;
+            background: linear-gradient(to left, var(--wood-dark), transparent);
+        }
+
+        .ticker-track {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scrollTicker 30s linear infinite;
+        }
+
+        .venue-ticker-section:hover .ticker-track {
+            animation-play-state: paused;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .ticker-item i {
+            color: var(--gold-primary);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+
+        .ticker-separator {
+            color: var(--gold-primary);
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        @keyframes scrollTicker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Buttons */
@@ -867,6 +942,31 @@
                 </div>
             </div>
         </section>
+
+        <!-- Scrolling Venue Ticker Bar -->
+        <div class="venue-ticker-section">
+            <div class="ticker-track">
+                <!-- First Set -->
+                <span class="ticker-item"><i class="fas fa-guitar"></i> Private</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-briefcase"></i> Corporate</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-golf-ball"></i> Country Clubs</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-beer"></i> Breweries</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-wine-glass-alt"></i> Wineries</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-ring"></i> Weddings</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-flag"></i> Festivals</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-glass-cheers"></i> Holidays</span><span class="ticker-separator">&bull;</span>
+
+                <!-- Duplicate Set for Seamless Infinite Loop -->
+                <span class="ticker-item"><i class="fas fa-guitar"></i> Private</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-briefcase"></i> Corporate</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-golf-ball"></i> Country Clubs</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-beer"></i> Breweries</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-wine-glass-alt"></i> Wineries</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-ring"></i> Weddings</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-flag"></i> Festivals</span><span class="ticker-separator">&bull;</span>
+                <span class="ticker-item"><i class="fas fa-glass-cheers"></i> Holidays</span><span class="ticker-separator">&bull;</span>
+            </div>
+        </div>
 
         <!-- Social Channels Bar -->
         <section class="social-banner">

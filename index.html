@@ -390,44 +390,89 @@
             color: var(--gold-primary);
         }
 
-        /* Recent Shows Photo Gallery Integration */
+        /* Revolving Carousel Photo Gallery */
         #recent-shows {
-            padding: 40px 0;
+            padding: 40px 0 20px;
         }
 
-        .show-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .gallery-item {
+        .carousel-container {
             position: relative;
+            max-width: 900px;
+            margin: 20px auto 0;
             overflow: hidden;
             border-radius: 10px;
             border: 2px solid var(--border-gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            cursor: pointer;
-            aspect-ratio: 4 / 3;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             background-color: var(--bg-card);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
 
-        .gallery-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
 
-        .gallery-item img {
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            display: block;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(13, 8, 5, 0.7);
+            color: var(--gold-primary);
+            border: 1px solid var(--border-gold);
+            padding: 15px 12px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-dark);
+            border: 1px solid var(--border-gold);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold-primary);
         }
 
         /* Modal Lightbox Styles */
@@ -831,16 +876,33 @@
                     </div>
                 </div>
 
-                <!-- Recent Shows Photo Gallery -->
+                <!-- Recent Shows Photo Carousel -->
                 <div id="recent-shows">
                     <div class="section-header" style="margin-top: 50px;">
                         <h3 style="font-size: 1.8rem; color: var(--gold-primary);">Recent Show Moments</h3>
                         <p>A glimpse from our latest performances</p>
                     </div>
-                    <div class="show-gallery">
-                        <div class="gallery-item" onclick="openModal('images/shows/latest/showpic1.png')">
-                            <img src="images/shows/latest/showpic1.png" alt="Live Performance Moment" onerror="this.src='https://via.placeholder.com/400x300?text=Texas+Cruisers+Live'">
+                    
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev" onclick="moveSlide(-1)" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic1.png')">
+                                <img src="images/shows/latest/showpic1.png" alt="Live Performance Moment 1" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+1'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic2.png')">
+                                <img src="images/shows/latest/showpic2.png" alt="Live Performance Moment 2" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+2'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic3.png')">
+                                <img src="images/shows/latest/showpic3.png" alt="Live Performance Moment 3" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+3'">
+                            </div>
                         </div>
+                        <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
                     </div>
                 </div>
             </div>
@@ -973,6 +1035,45 @@
             showToast('Booking Request Received! We will be in touch shortly.');
             event.target.reset();
         }
+
+        // Carousel Functionality
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function moveSlide(direction) {
+            slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            slideIndex = index;
+            updateCarousel();
+        }
+
+        // Auto-advance carousel every 5 seconds
+        let carouselInterval = setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Pause auto-advance when hovering over the carousel
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+        carouselContainer.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(() => {
+                moveSlide(1);
+            }, 5000);
+        });
 
         // Modal Lightbox Functions
         function openModal(imgSrc) {

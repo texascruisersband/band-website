@@ -518,87 +518,7 @@
             color: #ff5252;
         }
 
-        /* Song Repertoire Styles (Standalone now) */
-        .media-layout {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .repertoire-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-dark);
-            border-radius: 8px;
-            padding: 30px;
-            border-top: 3px solid var(--gold-primary);
-            width: 100%;
-            max-width: 700px;
-        }
-
-        .repertoire-box h3 {
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .repertoire-box > p {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .repertoire-categories {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .rep-tab {
-            background: var(--wood-dark);
-            border: 1px solid var(--border-dark);
-            color: var(--text-muted);
-            padding: 6px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-        }
-
-        .rep-tab.active {
-            background: var(--gold-primary);
-            color: #000;
-            border-color: var(--gold-primary);
-            font-weight: bold;
-        }
-
-        .rep-list {
-            list-style: none;
-            max-height: 220px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding-right: 5px;
-        }
-
-        .rep-list li {
-            background: var(--wood-medium);
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            display: flex;
-            justify-content: space-between;
-            border-left: 2px solid var(--gold-primary);
-        }
-
-        .rep-list li span {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
+        /* Video Section Styles */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1029,7 +949,7 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#band">The Band</a></li>
                 <li><a href="#shows">Shows</a></li>
-                <li><a href="#media">Repertoire & Media</a></li>
+                <li><a href="#media">Live Sets & Media</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#fans">Fan Feed</a></li>
                 <li><a href="#booking">Booking & EPK</a></li>
@@ -1204,28 +1124,12 @@
             </div>
         </section>
 
-        <!-- Song Repertoire & Video Section -->
+        <!-- Video & Media Section -->
         <section id="media" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Repertoire & Media</h2>
-                    <p>Explore our song list and watch our live sets</p>
-                </div>
-
-                <div class="media-layout">
-                    <!-- Song Repertoire List -->
-                    <div class="repertoire-box">
-                        <h3><i class="fas fa-list-ul"></i> Repertoire Preview</h3>
-                        <p>A small taste of the cover hits we bring to the stage.</p>
-                        <div class="repertoire-categories">
-                            <button class="rep-tab active" onclick="switchCategory('rock', this)">Classic Rock</button>
-                            <button class="rep-tab" onclick="switchCategory('country', this)">Country</button>
-                            <button class="rep-tab" onclick="switchCategory('blues', this)">Blues</button>
-                        </div>
-                        <ul id="repList" class="rep-list">
-                            <!-- Populated dynamically via JS -->
-                        </ul>
-                    </div>
+                    <h2>Live Sets & Media</h2>
+                    <p>Watch our live performances on stage</p>
                 </div>
 
                 <!-- Video Gallery -->
@@ -1390,47 +1294,6 @@
         <img class="modal-content" id="modalImg" alt="Enlarged gallery view">
     </div>
 
-    <!-- Floating Admin Gear Button (Lower Right - Repertoire Manager Only) -->
-    <div id="adminGearBtn" onclick="toggleAdminPanel()" style="position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.7); color: var(--gold-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.2s;" title="Manage Repertoire">
-        <i class="fas fa-cog" style="font-size: 1.2rem;"></i>
-    </div>
-
-    <!-- Hidden Admin Modal Overlay -->
-    <div id="adminModalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: 40px 20px;">
-        <div style="max-width: 500px; margin: 40px auto; background: var(--wood-dark); border: 2px solid var(--gold-primary); border-radius: 8px; padding: 30px; position: relative;">
-            <button onclick="toggleAdminPanel()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;"><i class="fas fa-times"></i></button>
-
-            <div class="section-header" style="margin-bottom: 20px;">
-                <h2>Repertoire Manager</h2>
-                <p>Add songs to your set list</p>
-            </div>
-            
-            <!-- Repertoire Manager Form -->
-            <div class="comment-form-box">
-                <h3 style="font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-list-ul"></i> Add Repertoire Song</h3>
-                <form onsubmit="adminAddSong(event)">
-                    <div class="form-group">
-                        <label>Category</label>
-                        <select id="newSongCategory" class="form-control">
-                            <option value="rock">Classic Rock</option>
-                            <option value="country">Country</option>
-                            <option value="blues">Blues</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Song Name</label>
-                        <input type="text" id="newSongTitle" class="form-control" required placeholder="Song Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Artist Name</label>
-                        <input type="text" id="newSongArtist" class="form-control" required placeholder="Original Artist">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Add to Repertoire</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1484,99 +1347,6 @@
             event.preventDefault();
             showToast("You're on the list! Welcome aboard the Cruisers.");
             event.target.reset();
-        }
-
-        // Repertoire Data & Switcher Logic
-        const repertoireData = {
-            rock: [
-                { song: "Born to be Wild", artist: "Steppenwolf" },
-                { song: "Sweet Child O' Mine", artist: "Guns N' Roses" },
-                { song: "Hotel California", artist: "Eagles" },
-                { song: "Livin' on a Prayer", artist: "Bon Jovi" },
-                { song: "Bad Moon Rising", artist: "Creedence Clearwater Revival" },
-                { song: "Old Time Rock & Roll", artist: "Bob Seger" }
-            ],
-            country: [
-                { song: "Tennessee Whiskey", artist: "Chris Stapleton" },
-                { song: "Amarillo by Morning", artist: "George Strait" },
-                { song: "Chicken Fried", artist: "Zac Brown Band" },
-                { song: "Copperhead Road", artist: "Steve Earle" },
-                { song: "Should've Been a Cowboy", artist: "Toby Keith" }
-            ],
-            blues: [
-                { song: "Pride and Joy", artist: "Stevie Ray Vaughan" },
-                { song: "The Thrill Is Gone", artist: "B.B. King" },
-                { song: "Crossroads", artist: "Eric Clapton" },
-                { song: "Hoochie Coochie Man", artist: "Muddy Waters" }
-            ]
-        };
-
-        function switchCategory(category, tabElement) {
-            document.querySelectorAll('.rep-tab').forEach(tab => tab.classList.remove('active'));
-            tabElement.classList.add('active');
-
-            const listContainer = document.getElementById('repList');
-            listContainer.innerHTML = '';
-
-            let combinedSongs = [...repertoireData[category]];
-            let customSongs = JSON.parse(localStorage.getItem('cruisers_custom_repertoire')) || { rock: [], country: [], blues: [] };
-            if (customSongs[category]) {
-                combinedSongs = combinedSongs.concat(customSongs[category]);
-            }
-
-            combinedSongs.forEach(item => {
-                let li = document.createElement('li');
-                li.innerHTML = `${escapeHtml(item.song)} <span>${escapeHtml(item.artist)}</span>`;
-                listContainer.appendChild(li);
-            });
-        }
-
-        // Admin Management: Add Song
-        function adminAddSong(event) {
-            event.preventDefault();
-            const category = document.getElementById('newSongCategory').value;
-            const song = document.getElementById('newSongTitle').value;
-            const artist = document.getElementById('newSongArtist').value;
-
-            let customSongs = JSON.parse(localStorage.getItem('cruisers_custom_repertoire')) || { rock: [], country: [], blues: [] };
-            if (!customSongs[category]) customSongs[category] = [];
-            
-            customSongs[category].push({ song, artist });
-            localStorage.setItem('cruisers_custom_repertoire', JSON.stringify(customSongs));
-
-            const activeTab = document.querySelector('.rep-tab.active');
-            if (activeTab) {
-                const catKey = activeTab.innerText.toLowerCase().includes('rock') ? 'rock' : activeTab.innerText.toLowerCase().includes('country') ? 'country' : 'blues';
-                switchCategory(catKey, activeTab);
-            }
-
-            showToast(`Added "${song}" to ${category} list!`);
-            event.target.reset();
-            toggleAdminPanel();
-        }
-
-        // Toggle Admin Modal with PIN Protection
-        function toggleAdminPanel() {
-            const modal = document.getElementById('adminModalOverlay');
-            
-            if (modal.style.display === 'none' || modal.style.display === '') {
-                let pin = prompt("Enter Admin PIN to access repertoire manager:");
-                
-                if (pin === "texas2026") {
-                    modal.style.display = 'block';
-                } else if (pin !== null) {
-                    alert("Incorrect PIN. Access denied.");
-                }
-            } else {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Gear hover animation
-        const gear = document.getElementById('adminGearBtn');
-        if (gear) {
-            gear.addEventListener('mouseenter', () => gear.style.transform = 'rotate(90deg)');
-            gear.addEventListener('mouseleave', () => gear.style.transform = 'rotate(0deg)');
         }
 
         // Carousel Functionality
@@ -1742,8 +1512,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadVenueReviews();
             loadComments();
-            const defaultTab = document.querySelector('.rep-tab');
-            if(defaultTab) switchCategory('rock', defaultTab);
         });
     </script>
 </body>

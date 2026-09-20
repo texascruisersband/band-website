@@ -624,6 +624,85 @@
             margin-bottom: 15px;
         }
 
+        /* Band Merch Section Styles */
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .merch-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .merch-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .merch-img-container {
+            width: 100%;
+            height: 250px;
+            background: var(--wood-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merch-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .merch-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--red-texas);
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .merch-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .merch-info h3 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .merch-price {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
         /* Fan Comments Section Styles */
         .comments-grid {
             display: grid;
@@ -951,6 +1030,7 @@
                 <li><a href="#shows">Shows</a></li>
                 <li><a href="#media">Live Sets & Media</a></li>
                 <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#merch">Merch</a></li>
                 <li><a href="#fans">Fan Feed</a></li>
                 <li><a href="#booking">Booking & EPK</a></li>
             </ul>
@@ -1186,8 +1266,74 @@
             </div>
         </section>
 
+        <!-- Band Merch Section -->
+        <section id="merch" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Band Merch</h2>
+                    <p>Grab official Texas Cruisers gear and support the band</p>
+                </div>
+
+                <div class="merch-grid">
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <span class="merch-badge">Popular</span>
+                            <img src="images/merch/tshirt.png" alt="Texas Cruisers Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+T-Shirt'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Classic Logo T-Shirt</h3>
+                                <div class="merch-price">$25.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Ultra-comfortable cotton tee featuring the official Texas Cruisers emblem.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <img src="images/merch/cap.png" alt="Texas Cruisers Trucker Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+Trucker+Hat'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Trucker Snapback Hat</h3>
+                                <div class="merch-price">$20.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Adjustable mesh-back cap, perfect for sunny days out on Lake Conroe.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <span class="merch-badge">Limited</span>
+                            <img src="images/merch/sticker.png" alt="Texas Cruisers Sticker Pack" onerror="this.src='https://via.placeholder.com/300x250?text=Sticker+Pack'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Weatherproof Sticker Pack</h3>
+                                <div class="merch-price">$10.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Set of 3 die-cut vinyl logo stickers for guitar cases, coolers, and trucks.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+                    <i class="fas fa-info-circle" style="color: var(--gold-primary);"></i> Merch is currently available directly at our live shows, or you can <a href="#booking">contact us</a> to arrange local pickup.
+                </div>
+            </div>
+        </section>
+
         <!-- Fan Comments Section -->
-        <section id="fans" class="section">
+        <section id="fans" class="section section-alt">
             <div class="container">
                 <div class="section-header">
                     <h2>Cruisers Fan Wall</h2>
@@ -1230,7 +1376,7 @@
         </section>
 
         <!-- Booking & EPK Section -->
-        <section id="booking" class="section section-alt">
+        <section id="booking" class="section">
             <div class="container">
                 <div class="section-header">
                     <h2>Book The Band / EPK</h2>

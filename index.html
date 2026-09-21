@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Texas Cruisers Band | Classic Rock, Country & Blues in Conroe & Houston</title>
-    <meta name="description" content="Catch The Texas Cruisers live across Lake Conroe and Greater Houston! High-energy classic rock, country, and blues band available for festivals, venues, and private events.">
+    <title>The Texas Cruisers Band | Montgomery, Conroe & Houston TX</title>
+    <meta name="description" content="Official site of The Texas Cruisers Band. Featuring Chris Oliver, Al Montez, Brian Martin, and Mark McFarlane. High-energy classic rock, country, and blues in Texas.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1392,17 +1392,34 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <!-- Structured Data Schema for Local SEO & Music Events -->
+    <!-- Structured Data Schema Matching Search Snippet -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "The Texas Cruisers Band",
+      "alternateName": "The Texas Cruisers",
       "genre": ["Classic Rock", "Country", "Blues"],
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Lake Conroe and Greater Houston, TX"
-      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Montgomery, TX"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Conroe, TX"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Greater Houston, TX"
+        }
+      ],
+      "member": [
+        { "@type": "Person", "name": "Chris Oliver", "roleName": "Lead Vocals" },
+        { "@type": "Person", "name": "Al Montez", "roleName": "Lead Guitar" },
+        { "@type": "Person", "name": "Brian Martin", "roleName": "Drums" },
+        { "@type": "Person", "name": "Mark McFarlane", "roleName": "Bass Guitar" }
+      ],
       "sameAs": [
         "https://facebook.com/thetexascruisersband",
         "https://youtube.com/@TheTexasCruisersBand"
@@ -1507,7 +1524,7 @@
                 return;
             }
 
-            reviews.forEach(r => {
+            reviews.exports.forEach(r => {
                 let card = document.createElement('div');
                 card.className = 'testimonial-card';
                 card.innerHTML = `

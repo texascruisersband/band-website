@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Texas Cruisers | Official Band Site</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>The Texas Cruisers Band | Montgomery, Conroe & Houston TX</title>
+    <meta name="description" content="Official site of The Texas Cruisers Band. Featuring Chris Oliver, Al Montez, Brian Martin, and Mark McFarlane. High-energy classic rock, country, and blues in Texas.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;600;700&family=Rye&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* CSS Variables */
         :root {
-            --bg-dark: #121212;
-            --bg-card: #1a1a1a;
-            --wood-dark: #241c14;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --red-texas: #bf0a30;
-            --text-light: #f4f4f4;
-            --border-dark: #333333;
-            --border-gold: #d4af37;
+            --bg-dark: #0d0805;
+            --bg-card: #1a120b;
+            --wood-dark: #140d07;
+            --wood-medium: #26180e;
+            --gold-primary: #d4a017;
+            --gold-hover: #f5c542;
+            --red-texas: #c0262d;
+            --text-light: #f5eedc;
+            --text-muted: #b0a090;
+            --border-gold: #8c6819;
+            --border-dark: #3a281a;
         }
 
+        /* Reset & Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,60 +38,591 @@
         }
 
         body {
+            font-family: 'Open Sans', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-light);
-            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 160, 23, 0.15) 0%, transparent 60%),
+                linear-gradient(to bottom, rgba(13, 8, 5, 0.85), rgba(13, 8, 5, 0.98));
+            background-attachment: fixed;
         }
 
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner.png') no-repeat center center/cover;
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--gold-primary);
-        }
-
-        header h1 {
+        h1, h2, h3, h4 {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
-            color: var(--gold-primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .western-title {
+            font-family: 'Rye', cursive;
+            color: var(--gold-primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gold-hover);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        section {
-            margin-bottom: 60px;
+        /* Navigation Header */
+        .navbar {
+            background-color: rgba(13, 8, 5, 0.95);
+            border-bottom: 2px solid var(--border-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
-        h2 {
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo-text {
+            font-family: 'Rye', cursive;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
             font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--gold-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--gold-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Banner Section */
+        .hero-section {
+            padding: 20px 0 30px;
+            text-align: center;
+        }
+
+        .banner-wrapper {
+            position: relative;
+            border: 3px solid var(--border-gold);
+            box-shadow: 0 0 25px rgba(212, 160, 23, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--wood-medium);
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            height: 400px;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .banner-fallback {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .banner-fallback h1 {
+            font-family: 'Rye', cursive;
+            font-size: 2.8rem;
+            color: var(--gold-primary);
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .banner-fallback p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), #8c6819);
+            color: #000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--gold-hover), var(--gold-primary));
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border-color: var(--border-gold);
+            font-size: 0.9rem;
+            padding: 8px 15px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 160, 23, 0.1);
+            color: var(--gold-primary);
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled,
+        .btn-secondary.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .section-alt {
+            background: rgba(0,0,0,0.3);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
             font-size: 2.5rem;
             color: var(--gold-primary);
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 40px;
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
             font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Band Members */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .member-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--border-dark);
+            display: block;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+        }
+
+        .member-info .role {
+            color: var(--gold-primary);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Shows Section */
+        .shows-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .show-item {
+            background: var(--bg-card);
+            border-left: 4px solid var(--gold-primary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .show-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--wood-dark);
+            border: 1px solid var(--border-gold);
+            padding: 10px 15px;
+            border-radius: 6px;
+            min-width: 90px;
+        }
+
+        .show-date .month {
+            font-family: 'Oswald', sans-serif;
+            color: var(--red-texas);
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .show-date .day {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .show-details {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .show-details h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        .show-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .location-icon {
+            color: var(--gold-primary);
+        }
+
+        /* Revolving Carousel Photo Gallery */
+        #recent-shows {
+            padding: 40px 0 20px;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 20px auto 0;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid var(--border-gold);
+            background-color: var(--bg-card);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(13, 8, 5, 0.7);
+            color: var(--gold-primary);
+            border: 1px solid var(--border-gold);
+            padding: 15px 12px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-dark);
+            border: 1px solid var(--border-gold);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold-primary);
+        }
+
+        /* Modal Lightbox Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ff5252;
+        }
+
+        /* Video Section Styles */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-card h4 {
+            margin-top: 15px;
+            color: var(--gold-primary);
+            text-align: center;
+        }
+
+        .youtube-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Venue Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-left: 4px solid var(--gold-primary);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .testimonial-card i.fa-quote-left {
+            color: var(--border-dark);
+            font-size: 2rem;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold-primary);
+            font-size: 1.05rem;
+        }
+
+        .testimonial-venue {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .empty-notice {
+            grid-column: 1 / -1;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-gold);
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        .empty-notice i {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
         }
 
         /* Band Merch Section Styles */
@@ -136,7 +680,6 @@
             padding: 3px 8px;
             border-radius: 4px;
             text-transform: uppercase;
-            z-index: 2;
         }
 
         .merch-info {
@@ -151,7 +694,6 @@
             font-size: 1.25rem;
             color: var(--text-light);
             margin-bottom: 8px;
-            font-family: 'Oswald', sans-serif;
         }
 
         .merch-price {
@@ -162,139 +704,931 @@
             margin-bottom: 15px;
         }
 
-        .merch-info p {
-            font-size: 0.95rem;
-            color: #bbb;
+        /* Fan Comments Section Styles */
+        .comments-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .comment-form-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-dark);
+        }
+
+        .comment-form-box h3 {
+            color: var(--gold-primary);
             margin-bottom: 20px;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background: transparent;
-            color: var(--gold-primary);
-            border: 2px solid var(--gold-primary);
-            padding: 10px 20px;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-align: center;
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            color: var(--border-dark);
+            cursor: pointer;
+            margin-bottom: 15px;
         }
 
-        .btn-primary:hover {
+        .star-rating .star.active {
+            color: var(--gold-primary);
+        }
+
+        .comments-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .comment-card {
+            background: var(--wood-medium);
+            border: 1px solid var(--border-dark);
+            border-left: 3px solid var(--gold-primary);
+            padding: 18px;
+            border-radius: 6px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .comment-author {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .comment-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .comment-stars {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .comment-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+
+        /* Booking Form & EPK */
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .booking-form {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-dark);
+        }
+
+        .booking-form h3 {
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: var(--wood-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .epk-box {
+            background: var(--wood-medium);
+            border: 2px dashed var(--border-gold);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .epk-icon {
+            font-size: 3.5rem;
+            color: var(--gold-primary);
+        }
+
+        .epk-box h3 {
+            color: var(--text-light);
+        }
+
+        .epk-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Social Banner & Footer */
+        .social-banner {
+            background: var(--wood-medium);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .social-banner h3 {
+            font-size: 1.5rem;
+        }
+
+        .social-banner p {
+            color: var(--text-muted);
+            margin-top: 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--wood-dark);
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
             background: var(--gold-primary);
-            color: var(--bg-dark);
+            color: #000;
+            transform: scale(1.1);
         }
 
         footer {
-            background: #0a0a0a;
+            background: #080503;
+            padding: 30px 0;
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border-dark);
-            color: #777;
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        .footer-tagline {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gold-primary);
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 2000;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 2px solid var(--border-gold);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .booking-grid,
+            .comments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .show-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .show-details {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Texas Cruisers</h1>
-        <p>Live Classic Rock & Blues from Lake Conroe</p>
-    </header>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo-text">TEXAS CRUISERS</div>
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#band">The Band</a></li>
+                <li><a href="#shows">Shows</a></li>
+                <li><a href="#media">Live Sets & Media</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#merch">Merch</a></li>
+                <li><a href="#fans">Fan Feed</a></li>
+                <li><a href="#booking">Booking & EPK</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="container">
-        
-        <!-- Merch Section -->
-        <section id="merch">
-            <h2>Band Merch</h2>
-            <p class="section-subtitle">Grab official Texas Cruisers gear and support the band</p>
-
-            <div class="merch-grid">
-                <!-- Item 1: T-Shirt -->
-                <div class="merch-card">
-                    <div class="merch-img-container">
-                        <span class="merch-badge">Popular</span>
-                        <img src="images/tshirt.jpg" alt="Classic Logo T-Shirt">
-                    </div>
-                    <div class="merch-info">
-                        <div>
-                            <h3>CLASSIC LOGO T-SHIRT</h3>
-                            <div class="merch-price">$25.00</div>
-                            <p>Ultra-comfortable cotton tee featuring the official Texas Cruisers emblem.</p>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://venmo.com/YOUR_VENMO_HANDLE?txn=pay&note=Texas%20Cruisers%20T-Shirt%20($25)" target="_blank" class="btn-primary">BUY NOW (VENMO)</a>
-                            <a href="#contact" style="color: #aaa; font-size: 0.85rem; text-decoration: underline;">Or reserve for next show</a>
-                        </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Primary Branding Banner -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="banner-wrapper">
+                    <img id="heroImg" src="banner.png" alt="The Texas Cruisers Band" class="hero-banner-img" onerror="handleImageError()">
+                    
+                    <div id="bannerFallback" class="banner-fallback">
+                        <h1>THE TEXAS CRUISERS BAND</h1>
+                        <p>CLASSIC ROCK &bull; COUNTRY &bull; BLUES</p>
                     </div>
                 </div>
+                <div class="hero-cta">
+                    <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book The Band</a>
+                    <a href="#shows" class="btn btn-secondary"><i class="fas fa-music"></i> Show Dates</a>
+                </div>
+            </div>
+        </section>
 
-                <!-- Item 2: Tank Top -->
-                <div class="merch-card">
-                    <div class="merch-img-container">
-                        <span class="merch-badge">New</span>
-                        <img src="images/tanktop.jpg" alt="Texas Cruisers Tank Top">
-                    </div>
-                    <div class="merch-info">
-                        <div>
-                            <h3>SUMMER TANK TOP</h3>
-                            <div class="merch-price">$22.00</div>
-                            <p>Breathable, lightweight tank top built for hot patio gigs and lake days.</p>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://venmo.com/YOUR_VENMO_HANDLE?txn=pay&note=Texas%20Cruisers%20Tank%20Top%20($22)" target="_blank" class="btn-primary">BUY NOW (VENMO)</a>
-                            <a href="#contact" style="color: #aaa; font-size: 0.85rem; text-decoration: underline;">Or reserve for next show</a>
-                        </div>
-                    </div>
+        <!-- Social Channels Bar -->
+        <section class="social-banner">
+            <div class="container">
+                <h3 class="western-title">Let's Cruise!</h3>
+                <p>Find us on Facebook, Instagram, and YouTube</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/thetexascruisersband" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@TheTexasCruisersBand" target="_blank" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Band Members Section -->
+        <section id="band" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet The Band</h2>
+                    <p>Classic Rock, Country, and Blues Live Across Texas</p>
                 </div>
 
-                <!-- Item 3: Hat -->
-                <div class="merch-card">
-                    <div class="merch-img-container">
-                        <img src="images/hat.jpg" alt="Trucker Snapback Hat">
-                    </div>
-                    <div class="merch-info">
-                        <div>
-                            <h3>TRUCKER SNAPBACK HAT</h3>
-                            <div class="merch-price">$20.00</div>
-                            <p>Adjustable mesh-back cap, perfect for sunny days out on Lake Conroe.</p>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://venmo.com/YOUR_VENMO_HANDLE?txn=pay&note=Texas%20Cruisers%20Hat%20($20)" target="_blank" class="btn-primary">BUY NOW (VENMO)</a>
-                            <a href="#contact" style="color: #aaa; font-size: 0.85rem; text-decoration: underline;">Or reserve for next show</a>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <img src="images/band/brian.png" alt="Brian Martin" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Brian+Martin'">
+                        <div class="member-info">
+                            <h3>Brian Martin</h3>
+                            <div class="role">Drums</div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Item 4: Koozie -->
-                <div class="merch-card">
-                    <div class="merch-img-container">
-                        <span class="merch-badge">Essential</span>
-                        <img src="images/koozie.jpg" alt="Band Koozie">
-                    </div>
-                    <div class="merch-info">
-                        <div>
-                            <h3>LOGO KOOZIE</h3>
-                            <div class="merch-price">$6.00</div>
-                            <p>Keep your drinks ice-cold while rocking out to the band.</p>
+                    <div class="member-card">
+                        <img src="images/band/al.png" alt="Al Montez" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Al+Montez'">
+                        <div class="member-info">
+                            <h3>Al Montez</h3>
+                            <div class="role">Lead Guitar</div>
                         </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <a href="https://venmo.com/YOUR_VENMO_HANDLE?txn=pay&note=Texas%20Cruisers%20Koozie%20($6)" target="_blank" class="btn-primary">BUY NOW (VENMO)</a>
-                            <a href="#contact" style="color: #aaa; font-size: 0.85rem; text-decoration: underline;">Or reserve for next show</a>
+                    </div>
+
+                    <div class="member-card">
+                        <img src="images/band/chris.png" alt="Chris Oliver" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Chris+Oliver'">
+                        <div class="member-info">
+                            <h3>Chris Oliver</h3>
+                            <div class="role">Lead Vocals</div>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <img src="images/band/mark.png" alt="Mark McFarlane" class="member-photo" onerror="this.src='https://via.placeholder.com/300x240?text=Mark+McFarlane'">
+                        <div class="member-info">
+                            <h3>Mark McFarlane</h3>
+                            <div class="role">Bass Guitar</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Shows Section -->
+        <section id="shows" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>UPCOMING SHOWS</h2>
+                    <p>Catch The Texas Cruisers live!</p>
+                </div>
+                
+                <div class="shows-list">
+                    <div class="show-item">
+                        <div class="show-date">
+                            <span class="month">OCT</span>
+                            <span class="day">10</span>
+                        </div>
+                        <div class="show-details">
+                            <h3>Memorial Hermann 10 for Texas Run</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> The Woodlands, TX</p>
+                        </div>
+                        <a href="https://www.thewoodlandstownship-tx.gov/10fortexas" target="_blank" class="btn btn-secondary">Event Info</a>
+                    </div>
+
+                    <div class="show-item">
+                        <div class="show-date">
+                            <span class="month">NOV</span>
+                            <span class="day">14</span>
+                        </div>
+                        <div class="show-details">
+                            <h3>Next Venue Name</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Conroe, TX</p>
+                        </div>
+                        <button class="btn btn-secondary disabled" disabled>TBD</button>
+                    </div>
+                </div>
+
+                <!-- Recent Shows Photo Carousel -->
+                <div id="recent-shows">
+                    <div class="section-header" style="margin-top: 50px;">
+                        <h3 style="font-size: 1.8rem; color: var(--gold-primary);">Recent Show Moments</h3>
+                        <p>A glimpse from our latest performances</p>
+                    </div>
+                    
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev" onclick="moveSlide(-1)" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic1.png')">
+                                <img src="images/shows/latest/showpic1.png" alt="Live Performance Moment 1" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+1'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic2.png')">
+                                <img src="images/shows/latest/showpic2.png" alt="Live Performance Moment 2" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+2'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic3.png')">
+                                <img src="images/shows/latest/showpic3.png" alt="Live Performance Moment 3" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+3'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic4.png')">
+                                <img src="images/shows/latest/showpic4.png" alt="Live Performance Moment 4" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+4'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic5.png')">
+                                <img src="images/shows/latest/showpic5.png" alt="Live Performance Moment 5" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+5'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic6.png')">
+                                <img src="images/shows/latest/showpic6.png" alt="Live Performance Moment 6" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+6'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic7.png')">
+                                <img src="images/shows/latest/showpic7.png" alt="Live Performance Moment 7" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+7'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic8.png')">
+                                <img src="images/shows/latest/showpic8.png" alt="Live Performance Moment 8" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+8'">
+                            </div>
+                            <div class="carousel-slide" onclick="openModal('images/shows/latest/showpic9.png')">
+                                <img src="images/shows/latest/showpic9.png" alt="Live Performance Moment 9" onerror="this.src='https://via.placeholder.com/900x506?text=Texas+Cruisers+Live+9'">
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" onclick="moveSlide(1)" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <span class="dot" onclick="currentSlide(6)"></span>
+                        <span class="dot" onclick="currentSlide(7)"></span>
+                        <span class="dot" onclick="currentSlide(8)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video & Media Section -->
+        <section id="media" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Live Sets & Media</h2>
+                    <p>Watch our live performances on stage</p>
+                </div>
+
+                <!-- Video Gallery -->
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/V5Pem-oARc4" title="Texas Cruisers Band Video" allowfullscreen></iframe>
+                        </div>
+                        <h4>Watch Us Live on YouTube</h4>
+                    </div>
+                </div>
+
+                <div class="youtube-link">
+                    <a href="https://youtube.com/@TheTexasCruisersBand" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-youtube"></i> Visit Our Full YouTube Channel
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Testimonials Section with Interactive Submission -->
+        <section id="reviews" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Venue & Event Reviews</h2>
+                    <p>What club owners and event managers have to say</p>
+                </div>
+
+                <!-- Dynamic Venue Testimonials Grid (Starts Empty) -->
+                <div class="testimonials-grid" id="venueReviewsGrid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Venue Review Submission Form -->
+                <div class="comment-form-box" style="max-width: 700px; margin: 0 auto;">
+                    <h3 style="text-align: center;"><i class="fas fa-wine-glass-alt"></i> Leave a Venue or Event Review</h3>
+                    <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Are you a club owner, festival director, or event coordinator who booked us? Let us know how it went!</p>
+                    <form id="venueReviewForm" onsubmit="handleVenueReviewSubmit(event)">
+                        <div class="form-group">
+                            <label for="venueAuthor">Your Name</label>
+                            <input type="text" id="venueAuthor" class="form-control" required placeholder="e.g. Marcus Vance">
+                        </div>
+                        <div class="form-group">
+                            <label for="venueTitle">Venue / Organization & Title</label>
+                            <input type="text" id="venueTitle" class="form-control" required placeholder="e.g. Lake Conroe Bar & Grill Owner">
+                        </div>
+                        <div class="form-group">
+                            <label for="venueMessage">Review / Testimonial</label>
+                            <textarea id="venueMessage" class="form-control" rows="4" required placeholder="Tell future venues about your experience working with the band..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Submit Venue Review</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Band Merch Section -->
+        <section id="merch" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Band Merch</h2>
+                    <p>Grab official Texas Cruisers gear and support the band</p>
+                </div>
+
+                <div class="merch-grid">
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <span class="merch-badge">Popular</span>
+                            <img src="images/merch/tshirt.png" alt="Texas Cruisers Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+T-Shirt'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Classic Logo T-Shirt</h3>
+                                <div class="merch-price">$25.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Ultra-comfortable cotton tee featuring the official Texas Cruisers emblem.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <img src="images/merch/cap.png" alt="Texas Cruisers Trucker Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+Trucker+Hat'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Trucker Snapback Hat</h3>
+                                <div class="merch-price">$20.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Adjustable mesh-back cap, perfect for sunny days out on Lake Conroe.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <span class="merch-badge">Limited</span>
+                            <img src="images/merch/sticker.png" alt="Texas Cruisers Sticker Pack" onerror="this.src='https://via.placeholder.com/300x250?text=Sticker+Pack'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Weatherproof Sticker Pack</h3>
+                                <div class="merch-price">$10.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Set of 3 die-cut vinyl logo stickers for guitar cases, coolers, and trucks.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+                    <i class="fas fa-info-circle" style="color: var(--gold-primary);"></i> Merch is currently available directly at our live shows, or you can <a href="#booking">contact us</a> to arrange local pickup.
+                </div>
+            </div>
+        </section>
+
+        <!-- Fan Comments Section -->
+        <section id="fans" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cruisers Fan Wall</h2>
+                    <p>Leave a note about your experience seeing the band live!</p>
+                </div>
+
+                <div class="comments-grid">
+                    <div class="comment-form-box">
+                        <h3>Leave Your Feedback</h3>
+                        <form id="commentForm" onsubmit="handleCommentSubmit(event)">
+                            <div class="form-group">
+                                <label for="fanName">Your Name</label>
+                                <input type="text" id="fanName" class="form-control" required placeholder="e.g. Texas Fan">
+                            </div>
+                            <div class="form-group">
+                                <label>Rating</label>
+                                <div class="star-rating" id="starRating">
+                                    <i class="fas fa-star star active" data-value="1" onclick="setRating(1)"></i>
+                                    <i class="fas fa-star star active" data-value="2" onclick="setRating(2)"></i>
+                                    <i class="fas fa-star star active" data-value="3" onclick="setRating(3)"></i>
+                                    <i class="fas fa-star star active" data-value="4" onclick="setRating(4)"></i>
+                                    <i class="fas fa-star star active" data-value="5" onclick="setRating(5)"></i>
+                                </div>
+                                <input type="hidden" id="fanRating" value="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="fanMessage">Your Experience / Review</label>
+                                <textarea id="fanMessage" class="form-control" rows="4" required placeholder="How was the show? Favorite song? Let us know!"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Post Comment</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h3 style="color: var(--gold-primary); margin-bottom: 20px; font-family: 'Oswald', sans-serif;">Recent Fan Reviews</h3>
+                        <div class="comments-feed" id="commentsFeed"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & EPK Section -->
+        <section id="booking" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Book The Band / EPK</h2>
+                    <p>Bring the Texas Cruisers to your venue or local private event</p>
+                </div>
+
+                <div class="booking-grid">
+                    <div class="booking-form">
+                        <h3>Send a Booking Inquiry</h3>
+                        <form action="https://formspree.io/f/xyezyvdz" method="POST" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Your Name / Venue Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required placeholder="e.g. John Doe / Saloon">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Requested Event Date & Location</label>
+                                <input type="text" id="date" name="event_date" class="form-control" placeholder="e.g. Nov 12, Conroe TX">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Event Details</label>
+                                <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your venue or event..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Submit Inquiry</button>
+                        </form>
+                    </div>
+
+                    <div class="epk-box">
+                        <i class="fas fa-file-download epk-icon"></i>
+                        <h3>Electronic Press Kit (EPK)</h3>
+                        <p>Download high-res promo photo assets, stage plot, technical rider, and band bio sheet for venue booking managers.</p>
+                        <a href="TexasCruisersBand-EPK.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Download Press Kit (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Lightbox for Gallery -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged gallery view">
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 The Texas Cruisers. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2026 The Texas Cruisers Band. All Rights Reserved.</p>
+            <p class="footer-tagline">Classic Rock, Country & Blues | Let's Cruise!</p>
+        </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Structured Data Schema Matching Search Snippet -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "The Texas Cruisers Band",
+      "alternateName": "The Texas Cruisers",
+      "genre": ["Classic Rock", "Country", "Blues"],
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Montgomery, TX"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Conroe, TX"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Greater Houston, TX"
+        }
+      ],
+      "member": [
+        { "@type": "Person", "name": "Chris Oliver", "roleName": "Lead Vocals" },
+        { "@type": "Person", "name": "Al Montez", "roleName": "Lead Guitar" },
+        { "@type": "Person", "name": "Brian Martin", "roleName": "Drums" },
+        { "@type": "Person", "name": "Mark McFarlane", "roleName": "Bass Guitar" }
+      ],
+      "sameAs": [
+        "https://facebook.com/thetexascruisersband",
+        "https://youtube.com/@TheTexasCruisersBand"
+      ]
+    }
+    </script>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Banner Image Error Handler
+        function handleImageError() {
+            document.getElementById('heroImg').style.display = 'none';
+            document.getElementById('bannerFallback').style.display = 'block';
+        }
+
+        // Toast Notification Handler
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Form Submission Handlers
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            showToast('Booking Request Received! We will be in touch shortly.');
+            event.target.reset();
+        }
+
+        // Carousel Functionality
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function moveSlide(direction) {
+            slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            slideIndex = index;
+            updateCarousel();
+        }
+
+        let carouselInterval = setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            carouselContainer.addEventListener('mouseleave', () => {
+                carouselInterval = setInterval(() => {
+                    moveSlide(1);
+                }, 5000);
+            });
+        }
+
+        // Venue Testimonials Dynamic Loading & Submission (Starts Empty)
+        function loadVenueReviews() {
+            const grid = document.getElementById('venueReviewsGrid');
+            if (!grid) return;
+
+            let reviews = JSON.parse(localStorage.getItem('texascruisers_venue_reviews')) || [];
+
+            grid.innerHTML = '';
+            
+            if (reviews.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-notice">
+                        <i class="fas fa-comment-alt"></i>
+                        <h3>Reviews Coming Soon</h3>
+                        <p>Venue and event manager reviews will appear here once submitted.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            reviews.exports.forEach(r => {
+                let card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <i class="fas fa-quote-left"></i>
+                    <p class="testimonial-text">"${escapeHtml(r.message)}"</p>
+                    <div class="testimonial-author">${escapeHtml(r.author)}</div>
+                    <div class="testimonial-venue">${escapeHtml(r.title)}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function handleVenueReviewSubmit(event) {
+            event.preventDefault();
+            const author = document.getElementById('venueAuthor').value;
+            const title = document.getElementById('venueTitle').value;
+            const message = document.getElementById('venueMessage').value;
+
+            let reviews = JSON.parse(localStorage.getItem('texascruisers_venue_reviews')) || [];
+            reviews.unshift({ author, title, message });
+            localStorage.setItem('texascruisers_venue_reviews', JSON.stringify(reviews));
+
+            loadVenueReviews();
+            showToast('Thank you! Your venue review has been posted.');
+            event.target.reset();
+        }
+
+        // Fan Comments / Reviews Logic
+        function setRating(rating) {
+            document.getElementById('fanRating').value = rating;
+            const stars = document.querySelectorAll('#starRating .star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function loadComments() {
+            const feed = document.getElementById('commentsFeed');
+            if(!feed) return;
+            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [
+                { name: 'Sarah Miller', rating: 5, message: 'Saw them live at Lake Conroe and they completely rocked the house! Best cover band around.', date: 'September 18, 2026' },
+                { name: 'Dave K.', rating: 5, message: 'Incredible guitar work by Al and killer vocals by Chris. Can’t wait for the next show!', date: 'September 10, 2026' }
+            ];
+
+            feed.innerHTML = '';
+            comments.forEach(c => {
+                let starsHTML = '<i class="fas fa-star"></i>'.repeat(c.rating);
+                let card = document.createElement('div');
+                card.className = 'comment-card';
+                card.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-author">${escapeHtml(c.name)}</span>
+                        <span class="comment-date">${c.date}</span>
+                    </div>
+                    <div class="comment-stars">${starsHTML}</div>
+                    <div class="comment-text">${escapeHtml(c.message)}</div>
+                `;
+                feed.appendChild(card);
+            });
+        }
+
+        function handleCommentSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('fanName').value;
+            const rating = parseInt(document.getElementById('fanRating').value);
+            const message = document.getElementById('fanMessage').value;
+            const date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+            let comments = JSON.parse(localStorage.getItem('texascruisers_comments')) || [];
+            comments.unshift({ name, rating, message, date });
+            localStorage.setItem('texascruisers_comments', JSON.stringify(comments));
+
+            loadComments();
+            showToast('Thank you! Your fan review has been posted.');
+            event.target.reset();
+            setRating(5);
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Modal Lightbox Functions
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.classList.add('active');
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadVenueReviews();
+            loadComments();
+        });
+    </script>
 </body>
 </html>

@@ -628,7 +628,7 @@
         /* Band Merch Section Styles */
         .merch-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -1221,7 +1221,7 @@
             </div>
         </section>
 
-        <!-- Band Merch Section -->
+        <!-- Band Merch Section (Updated with T-Shirts, Tanktops, Trucker Hats & Koozies) -->
         <section id="merch" class="section">
             <div class="container">
                 <div class="section-header">
@@ -1230,10 +1230,11 @@
                 </div>
 
                 <div class="merch-grid">
+                    <!-- T-Shirts -->
                     <div class="merch-card">
                         <div class="merch-img-container">
                             <span class="merch-badge">Popular</span>
-                            <img src="images/merch/tshirt.png" alt="Texas Cruisers Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+T-Shirt'">
+                            <img src="images/merch/tshirt.png" alt="Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Classic+T-Shirt'">
                         </div>
                         <div class="merch-info">
                             <div>
@@ -1241,40 +1242,60 @@
                                 <div class="merch-price">$25.00</div>
                                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Ultra-comfortable cotton tee featuring the official Texas Cruisers emblem.</p>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
                                 <i class="fas fa-shopping-cart"></i> Buy at Next Show
                             </button>
                         </div>
                     </div>
 
+                    <!-- Tanktops -->
                     <div class="merch-card">
                         <div class="merch-img-container">
-                            <img src="images/merch/cap.png" alt="Texas Cruisers Trucker Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Cruisers+Trucker+Hat'">
+                            <span class="merch-badge">New</span>
+                            <img src="images/merch/tanktop.png" alt="Cruisers Summer Tanktop" onerror="this.src='https://via.placeholder.com/300x250?text=Summer+Tanktop'">
+                        </div>
+                        <div class="merch-info">
+                            <div>
+                                <h3>Summer Tanktop</h3>
+                                <div class="merch-price">$22.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Stay cool out on Lake Conroe with our lightweight branded tanktop.</p>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Trucker Hats -->
+                    <div class="merch-card">
+                        <div class="merch-img-container">
+                            <img src="images/merch/cap.png" alt="Trucker Snapback Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Trucker+Hat'">
                         </div>
                         <div class="merch-info">
                             <div>
                                 <h3>Trucker Snapback Hat</h3>
                                 <div class="merch-price">$20.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Adjustable mesh-back cap, perfect for sunny days out on Lake Conroe.</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Adjustable mesh-back cap, perfect for sunny days and outdoor shows.</p>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
                                 <i class="fas fa-shopping-cart"></i> Buy at Next Show
                             </button>
                         </div>
                     </div>
 
+                    <!-- Koozies -->
                     <div class="merch-card">
                         <div class="merch-img-container">
-                            <span class="merch-badge">Limited</span>
-                            <img src="images/merch/sticker.png" alt="Texas Cruisers Sticker Pack" onerror="this.src='https://via.placeholder.com/300x250?text=Sticker+Pack'">
+                            <span class="merch-badge">Essential</span>
+                            <img src="images/merch/koozie.png" alt="Logo Can Koozie" onerror="this.src='https://via.placeholder.com/300x250?text=Can+Koozie'">
                         </div>
                         <div class="merch-info">
                             <div>
-                                <h3>Weatherproof Sticker Pack</h3>
-                                <div class="merch-price">$10.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Set of 3 die-cut vinyl logo stickers for guitar cases, coolers, and trucks.</p>
+                                <h3>Logo Can Koozie</h3>
+                                <div class="merch-price">$8.00</div>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Keep your drinks ice-cold while rocking out or hanging by the water.</p>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch ordering coming soon or available at shows!')">
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
                                 <i class="fas fa-shopping-cart"></i> Buy at Next Show
                             </button>
                         </div>
@@ -1392,7 +1413,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <!-- Structured Data Schema Matching Search Snippet -->
+    <!-- Structured Data Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1504,7 +1525,7 @@
             });
         }
 
-        // Venue Testimonials Dynamic Loading & Submission (Starts Empty)
+        // Venue Testimonials Dynamic Loading & Submission
         function loadVenueReviews() {
             const grid = document.getElementById('venueReviewsGrid');
             if (!grid) return;
@@ -1524,7 +1545,6 @@
                 return;
             }
 
-            // Fixed: changed reviews.exports.forEach to reviews.forEach
             reviews.forEach(r => {
                 let card = document.createElement('div');
                 card.className = 'testimonial-card';

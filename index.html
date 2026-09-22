@@ -703,7 +703,7 @@
             color: var(--gold-primary);
             font-size: 1.3rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         /* Fan Comments Section Styles */
@@ -819,7 +819,7 @@
 
         .form-control {
             width: 100%;
-            padding: 12px;
+            padding: 10px 12px;
             background: var(--wood-dark);
             border: 1px solid var(--border-dark);
             border-radius: 4px;
@@ -1230,79 +1230,183 @@
                 </div>
 
                 <div class="merch-grid">
-                    <!-- T-Shirts (Using exact name BandTshirtBlk.png with capital T) -->
-                    <div class="merch-card">
+                    <!-- Classic T-Shirt -->
+                    <div class="merch-card" data-item="tshirt">
                         <div class="merch-img-container">
                             <span class="merch-badge">Popular</span>
-                            <img src="images/merch/BandTshirtBlk.png" alt="Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Classic+T-Shirt'">
+                            <img id="img-tshirt" src="images/merch/BandTshirtBlk.png" alt="Classic Logo T-Shirt" onerror="this.src='https://via.placeholder.com/300x250?text=Classic+T-Shirt'">
                         </div>
                         <div class="merch-info">
                             <div>
                                 <h3>Classic Logo T-Shirt</h3>
                                 <div class="merch-price">$25.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Ultra-comfortable cotton tee featuring the official Texas Cruisers emblem.</p>
+                                
+                                <!-- Color Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Color</label>
+                                    <div class="color-swatches" style="display: flex; gap: 8px; justify-content: center;">
+                                        <div class="color-swatch black active" style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 2px solid var(--gold-primary); cursor: pointer;" data-color="blk" data-target="tshirt" title="Black"></div>
+                                        <div class="color-swatch white" style="width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 2px solid var(--border-dark); cursor: pointer;" data-color="wht" data-target="tshirt" title="White"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Fit Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Fit</label>
+                                    <select class="form-control" id="fit-tshirt" style="padding: 5px; font-size: 0.85rem;">
+                                        <option value="Men">Men</option>
+                                        <option value="Women">Women</option>
+                                        <option value="Child">Child</option>
+                                    </select>
+                                </div>
+
+                                <!-- Size Selector -->
+                                <div class="option-group" style="margin-bottom: 15px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Size</label>
+                                    <select class="form-control" id="size-tshirt" style="padding: 5px; font-size: 0.85rem;">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L" selected>L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
-                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="orderMerch('Classic Logo T-Shirt', 'tshirt')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Show
                             </button>
                         </div>
                     </div>
 
-                    <!-- Tanktops (Using exact name BandTankBlk.png) -->
-                    <div class="merch-card">
+                    <!-- Summer Tanktop -->
+                    <div class="merch-card" data-item="tank">
                         <div class="merch-img-container">
                             <span class="merch-badge">New</span>
-                            <img src="images/merch/BandTankBlk.png" alt="Cruisers Summer Tanktop" onerror="this.src='https://via.placeholder.com/300x250?text=Summer+Tanktop'">
+                            <img id="img-tank" src="images/merch/BandTankBlk.png" alt="Summer Tanktop" onerror="this.src='https://via.placeholder.com/300x250?text=Summer+Tanktop'">
                         </div>
                         <div class="merch-info">
                             <div>
                                 <h3>Summer Tanktop</h3>
                                 <div class="merch-price">$22.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Stay cool out on Lake Conroe with our lightweight branded tanktop.</p>
+                                
+                                <!-- Color Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Color</label>
+                                    <div class="color-swatches" style="display: flex; gap: 8px; justify-content: center;">
+                                        <div class="color-swatch black active" style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 2px solid var(--gold-primary); cursor: pointer;" data-color="blk" data-target="tank" title="Black"></div>
+                                        <div class="color-swatch white" style="width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 2px solid var(--border-dark); cursor: pointer;" data-color="wht" data-target="tank" title="White"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Fit Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Fit</label>
+                                    <select class="form-control" id="fit-tank" style="padding: 5px; font-size: 0.85rem;">
+                                        <option value="Men">Men</option>
+                                        <option value="Women">Women</option>
+                                        <option value="Child">Child</option>
+                                    </select>
+                                </div>
+
+                                <!-- Size Selector -->
+                                <div class="option-group" style="margin-bottom: 15px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Size</label>
+                                    <select class="form-control" id="size-tank" style="padding: 5px; font-size: 0.85rem;">
+                                        <option value="S">S</option>
+                                        <option value="M" selected>M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
-                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="orderMerch('Summer Tanktop', 'tank')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Show
                             </button>
                         </div>
                     </div>
 
-                    <!-- Trucker Hats (Using exact name TruckerHatBlk.png) -->
-                    <div class="merch-card">
+                    <!-- Trucker Snapback Hat -->
+                    <div class="merch-card" data-item="hat">
                         <div class="merch-img-container">
-                            <img src="images/merch/TruckerHatBlk.png" alt="Trucker Snapback Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Trucker+Hat'">
+                            <img id="img-hat" src="images/merch/TruckerHatBlk.png" alt="Trucker Snapback Hat" onerror="this.src='https://via.placeholder.com/300x250?text=Trucker+Hat'">
                         </div>
                         <div class="merch-info">
                             <div>
                                 <h3>Trucker Snapback Hat</h3>
                                 <div class="merch-price">$20.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Adjustable mesh-back cap, perfect for sunny days and outdoor shows.</p>
+                                
+                                <!-- Color Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Color</label>
+                                    <div class="color-swatches" style="display: flex; gap: 8px; justify-content: center;">
+                                        <div class="color-swatch black active" style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 2px solid var(--gold-primary); cursor: pointer;" data-color="blk" data-target="hat" title="Black"></div>
+                                        <div class="color-swatch white" style="width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 2px solid var(--border-dark); cursor: pointer;" data-color="wht" data-target="hat" title="White"></div>
+                                    </div>
+                                </div>
+
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Fit</label>
+                                    <select class="form-control" id="fit-hat" style="padding: 5px; font-size: 0.85rem;" disabled>
+                                        <option value="Unisex">Unisex</option>
+                                    </select>
+                                </div>
+
+                                <div class="option-group" style="margin-bottom: 15px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Size</label>
+                                    <select class="form-control" id="size-hat" style="padding: 5px; font-size: 0.85rem;" disabled>
+                                        <option value="One Size">Adjustable</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
-                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="orderMerch('Trucker Snapback Hat', 'hat')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Show
                             </button>
                         </div>
                     </div>
 
-                    <!-- Koozies (Using exact name BandKoozeBlk.png) -->
-                    <div class="merch-card">
+                    <!-- Logo Can Koozie -->
+                    <div class="merch-card" data-item="koozie">
                         <div class="merch-img-container">
                             <span class="merch-badge">Essential</span>
-                            <img src="images/merch/BandKoozeBlk.png" alt="Logo Can Koozie" onerror="this.src='https://via.placeholder.com/300x250?text=Can+Koozie'">
+                            <img id="img-koozie" src="images/merch/BandKoozeBlk.png" alt="Logo Can Koozie" onerror="this.src='https://via.placeholder.com/300x250?text=Can+Koozie'">
                         </div>
                         <div class="merch-info">
                             <div>
                                 <h3>Logo Can Koozie</h3>
                                 <div class="merch-price">$8.00</div>
-                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Keep your drinks ice-cold while rocking out or hanging by the water.</p>
+                                
+                                <!-- Color Selector -->
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Color</label>
+                                    <div class="color-swatches" style="display: flex; gap: 8px; justify-content: center;">
+                                        <div class="color-swatch black active" style="width: 20px; height: 20px; border-radius: 50%; background: #000; border: 2px solid var(--gold-primary); cursor: pointer;" data-color="blk" data-target="koozie" title="Black"></div>
+                                        <div class="color-swatch white" style="width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 2px solid var(--border-dark); cursor: pointer;" data-color="wht" data-target="koozie" title="White"></div>
+                                    </div>
+                                </div>
+
+                                <div class="option-group" style="margin-bottom: 10px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Fit</label>
+                                    <select class="form-control" id="fit-koozie" style="padding: 5px; font-size: 0.85rem;" disabled>
+                                        <option value="Standard">Standard</option>
+                                    </select>
+                                </div>
+
+                                <div class="option-group" style="margin-bottom: 15px;">
+                                    <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px;">Size</label>
+                                    <select class="form-control" id="size-koozie" style="padding: 5px; font-size: 0.85rem;" disabled>
+                                        <option value="12 oz">12 oz Can</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="showToast('Merch available at live shows or by contacting us!')">
-                                <i class="fas fa-shopping-cart"></i> Buy at Next Show
+                            <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="orderMerch('Logo Can Koozie', 'koozie')">
+                                <i class="fas fa-shopping-cart"></i> Buy at Show
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+                <div style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 20px;">
                     <i class="fas fa-info-circle" style="color: var(--gold-primary);"></i> Merch is currently available directly at our live shows, or you can <a href="#booking">contact us</a> to arrange local pickup.
                 </div>
             </div>
@@ -1626,6 +1730,51 @@
             showToast('Thank you! Your fan review has been posted.');
             event.target.reset();
             setRating(5);
+        }
+
+        // Merch Color Swatch Switcher & Selection Handler
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const target = swatch.getAttribute('data-target');
+                const color = swatch.getAttribute('data-color');
+                
+                const parentSwatches = swatch.parentElement.querySelectorAll('.color-swatch');
+                parentSwatches.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.borderColor = 'var(--border-dark)';
+                });
+                swatch.classList.add('active');
+                swatch.style.borderColor = 'var(--gold-primary)';
+
+                const imgElement = document.getElementById(`img-${target}`);
+                if (!imgElement) return;
+
+                let filename = '';
+                if (target === 'tshirt') {
+                    filename = color === 'blk' ? 'BandTshirtBlk.png' : 'Bandtshirtwht.png';
+                } else if (target === 'tank') {
+                    filename = color === 'blk' ? 'BandTankBlk.png' : 'BandTankwht.png';
+                } else if (target === 'hat') {
+                    filename = color === 'blk' ? 'TruckerHatBlk.png' : 'TruckerHatWht.png';
+                } else if (target === 'koozie') {
+                    filename = color === 'blk' ? 'BandKoozeBlk.png' : 'BandKoozeWht.png';
+                }
+
+                imgElement.src = `images/merch/${filename}`;
+            });
+        });
+
+        function orderMerch(itemName, targetKey) {
+            const activeColor = document.querySelector(`.color-swatch[data-target="${targetKey}"].active`).getAttribute('data-color').toUpperCase();
+            const fitSelect = document.getElementById(`fit-${targetKey}`);
+            const sizeSelect = document.getElementById(`size-${targetKey}`);
+            
+            let details = `${itemName} (${activeColor}`;
+            if (fitSelect && !fitSelect.disabled) details += `, ${fitSelect.value}`;
+            if (sizeSelect && !sizeSelect.disabled) details += `, Size: ${sizeSelect.value}`;
+            details += `)`;
+
+            showToast(`Selected: ${details}. Pick it up at our next show!`);
         }
 
         function escapeHtml(text) {

@@ -1524,7 +1524,8 @@
                 return;
             }
 
-            reviews.exports.forEach(r => {
+            // Fixed: changed reviews.exports.forEach to reviews.forEach
+            reviews.forEach(r => {
                 let card = document.createElement('div');
                 card.className = 'testimonial-card';
                 card.innerHTML = `

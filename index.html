@@ -1681,12 +1681,11 @@ function loadShows() {
                 </p>
             </div>
 
-            ${
-                show.link
-                ? `${show.link}Event Info</a>`
-                : `<button class="btn btn-secondary disabled" disabled>TBD</button>`
-            }
-        `;
+       ${
+    show.link
+        ? `${show.link}Event Info</a>`
+        : `<button class="btn btn-secondary disabled" disabled>TBD</button>`
+}
 
         container.appendChild(item);
     });
@@ -1715,9 +1714,9 @@ function addShow() {
 
     const link = prompt('Event Link (optional)') || '';
 
-    let shows = JSON.parse(
-        localStorage.getItem('texascruisers_shows')
-    ) || [];
+   let shows = JSON.parse(
+    localStorage.getItem('texascruisers_shows')
+) || null;
 
     shows.push({
         month,

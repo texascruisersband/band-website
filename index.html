@@ -1622,118 +1622,12 @@
                 }, 5000);
             });
         }
-// SHOW MANAGEMENT
+<button id="addShowBtn" class="btn btn-primary" style="margin-bottom:20px;">
+    + Add Show
+</button>
 
-function loadShows() {
-
-    const container = document.getElementById('showsList');
-
-    if (!container) return;
-
-    let shows = JSON.parse(
-        localStorage.getItem('texascruisers_shows')
-    );
-
-    if (!shows) {
-
-        shows = [
-            {
-                month: 'OCT',
-                day: '10',
-                venue: 'Memorial Hermann 10 for Texas Run',
-                location: 'The Woodlands, TX',
-                link: 'https://www.thewoodlandstownship-tx.gov/10fortexas'
-            },
-            {
-                month: 'NOV',
-                day: '14',
-                venue: 'Next Venue Name',
-                location: 'Conroe, TX',
-                link: ''
-            }
-        ];
-
-        localStorage.setItem(
-            'texascruisers_shows',
-            JSON.stringify(shows)
-        );
-    }
-
-    container.innerHTML = '';
-
-    shows.forEach(show => {
-
-        const item = document.createElement('div');
-
-        item.className = 'show-item';
-
-        item.innerHTML = `
-            <div class="show-date">
-                <span class="month">${show.month}</span>
-                <span class="day">${show.day}</span>
-            </div>
-
-            <div class="show-details">
-                <h3>${show.venue}</h3>
-                <p>
-                    <i class="fas fa-map-marker-alt location-icon"></i>
-                    ${show.location}
-                </p>
-            </div>
-
-       ${
-    show.link
-        ? `${show.link}Event Info</a>`
-        : `<button class="btn btn-secondary disabled" disabled>TBD</button>`
-}
-
-        container.appendChild(item);
-    });
-}
-
-function addShow() {
-
-    const password = prompt('Admin Password');
-
-    if (password !== 'Cruisers2026') {
-        alert('Access Denied');
-        return;
-    }
-
-    const month = prompt('Month (OCT)');
-    if (!month) return;
-
-    const day = prompt('Day');
-    if (!day) return;
-
-    const venue = prompt('Venue Name');
-    if (!venue) return;
-
-    const location = prompt('Location');
-    if (!location) return;
-
-    const link = prompt('Event Link (optional)') || '';
-
-   let shows = JSON.parse(
-    localStorage.getItem('texascruisers_shows')
-) || null;
-
-    shows.push({
-        month,
-        day,
-        venue,
-        location,
-        link
-    });
-
-    localStorage.setItem(
-        'texascruisers_shows',
-        JSON.stringify(shows)
-    );
-
-    loadShows();
-
-    showToast('Show Added Successfully');
+<div class="shows-list" id="showsList">
+</div>
 }
         // Venue Testimonials Dynamic Loading & Submission
         function loadVenueReviews() {

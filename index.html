@@ -1908,10 +1908,18 @@ function addShow() {
         }
 
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            loadVenueReviews();
-            loadComments();
-        });
-    </script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', () => {
+
+    loadShows();
+
+    loadVenueReviews();
+
+    loadComments();
+
+    const addShowBtn = document.getElementById('addShowBtn');
+
+    if (addShowBtn) {
+        addShowBtn.addEventListener('click', addShow);
+    }
+
+});

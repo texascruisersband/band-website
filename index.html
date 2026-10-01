@@ -1909,10 +1909,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadComments();
 
-    const addShowBtn = document.getElementById('addShowBtn');
+ const addShowBtn = document.getElementById('addShowBtn');
 
-    if (addShowBtn) {
-        addShowBtn.addEventListener('click', addShow);
-    }
+if (addShowBtn) {
+    addShowBtn.onclick = addShow;
+}
 
 });
